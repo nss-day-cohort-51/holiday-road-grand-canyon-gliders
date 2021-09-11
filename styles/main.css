@@ -70,6 +70,7 @@ main {
     flex-direction: row;
     justify-content: space-evenly;
     margin: 3px 0px;
+    height: 500px; /* temp for styling */
 }
 
 .trip-preview {

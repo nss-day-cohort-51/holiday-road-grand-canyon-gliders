@@ -3,23 +3,95 @@ footer {
     flex-direction: row;
     justify-content: space-evenly;
     border-top: 4px solid #8398a4;
+    background-color: #D9D9D9;
     padding: 2px;
+    border: 1px solid black;
 }
 
 .col1 {
     flex: 1;
-    padding: 30px 0px;
-    border: 1px dashed black;
+    padding: 10px 0px;
+    margin: auto 0px;
+    /* border: 1px dashed black; */
 }
 
 .col2 {
-    flex: 1;
-    padding: 30px; 
-    border: 1px dashed black;  
+    flex: 2;
+    padding: 30px;
+    font-size: 22px;
+    font-weight: bolder;
+    text-align: center; 
+    margin: auto auto;
+    /* border: 1px dashed black;   */
 }
 
 .col3 {
-    flex: 1;
-    padding: 30px;   
-    border: 1px dashed black; 
+    flex: 2;
+    text-align: center;
+    padding: 0px 40px;     
+    /* border: 1px dashed black;  */
 }
+
+.col3 h4 {
+    font-size: 20px;
+    font-weight: bolder;
+    padding-top: 10px;
+    margin: 0px;
+}
+
+.team {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-bottom: 15px;
+    /* border: 1px solid red; */
+}
+
+.team a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100px;
+    text-align: center;
+    /* background-color: #3c484f; */
+    background-color: #586F7C;
+    margin: 10px 10px;
+    padding: 10px 20px 0px 20px;
+    border-radius: 1px;
+    border: 1px solid white;
+}
+
+/* this code makes team card pop off page */
+.team-card:hover {
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 0 15px 15px rgba(0,0,0, 0.75);
+}
+
+.team-card img {
+    border: 2px solid #B8DBD9;
+    border-radius: 50px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.team-card h6 {
+    color: white;
+    font-size: 20px;
+    padding: 0px;
+    margin: 10px auto;
+}
+
+.team-card p {
+    font-size: 10px;
+    padding: 0px 5px;
+    margin: 0px;
+}
+
+

@@ -1,0 +1,89 @@
+/* Page colors are:
+#B8DBD9 - mint blue/green
+#586F7C - smoky blue/gray
+#2F4550 - dark blue/gray
+#F4F4F9 - smoky white
+#141414 - dark gray/black
+*/
+
+@import "footer.css";
+
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Montserrat", serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.logo {
+    margin: 10px 0px;
+}
+
+.logo-RVTY {
+    width: 175px;
+    padding-left: 50px;
+}
+
+.headline {
+    text-align: left;
+    padding-right: 100px;
+    margin: auto auto;
+    color: #141414;
+    font-size: 32px;
+}
+
+main {
+
+}
+
+.options-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 22px;
+    font-weight: bolder;
+    background-color: #D9D9D9;
+    border-top: 4px solid #8398a4;
+    border-bottom: 4px solid #8398a4;
+    padding: 15px;
+}
+
+.states-parks {
+
+}
+
+.eateries {
+
+}
+
+.bizarres {
+
+}
+
+.trip-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 3px 0px;
+}
+
+.trip-preview {
+    text-align: center;
+    padding: 20px 30px;
+    flex: 3;
+    border: 1px dotted black;
+}
+
+.saved-trips {
+    text-align: center;
+    padding: 20px 30px;
+    flex: 1;
+    border: 1px dotted black;
+}
+
+

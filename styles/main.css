@@ -103,7 +103,7 @@ h2 {
     justify-content: flex-start;
 }
 
-/* this style each of the boxes that pop up after dropdown selections */
+/* this styles each of the boxes that pop up after dropdown selections */
 .preview-box {
     display: flex;
     flex-direction: row;
@@ -111,7 +111,7 @@ h2 {
     margin: 10px 0px;
 }
 
-/*  targeting this with javascript will make it appear/disappear */
+/*  changing the div class="hidden-item" to "preview-box" using js will make it appear */
 .hide-item {
     /* display: none; */
 }

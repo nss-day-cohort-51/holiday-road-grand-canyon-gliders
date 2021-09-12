@@ -53,12 +53,12 @@
 .trip-helpers__nav-item {
 
     cursor: pointer;
-    background-color: #lightb8dbd9;
+    /* background-color: #lightb8dbd9; */
     width: 100px;
     height: 25px;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
-        margin-inline: 3px;
+    margin-inline: 3px;
     /* margin-top: 5px; */
 }
 
@@ -83,6 +83,7 @@
 }
 
 
+/* Add reverse borders to Collapse-saved-trips tab */
 .tab-left:after {
     right: -20px;
     border-radius: 0 0 0 10px;
@@ -104,6 +105,7 @@
 	bottom: 0;
 }
 
+/* Add reverse borders to saved-trips nav tab */
 .tab-right {
     position: absolute
 }
@@ -133,3 +135,58 @@
 }
 
 
+
+/*  Fade in and out text for collapse button */
+.collapse-button--transition-text {
+    text-align: center;
+    margin: auto
+}
+#collapse-button--transition-show {
+    opacity: 1;
+    position: absolute;
+    color: black;
+    /* animation-name: FadeIn; */
+    animation-duration: 1s;
+    margin-inline: 5px;
+
+}
+  
+#collapse-button--transition-hide {
+    position: absolute;
+    opacity: 0;
+    color: black;
+    /* animation-name: FadeIn; */
+    animation-duration: 1s;
+    margin-inline: 8px;
+
+}
+  
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    95% {
+        opacity: 0;
+    }
+
+  
+    100% {
+        opacity: 1;
+    }
+}
+  
+@keyframes FadeOut {
+    0% {
+        opacity: 1;
+    }
+    75%{
+        opacity:1;
+    }
+    95%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}

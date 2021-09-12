@@ -1,4 +1,4 @@
-/* Page colors are:
+/* demo colors are:
 #B8DBD9 - mint blue/green
 #586F7C - smoky blue/gray
 #2F4550 - dark blue/gray
@@ -11,7 +11,7 @@
 body {
     padding: 0px;
     margin: 0px;
-    font-family: "Montserrat", serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 header {
@@ -46,7 +46,7 @@ main {
     flex-direction: row;
     justify-content: flex-start;
     font-size: 22px;
-    font-weight: bolder;
+    font-weight: 600;
     background-color: #D9D9D9;
     border-top: 4px solid #8398a4;
     border-bottom: 4px solid #8398a4;
@@ -60,24 +60,24 @@ main {
 .dropdowns {
     padding: 5px 15px;
     margin: 3px 10px;
-    border: 2px solid #B8DBD9;
+    border: 3px solid #B8DBD9;
     border-radius: 10px;
     background-color: white;
 }
 
+/* 
 .eateries {
 
 }
 
 .bizarres {
 
-}
+} */
 
 .trip-container {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 3px 3px;
     height: 500px; /* temp for styling */
 }
 
@@ -87,15 +87,76 @@ h2 {
 }
 
 .trip-preview {
-    text-align: center;
+    padding: 0px 30px;
+    text-align: left;
     flex: 3;
-    border: 1px dotted black;
+}
+
+.preview-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.preview-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.preview-box {
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    margin: 10px 0px;
+}
+
+.preview-text {
+    font-size: 20px;
+    font-weight: 600;
+    align-self: center;;
+}
+
+.preview-text-sm {
+    font-size: 16px;
+    font-weight: 600;
+    align-self: center;;
+}
+
+.detail-btn {
+    align-self: center;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    width: 60px;
+    padding: 4px 0px;
+    margin-left: 20px;
+    border: 3px solid #586F7C;
+    border-radius: 7px;
+    background-color: #B8DBD9;    
+}
+
+.save-trip {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.save-trip-btn {
+    text-align: center;
+    width: 100px;
+    font-weight: 600;
+    padding: 5px 15px;
+    margin: 20px 10px;
+    border: 3px solid #B8DBD9;
+    border-radius: 10px;
+    background-color: rgb(235, 235, 235);    
 }
 
 .saved-trips {
     text-align: center;
     flex: 1;
-    border: 1px dotted black;
+    border-left: 1px dotted black;
 }
 
 

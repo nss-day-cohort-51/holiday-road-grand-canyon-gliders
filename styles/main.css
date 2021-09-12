@@ -7,6 +7,7 @@
 */
 
 @import "footer.css";
+@import "collapse.css";
 
 body {
     padding: 0px;
@@ -37,9 +38,9 @@ header {
     font-size: 32px;
 }
 
-main {
+/* main {
 
-}
+} */
 
 .options-container {
     display: flex;
@@ -65,13 +66,13 @@ main {
     background-color: white;
 }
 
-.eateries {
+/* .eateries {
 
 }
 
 .bizarres {
 
-}
+} */
 
 .trip-container {
     display: flex;

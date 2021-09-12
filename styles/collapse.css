@@ -1,0 +1,58 @@
+
+.saved-trips.collapsable {
+    flex: unset;
+    width: 0;
+    overflow-x: hidden;
+    transition: 1s;
+    position: relative
+}
+
+#saved-trips__collapse-button {
+    position: relative;
+    border: none;
+    height: 27px;
+    width: 81px;
+    left: 100%;
+    top: 2rem;
+    transform: translateX(-100%);
+    cursor: pointer;
+    background: blue;
+    transform: rotate(-90deg);
+    margin-left: -54px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.saved-trips.collapsable h2{
+    white-space: nowrap;
+}
+
+.trip-helpers__nav{
+    transform: rotate(-90deg);
+    margin-left: -169px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    height: 35px;
+    width: 372px;
+    left: 0%;
+    top: 2rem;
+    display: flex;
+    flex-flow: row;
+    position: relative;
+    background: blue;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+
+.trip-helpers__nav-item {
+
+    cursor: pointer;
+    background-color: lightblue;
+    width: 100px;
+    height: 25px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+        margin-inline: 3px;
+    /* margin-top: 5px; */
+}

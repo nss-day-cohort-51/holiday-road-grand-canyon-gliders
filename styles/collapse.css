@@ -25,7 +25,9 @@
 
 .saved-trips.collapsable h2{
     white-space: nowrap;
-}
+    position: absolute;
+    top: 0%;
+    margin-left: 49px;}
 
 .trip-helpers__nav{
     transform: rotate(-90deg);

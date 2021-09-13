@@ -81,7 +81,7 @@ main {
 .trip-container {
     display: flex;
     flex-direction: row;
-    border: 1px dashed black;
+    /* border: 1px dashed black; */
 }
 
 h2 {
@@ -168,11 +168,8 @@ h2 {
 
 .saved-trips {
     flex: 1;
-<<<<<<< HEAD
-    /* border-left: 1px dotted black; */
-=======
-    align-items: stretch;
+    padding: 0px 30px;
     text-align: center;
-    border-left: 1px solid black;
->>>>>>> ss-popup-modals
+    background-color: rgb(235, 235, 235);
+    /* border-left: 1px dotted black; */
 }

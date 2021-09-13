@@ -31,7 +31,7 @@
     <main>
         <div class="options-container">
 
-            <span>Plan Your Next Trip: </span>
+            <span>Plan Your Next Trip:</span>
 
             <div id="states-parks" class="dropdowns">States & Parks Dropdown</div> <!-- closes "states-parks"-->
 
@@ -48,29 +48,67 @@
                 <div class="preview-title">
                     <h2>Trip Preview</h2>
                 </div> <!-- closes "preview-title"-->
-                 
-
+                
                 <div class="preview-flex"> 
 
                     <div id="park-view" class="preview-box hide-item">
+
                         <div class="preview-text">NATIONAL PARK NAME</div> <!-- closes "preview-text"-->
-                        <div class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
+                        <div id="park-detail-btn" class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
+
+                        <!-- The Park PopUp Modal -->
+                        <div id="parkModal" class="modal">
+
+                            <div class="modal-content">
+                            <span class="close-park">&times;</span>
+                            <h2>NATIONAL PARK NAME GOES HERE</h2>
+                            <p>All the info about the park the user chose from the dropdown menu goes here. If you click on the X or anywhere that's not on this popup, it will close this window.</p>
+                            </div> <!-- closes modal-content -->
+
+                        </div> <!-- closes parkModal & modal-->
+
                     </div> <!-- closes "park-view"-->
 
                     <div id="weather-view" class="preview-box hide-item">
+
                         <div class="preview-text-sm">5 DAY WEATHER FORECAST FOR (ZIPCODE)</div> <!-- closes "preview-text"-->
-                        <div class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
+                        <div id="weather-detail-btn" class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
+
                     </div> <!-- closes "weather-view"-->
 
                     <div id="eat-view" class="preview-box hide-item">
+
                         <div class="preview-text">EATERY NAME</div> <!-- closes "preview-text"-->
-                        <div class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
+                        <div id="eat-detail-btn" class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
+                    
+                        <!-- The Eatery PopUp Modal -->
+                        <div id="eatModal" class="modal">
+
+                            <div class="modal-content">
+                            <span class="close-eats">&times;</span>
+                            <h2>EATERY NAME GOES HERE</h2>
+                            <p>All the info about the eatery the user chose from the dropdown menu goes here. If you click on the X or anywhere that's not on this popup, it will close this window.</p>
+                            </div> <!-- closes modal-content -->
+
+                        </div> <!-- closes eatModal & modal-->
+                    
                     </div> <!-- closes "eat-view-->
 
                     <div id="bizarre-view" class="preview-box hide-item">
                         <div class="preview-text">BIZARRARY NAME</div> <!-- closes "preview-text"-->
-                        <div class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
+                        <div id="biz-detail-btn" class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
                     </div> <!-- closes "bizarre-view"-->
+
+                    <!-- The Bizarrary PopUp Modal -->
+                    <div id="bizModal" class="modal">
+
+                        <div class="modal-content">
+                        <span class="close-biz">&times;</span>
+                        <h2>BIZARRARY NAME GOES HERE</h2>
+                        <p>All the info about the bizarrary the user chose from the dropdown menu goes here. If you click on the X or anywhere that's not on this popup, it will close this window.</p>
+                        </div> <!-- closes modal-content -->
+
+                    </div> <!-- closes bizModal & modal-->
 
                 </div> <!-- closes "preview-flex"-->
 
@@ -87,6 +125,7 @@
             </div> <!-- closes "saved-trips"-->  
 
         </div> <!-- closes "trip-container"-->
+
     </main>
 
     <footer>

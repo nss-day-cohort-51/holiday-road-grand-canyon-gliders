@@ -163,7 +163,7 @@ h2 {
 .saved-trips {
     text-align: center;
     flex: 1;
-    border-left: 1px dotted black;
+    /* border-left: 1px dotted black; */
 }
 
 

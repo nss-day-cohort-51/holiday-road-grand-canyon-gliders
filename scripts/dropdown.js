@@ -1,8 +1,6 @@
 import { stateCodes } from "./tools/StateCodes.js";
 import { settings } from "./Settings.js";
 
-console.log(stateCodes)
-
 const key = settings.npsKey;
 
 //StateCode DropDown
@@ -12,6 +10,8 @@ export const createStateDrop = () => {
     dropdown.length = 0;
     //initialize defaultOption by creating an option element and setting that option text equal to 'Choose A State'
     let defaultOption = document.createElement('option');
+    defaultOption.setAttribute("selected", "")
+    defaultOption.setAttribute("disabled", "")
     defaultOption.text = 'Choose A State';
     //add the initial option element to the dropdown menu and set index to that option
     dropdown.add(defaultOption);
@@ -32,6 +32,8 @@ export const createDropDownPark = (input) => {
     dropdown.length = 0;
     //initialize defaultOption by creating an option element and setting that option text equal to 'Choose A Park'
     let defaultOption = document.createElement('option');
+    defaultOption.setAttribute("selected", "")
+    defaultOption.setAttribute("disabled", "")
     defaultOption.text = 'Choose A Park';
     //add the initial option element to the dropdown menu and set index to that option 
     dropdown.add(defaultOption);
@@ -60,7 +62,7 @@ export const createDropDownPark = (input) => {
 export const createDropdownParkFrame = () => {
     return `
     <select name="dropPark" id="dropPark">
-                
+       <option selected disabled>Choose A Park</option>         
     </select>
     `
 }
@@ -72,6 +74,8 @@ export const createDropDownEat = () => {
     dropdown.length = 0;
     //initialize defaultOption by creating an option element and setting that option text equal to 'Choose A Eaterie'
     let defaultOption = document.createElement('option');
+    defaultOption.setAttribute("selected", "")
+    defaultOption.setAttribute("disabled", "")
     defaultOption.text = 'Choose A Eaterie';
     //add the initial option element to the dropdown menu and set index to that option 
     dropdown.add(defaultOption);
@@ -103,6 +107,8 @@ export const createDropDownBiz = () => {
     dropdown.length = 0;
     //initialize defaultOption by creating an option element and setting that option text equal to 'Choose A Bizarrerie'
     let defaultOption = document.createElement('option');
+    defaultOption.setAttribute("selected", "")
+    defaultOption.setAttribute("disabled", "")
     defaultOption.text = 'Choose A Bizarrerie';
     //add the initial option element to the dropdown menu and set index to that option 
     dropdown.add(defaultOption);
@@ -126,3 +132,47 @@ export const createDropDownBiz = () => {
             }
         )
 }
+
+export const createEventListenerDropDown = () => {
+     //get element statements
+ const contentElement = document.getElementById("container");
+ const populateDropDown = document.getElementById("parkDropDown")
+ populateDropDown.innerHTML = createDropdownParkFrame();
+ 
+ //Dropdown event listener
+ let state;
+ let park;
+ let eat;
+ let biz;
+ contentElement.addEventListener("change", event => {
+     switch (event.target.id){
+         case "dropState":
+             state = event.target.value;
+             console.log(state)
+            //  populateDropDown.innerHTML = createDropdownParkFrame();
+             createDropDownPark(state);
+             break;
+         case "dropPark":
+             park = event.target.value;
+             console.log(park);
+             break;
+         case "dropEat":
+             eat = event.target.value;
+             console.log(eat);
+             break;
+         case "dropBiz":
+             biz = event.target.value;
+             console.log(biz);
+             break;
+     }
+ })
+}
+
+ 
+ 
+ export const runDropdown = () => {
+     createEventListenerDropDown()
+     createDropDownBiz();
+     createDropDownEat();
+     createStateDrop();
+ }

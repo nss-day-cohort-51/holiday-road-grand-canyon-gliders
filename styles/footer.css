@@ -5,6 +5,9 @@ footer {
     border-top: 4px solid #8398a4;
     background-color: #D9D9D9;
     padding: 2px;
+    /* bottom:0px;
+    position:fixed;
+    width:100%; */
 }
 
 .col1 {

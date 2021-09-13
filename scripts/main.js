@@ -14,6 +14,8 @@ let activeTripState = {
 
 // update the state of the activeTrip
 export const updateActiveTrip = (attribute, value) => {
+    console.log(activeTripState);
+
     switch (attribute) {
         case "parkId":
             // update parkId
@@ -34,6 +36,7 @@ export const updateActiveTrip = (attribute, value) => {
         activeTripState.completed = true;
         activateSaveTripButton();
     }
+    console.log(activeTripState);
 };
 
 const activateSaveTripButton = () => {
@@ -42,17 +45,23 @@ const activateSaveTripButton = () => {
     saveButtonElement.style.cursor = "pointer";
     saveButtonElement.style.backround = "green";
 
-    // clear activeTripState
-    activeTripState = {
-        parkId: null,
-        bazararieIds: [],
-        eateryIds: [],
-        completed: false,
+    // // clear activeTripState
+    // activeTripState = {
+    //     parkId: null,
+    //     bazararieIds: [],
+    //     eateryIds: [],
+    //     completed: false,
+    // };
+
+    const resetTrip = () => {
+        resetTripSelection();
+        activeTripState = {
+            parkId: null,
+            bazararieIds: [],
+            eateryIds: [],
+            completed: false,
+        };
     };
 
-    saveButtonElement.addEventListener("click", () => {
-        // reset trip selection on SaveTrip
-        resetTripSelection();
-    });
-    // setDropdown value's to default
+    saveButtonElement.addEventListener("click", resetTrip);
 };

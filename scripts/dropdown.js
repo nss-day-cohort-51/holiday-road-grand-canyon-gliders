@@ -30,7 +30,7 @@ export const createStateDrop = () => {
 export const createDropDownPark = (input) => {
     //initialize dropdown with value of element 'dropPark'
     let dropdown = document.getElementById("dropPark");
-    dropdown.length = 0;
+    // dropdown.length = 0;
     //initialize defaultOption by creating an option element and setting that option text equal to 'Choose A Park'
     let defaultOption = document.createElement("option");
     defaultOption.setAttribute("selected", "");
@@ -38,9 +38,11 @@ export const createDropDownPark = (input) => {
     defaultOption.setAttribute("value", "0");
 
     defaultOption.text = "Choose A Park";
+    console.log(dropdown);
+
     //add the initial option element to the dropdown menu and set index to that option
-    dropdown.add(defaultOption);
-    dropdown.selectedIndex = 0;
+    // dropdown.add(defaultOption);
+    // dropdown.selectedIndex = 0;
     //initialize variable url to the fetch call
     const url = `https://developer.nps.gov/api/v1/parks?stateCode=${input}&api_key=${key}`;
 
@@ -185,7 +187,7 @@ export const resetTripSelection = () => {
     const eatDropDown = document.getElementById("dropEat");
     const bizDropDown = document.getElementById("dropBiz");
 
-    parkDropDown.innerHTML = "";
+    parkDropDown.innerHTML = "<option>Choose A Park";
     stateDropDown.value = 0;
     eatDropDown.value = 0;
     bizDropDown.value = 0;

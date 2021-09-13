@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Serif:wght@400;700&family=Playfair+Display&family=Poppins:wght@200;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
     <link rel="shortcut icon" type="image/jpg" href="./images/faviconRVTY.png" />
     <link rel="stylesheet" href="./styles/main.css">
     <title>RV There Yet?</title>
@@ -26,35 +31,127 @@
     <main>
         <div class="options-container">
 
-            <div class="states-parks"></div> <!-- closes "states-parks"-->
+            <span>Plan Your Next Trip:</span>
 
-            <div class="eateries"></div> <!-- closes "eateries" -->
+            <div id="states-parks" class="dropdowns">States & Parks Dropdown</div> <!-- closes "states-parks"-->
 
-            <div class="bizarres"></div> <!-- closes "bizarres" -->
+            <div id="eateries" class="dropdowns">Eateries</div> <!-- closes "eateries" -->
+
+            <div id="bizarres" class="dropdowns">Bizarraries</div> <!-- closes "bizarres" -->
 
         </div> <!-- closes "options-container"-->
 
         <div class="trip-container">
 
             <div class="trip-preview">
-            Trip Preview 
+
+                <div class="preview-title">
+                    <h2>Trip Preview</h2>
+                </div> <!-- closes "preview-title"-->
+                
+                <div class="preview-flex"> 
+
+                    <div id="park-view" class="preview-box hide-item">
+
+                        <div class="preview-text">NATIONAL PARK NAME</div> <!-- closes "preview-text"-->
+                        <div id="park-detail-btn" class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
+
+                        <!-- The Park PopUp Modal -->
+                        <div id="parkModal" class="modal">
+
+                            <div class="modal-content">
+                            <span class="close-park">&times;</span>
+                            <h2>NATIONAL PARK NAME GOES HERE</h2>
+                            <p>All the info about the park the user chose from the dropdown menu goes here. If you click on the X or anywhere that's not on this popup, it will close this window.</p>
+                            </div> <!-- closes modal-content -->
+
+                        </div> <!-- closes parkModal & modal-->
+
+                    </div> <!-- closes "park-view"-->
+
+                    <div id="weather-view" class="preview-box hide-item">
+
+                        <div class="preview-text-sm">5 DAY WEATHER FORECAST FOR (ZIPCODE)</div> <!-- closes "preview-text"-->
+                        <div id="weather-detail-btn" class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
+
+                    </div> <!-- closes "weather-view"-->
+
+                    <div id="eat-view" class="preview-box hide-item">
+
+                        <div class="preview-text">EATERY NAME</div> <!-- closes "preview-text"-->
+                        <div id="eat-detail-btn" class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
+                    
+                        <!-- The Eatery PopUp Modal -->
+                        <div id="eatModal" class="modal">
+
+                            <div class="modal-content">
+                            <span class="close-eats">&times;</span>
+                            <h2>EATERY NAME GOES HERE</h2>
+                            <p>All the info about the eatery the user chose from the dropdown menu goes here. If you click on the X or anywhere that's not on this popup, it will close this window.</p>
+                            </div> <!-- closes modal-content -->
+
+                        </div> <!-- closes eatModal & modal-->
+                    
+                    </div> <!-- closes "eat-view-->
+
+                    <div id="bizarre-view" class="preview-box hide-item">
+                        <div class="preview-text">BIZARRARY NAME</div> <!-- closes "preview-text"-->
+                        <div id="biz-detail-btn" class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
+                    </div> <!-- closes "bizarre-view"-->
+
+                    <!-- The Bizarrary PopUp Modal -->
+                    <div id="bizModal" class="modal">
+
+                        <div class="modal-content">
+                        <span class="close-biz">&times;</span>
+                        <h2>BIZARRARY NAME GOES HERE</h2>
+                        <p>All the info about the bizarrary the user chose from the dropdown menu goes here. If you click on the X or anywhere that's not on this popup, it will close this window.</p>
+                        </div> <!-- closes modal-content -->
+
+                    </div> <!-- closes bizModal & modal-->
+
+                </div> <!-- closes "preview-flex"-->
+
+                <div class="save-trip">
+                    <div class="save-trip-btn">SAVE TRIP</div> <!-- closes "save-trip-btn"-->
+                </div> <!-- closes "save-trip"-->
+
             </div> <!-- closes "trip-preview"-->
 
             <div class="saved-trips">
-            Saved Trips
+
+                <h2>Saved Trips</h2>
+
             </div> <!-- closes "saved-trips"-->  
 
         </div> <!-- closes "trip-container"-->
+
     </main>
-
-
 
     <footer>
        <div class="col1">
-        <img class="logo-RVTY" src="./images/logoRVTY.png" /> 
-       </div> <!-- closes "col1"-->
-       <div class="col2"> Column 2 </div> <!-- closes "col2"--> 
-       <div class="col3"> Meet The Team </div> <!-- closes "col3"-->
+            <img class="logo-RVTY" src="./images/logoRVTY.png" /> 
+            </div> <!-- closes "col1"-->
+                
+            <div class="col2"><p>&copy; 2021 RV There Yet LLC</p></div> <!-- closes "col2"-->
+
+            <div class="col3">
+
+                <h4>Meet The Team</h4>
+				<div class="team">
+					<a href="https://www.linkedin.com/in/colin-miller-587704212/" target="_blank">
+					<div class="team-card">
+					<img src="images/colin.jpeg" alt="Colin" /><h6>Colin</h6></div></a>
+
+					<a href="https://www.linkedin.com/in/brady-c-williams/" target="_blank">
+					<div class="team-card"><img src="images/brady.jpeg" alt="Brady" /><h6>Brady</h6></div></a>
+
+					<a href="https://www.linkedin.com/in/susie-stanley/" target="_blank">
+					<div class="team-card"><img src="images/susie.jpg" alt="susie" /><h6>Susie</h6></div></a>	
+				</div>
+
+
+            </div> <!-- closes "col3"-->
     </footer>
 
     <script type="module" src="./scripts/main.js"></script>

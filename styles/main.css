@@ -1,4 +1,4 @@
-/* Page colors are:
+/* demo colors are:
 #B8DBD9 - mint blue/green
 #586F7C - smoky blue/gray
 #2F4550 - dark blue/gray
@@ -7,11 +7,16 @@
 */
 
 @import "footer.css";
+@import "modal.css";
 
+/* making body:flex and setting main to flex:1 makes footer stay at bottom */
 body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
     padding: 0px;
     margin: 0px;
-    font-family: "Montserrat", serif;
+    font-family: "Poppins", sans-serif;
 }
 
 header {
@@ -30,6 +35,8 @@ header {
 }
 
 .headline {
+    font-size: 22px;
+    font-weight: 400;
     text-align: left;
     padding-right: 100px;
     margin: auto auto;
@@ -37,55 +44,132 @@ header {
     font-size: 32px;
 }
 
-main {
 
+main {
+    flex: 1; /* this makes footer stay at bottom if body is a flexbox */
 }
 
 .options-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     font-size: 22px;
-    font-weight: bolder;
+    font-weight: 600;
     background-color: #D9D9D9;
     border-top: 4px solid #8398a4;
     border-bottom: 4px solid #8398a4;
-    padding: 15px;
-    height: 35px;
+    padding: 5px 40px;
 }
 
-.states-parks {
-
+.options-container span {
+    flex: 1;
+    white-space: nowrap;
+    margin: auto 5px;
 }
 
-.eateries {
-
-}
-
-.bizarres {
-
+.dropdowns {
+    flex: 1;
+    white-space: nowrap;
+    font-weight: 400;
+    padding: 5px 10px;
+    margin: 3px 10px;
+    border: 3px solid #B8DBD9;
+    border-radius: 10px;
+    background-color: white;
 }
 
 .trip-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    margin: 3px 0px;
-    height: 500px; /* temp for styling */
+    /* border: 1px dashed black; */
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 600;
+    padding: 0px;
+    margin: 20px auto;
 }
 
 .trip-preview {
-    text-align: center;
-    padding: 20px 30px;
     flex: 3;
-    border: 1px dotted black;
+    padding: 0px 30px;
+    text-align: left;
+}
+
+.preview-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.preview-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+/* this styles each of the boxes that pop up after dropdown selections */
+.preview-box {
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    margin: 20px 0px;
+}
+
+/*  changing the div class="hidden-item" to "preview-box" using js will make it appear */
+.hide-item {
+    /* display: none; */
+}
+
+.preview-text {
+    /* font-family: "", serif; */
+    font-size: 22px;
+    font-weight: 600;
+    align-self: center;;
+}
+
+.preview-text-sm {
+    font-size: 16px;
+    font-weight: 600;
+    align-self: center;;
+}
+
+.detail-btn {
+    align-self: center;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    width: 60px;
+    padding: 4px 0px;
+    margin-left: 20px;
+    border: 3px solid #586F7C;
+    border-radius: 7px;
+    background-color: #B8DBD9;    
+}
+
+.save-trip {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.save-trip-btn {
+    text-align: center;
+    width: 100px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 5px 15px;
+    margin: 50px auto;
+    border: 3px solid #B8DBD9;
+    border-radius: 10px;
+    background-color: rgb(235, 235, 235);    
 }
 
 .saved-trips {
-    text-align: center;
-    padding: 20px 30px;
     flex: 1;
-    border: 1px dotted black;
+    padding: 0px 30px;
+    text-align: center;
+    background-color: rgb(235, 235, 235);
+    /* border-left: 1px dotted black; */
 }
-
-

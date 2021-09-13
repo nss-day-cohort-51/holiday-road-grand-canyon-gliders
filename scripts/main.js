@@ -60,13 +60,14 @@ spanBiz.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == parkModal) {
-    parkModal.style.display = "none";
-    } else if (event.target == eatModal) {
-        eatModal.style.display = "none";
-      } else if (event.target == bizModal) {
-            bizModal.style.display = "none";
-        }
+  switch(event.target) {
+    case parkModal:
+      parkModal.style.display = "none";
+    case eatModal:
+      eatModal.style.display = "none";
+    case bizModal:
+      bizModal.style.display = "none";
+  }
 }
 
 // ************* END THE  MODAL JS *******************

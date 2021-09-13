@@ -24,16 +24,16 @@ export const createStateDrop = () => {
 
 //Park DropDown
 export const createDropDownPark = (input) => {
-
+    //initialize dropdown with value of element 'dropPark'
     let dropdown = document.getElementById('dropPark');
     dropdown.length = 0;
-
+    //initialize defaultOption by creating an option element and setting that option text equal to 'Choose A Park'
     let defaultOption = document.createElement('option');
     defaultOption.text = 'Choose A Park';
-
+    //add the initial option element to the dropdown menu and set index to that option 
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;
-
+    //initialize variable url to the fetch call
     const url = `https://developer.nps.gov/api/v1/parks?stateCode=${input}&api_key=${key}`;
 
     fetch(url)
@@ -53,6 +53,7 @@ export const createDropDownPark = (input) => {
         )
 }
 
+//Park DropDown Frame
 export const createDropdownParkFrame = () => {
     return `
     <select name="dropPark" id="dropPark">

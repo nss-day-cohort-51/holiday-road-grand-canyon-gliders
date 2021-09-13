@@ -50,9 +50,9 @@ const activateSaveTripButton = () => {
         completed: false,
     };
 
-    saveButtonElement.addEventListener("click", {
+    saveButtonElement.addEventListener("click", () => {
         // reset trip selection on SaveTrip
-        resetTripSelection()
+        resetTripSelection();
     });
     // setDropdown value's to default
 };

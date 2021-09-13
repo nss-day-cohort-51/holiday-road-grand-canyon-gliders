@@ -80,7 +80,7 @@ export const createDropDownEat = () => {
     defaultOption.setAttribute("disabled", "");
     defaultOption.setAttribute("value", "0");
 
-    defaultOption.text = "Choose A Eaterie";
+    defaultOption.text = "Choose An Eatery";
     //add the initial option element to the dropdown menu and set index to that option
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;

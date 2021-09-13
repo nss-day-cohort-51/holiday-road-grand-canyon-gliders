@@ -149,7 +149,6 @@ export const createEventListenerDropDown = () => {
             case "dropState":
                 state = event.target.value;
                 console.log(state);
-                //  populateDropDown.innerHTML = createDropdownParkFrame();
                 createDropDownPark(state);
                 break;
             case "dropPark":
@@ -187,7 +186,11 @@ export const resetTripSelection = () => {
     const eatDropDown = document.getElementById("dropEat");
     const bizDropDown = document.getElementById("dropBiz");
 
-    parkDropDown.innerHTML = `<select name="dropPark" id="dropPark"><option>Choose A Park</option></select>`;
+    // reset parkDropdown
+    const populateDropDown = document.getElementById("parkDropDown");
+    populateDropDown.innerHTML = createDropdownParkFrame();
+
+    // set remaining dropdowns to default values
     stateDropDown.value = 0;
     eatDropDown.value = 0;
     bizDropDown.value = 0;

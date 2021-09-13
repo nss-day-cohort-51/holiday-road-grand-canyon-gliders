@@ -7,12 +7,13 @@ const key = settings.npsKey;
 
 //StateCode DropDown
 export const createStateDrop = () => {
+    //initialize dropdown with value of element 'dropState'
     let dropdown = document.getElementById('dropState');
     dropdown.length = 0;
-
+    //initialize defaultOption by creating an option element and setting that option text equal to 'Choose A State'
     let defaultOption = document.createElement('option');
     defaultOption.text = 'Choose A State';
-
+    //add the initial option element to the dropdown menu and set index to that option
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;
 
@@ -66,16 +67,16 @@ export const createDropdownParkFrame = () => {
 
 //Eateries DropDown
 export const createDropDownEat = () => {
-
+    //initialize dropdown with value of element 'dropEat'
     let dropdown = document.getElementById('dropEat');
     dropdown.length = 0;
-
+    //initialize defaultOption by creating an option element and setting that option text equal to 'Choose A Eaterie'
     let defaultOption = document.createElement('option');
     defaultOption.text = 'Choose A Eaterie';
-
+    //add the initial option element to the dropdown menu and set index to that option 
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;
-
+    //initialize variable url to the fetch call
     const url = 'http://holidayroad.nss.team/eateries';
 
     fetch(url)
@@ -97,16 +98,16 @@ export const createDropDownEat = () => {
 
 //Bizarreries DropDown
 export const createDropDownBiz = () => {
-
+    //initialize dropdown with value of element 'dropEat'
     let dropdown = document.getElementById('dropBiz');
     dropdown.length = 0;
-
+    //initialize defaultOption by creating an option element and setting that option text equal to 'Choose A Bizarrerie'
     let defaultOption = document.createElement('option');
     defaultOption.text = 'Choose A Bizarrerie';
-
+    //add the initial option element to the dropdown menu and set index to that option 
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;
-
+    //initialize variable url to the fetch call
     const url = 'http://holidayroad.nss.team/bizarreries';
 
     fetch(url)

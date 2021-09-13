@@ -30,21 +30,7 @@ display: none; /* Hidden by default */
 }
 
 /* The Close Buttons */
-.close-park {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close-eats {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close-biz {
+.close-park, .close-eats, .close-biz {
     color: #aaaaaa;
     float: right;
     font-size: 28px;

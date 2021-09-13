@@ -25,7 +25,7 @@ header {
 }
 
 .logo {
-    margin: 10px 0px;
+    margin: 20px 0px;
 }
 
 .logo-RVTY {
@@ -68,18 +68,33 @@ main {
 
 .dropdowns {
     flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-content: stretch;
+    align-items: stretch;
     white-space: nowrap;
+    font-size: 22px;
     font-weight: 400;
-    padding: 5px 10px;
-    margin: 3px 10px;
-    border: 3px solid #85C1BF;
-    border-radius: 10px;
+    padding: 0px 10px;
+    margin: 0px 10px;
+    border: 3px solid darkgray;
+    border-radius: 5px;
     background-color: white;
 }
 
-#states-parks {
+.stateDropDown {
     display: flex;
     flex-direction: row;
+    align-self: stretch;
+    margin: 0px 10px;
+}
+
+.parkDropDown {
+    display: flex;
+    flex-direction: row;
+    align-self: stretch;
+    margin: 0px 10px;
 }
 
 .trip-container {
@@ -146,10 +161,10 @@ h2 {
     letter-spacing: 1px;
     text-align: center;
     cursor: pointer;
-    padding: 4px 3px;
+    padding: 4px 5px;
     margin-left: 20px;
     border: 3px solid #66808F;
-    border-radius: 7px;
+    border-radius: 5px;
     background-color: #baebe9;
 }
 
@@ -164,6 +179,7 @@ h2 {
     width: 100px;
     font-size: 20px;
     font-weight: 600;
+    cursor: pointer;
     padding: 5px 15px;
     margin: 50px auto;
     border: 3px solid #66808F;

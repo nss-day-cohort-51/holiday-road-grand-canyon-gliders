@@ -78,6 +78,11 @@ main {
     background-color: white;
 }
 
+#states-parks {
+    display: flex;
+    flex-direction: row;
+}
+
 .trip-container {
     display: flex;
     flex-direction: row;

@@ -2,7 +2,7 @@ import { createStateDrop, createDropDownPark, createDropdownParkFrame, createDro
 
  //get element statements
 const contentElement = document.getElementById("container");
-const populateDropDown = document.getElementById("states-parks")
+const populateDropDown = document.getElementById("parkDropDown")
 
 //Dropdown event listener
 let state;
@@ -14,7 +14,7 @@ contentElement.addEventListener("change", event => {
         case "dropState":
             state = event.target.value;
             console.log(state)
-            populateDropDown.innerHTML += createDropdownParkFrame();
+            populateDropDown.innerHTML = createDropdownParkFrame();
             createDropDownPark(state);
             break;
         case "dropPark":
@@ -41,9 +41,6 @@ const runProgram = () => {
 
 runProgram();
 
-getParks("TX").then(parks => {
-    console.log(parks.data);
-});
 
 
 // ************* ALL THE  MODAL JS *******************

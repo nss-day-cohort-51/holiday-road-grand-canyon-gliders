@@ -1,6 +1,8 @@
 import { stateCodes } from "./tools/StateCodes.js";
 import { settings } from "./Settings.js";
 
+console.log(stateCodes)
+
 const key = settings.npsKey;
 
 //StateCode DropDown

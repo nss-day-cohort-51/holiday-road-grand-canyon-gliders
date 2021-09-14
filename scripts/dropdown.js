@@ -160,7 +160,7 @@ export const createEventListenerDropDown = () => {
                 break;
             case "dropPark":
                 parkId = event.target.value;
-                
+
                 //Fix used to gather parkCode as value while also having the Full name of the park for local api and display
                 const parkName = getParkNameByCode(parkId).then(parkFullName => {
                     console.log(parkFullName);
@@ -171,7 +171,7 @@ export const createEventListenerDropDown = () => {
                 //Used to get Weather from API using City Name
                 const getCityVar = getCity(parkId).then(cityName => {
                     const getWeatherVar = getWeather(cityName).then(fiveDayWeather => {
-                        console.log(fiveDayWeather);
+                        console.log(fiveDayWeather.list);
                     })
                 })
                 break;

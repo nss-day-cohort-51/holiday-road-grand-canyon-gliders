@@ -258,3 +258,8 @@ h2 {
   text-align: center;
   background-color: rgb(245, 245, 245);
 }
+
+.saved-trips__card {
+    border-top: solid 2px;
+    text-align: left;
+}

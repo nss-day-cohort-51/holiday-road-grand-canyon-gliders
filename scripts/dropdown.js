@@ -1,9 +1,13 @@
 import { stateCodes } from "./tools/StateCodes.js";
 import { settings } from "./Settings.js";
 import { updateActiveTrip } from "./main.js";
+import { putTripCall } from "./data/DataManager.js";
 import { onParkChanged } from "./parks/ParkDataManager.js";
 import { getEatNameById, onEatChanged } from "./eateries/EateryDataManager.js";
-import { getBizNameById, onBizChanged } from "./bizarreries/BizarreriesDataManager.js";
+import {
+    getBizNameById,
+    onBizChanged,
+} from "./bizarreries/BizarreriesDataManager.js";
 
 const key = settings.npsKey;
 
@@ -99,7 +103,7 @@ export const createDropDownEat = () => {
             for (let i = 0; i < data.length; i++) {
                 option = document.createElement("option");
                 option.text = data[i].businessName;
-                option.value = data[i].id
+                option.value = data[i].id;
                 dropdown.add(option);
             }
         });
@@ -132,7 +136,7 @@ export const createDropDownBiz = () => {
             for (let i = 0; i < data.length; i++) {
                 option = document.createElement("option");
                 option.text = data[i].name;
-                option.value = data[i].id
+                option.value = data[i].id;
                 dropdown.add(option);
             }
         });
@@ -155,6 +159,8 @@ export const createEventListenerDropDown = () => {
         switch (event.target.id) {
             case "dropState":
                 state = event.target.value;
+                console.log(state);
+                updateActiveTrip("state", state);
                 createDropDownPark(state);
                 break;
             case "dropPark":
@@ -166,16 +172,16 @@ export const createEventListenerDropDown = () => {
 
             case "dropEat":
                 eatId = event.target.value;
-                
+
                 onEatChanged(eatId);
-        
+
                 break;
 
             case "dropBiz":
                 bizId = event.target.value;
 
                 onBizChanged(bizId);
-                
+
                 break;
         }
     });
@@ -202,6 +208,7 @@ export const resetTripSelection = () => {
     const bizNamePreview = document.getElementById("bizPreview");
 
     // reset parkDropdown
+    parkDropDown.innerHTML = createDropdownParkFrame();
     const populateDropDown = document.getElementById("parkDropDown");
     populateDropDown.innerHTML = createDropdownParkFrame();
     parkNamePreview.innerHTML = "National Park Name";
@@ -212,4 +219,9 @@ export const resetTripSelection = () => {
     stateDropDown.value = 0;
     eatDropDown.value = 0;
     bizDropDown.value = 0;
+
+    //remove pointer over SaveTrip button and return to default color to deactivate
+    const saveButtonElement = document.querySelector(".save-trip-btn");
+    saveButtonElement.style.cursor = "unset";
+    saveButtonElement.style["background-color"] = "rgb(235, 235, 235)";
 };

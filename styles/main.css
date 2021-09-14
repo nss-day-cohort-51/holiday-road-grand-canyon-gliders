@@ -262,3 +262,8 @@ h2 {
     border-top: solid 2px;
     text-align: left;
 }
+
+.saved-trips__cards {
+  max-height: 700px;
+  overflow: scroll;
+}

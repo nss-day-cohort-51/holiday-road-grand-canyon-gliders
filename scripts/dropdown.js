@@ -1,8 +1,9 @@
 import { stateCodes } from "./tools/StateCodes.js";
 import { settings } from "./Settings.js";
 import { updateActiveTrip } from "./main.js";
-import { getCity, getParkNameByCode } from "./parks/ParkDataManager.js";
-import { getWeather } from "./weather/WeatherDataManager.js";
+import { onParkChanged } from "./parks/ParkDataManager.js";
+import { getEatNameById, onEatChanged } from "./eateries/EateryDataManager.js";
+import { getBizNameById, onBizChanged } from "./bizarreries/BizarreriesDataManager.js";
 
 const key = settings.npsKey;
 
@@ -98,6 +99,7 @@ export const createDropDownEat = () => {
             for (let i = 0; i < data.length; i++) {
                 option = document.createElement("option");
                 option.text = data[i].businessName;
+                option.value = data[i].id
                 dropdown.add(option);
             }
         });
@@ -130,6 +132,7 @@ export const createDropDownBiz = () => {
             for (let i = 0; i < data.length; i++) {
                 option = document.createElement("option");
                 option.text = data[i].name;
+                option.value = data[i].id
                 dropdown.add(option);
             }
         });
@@ -140,9 +143,6 @@ export const createEventListenerDropDown = () => {
     //get element statements
     const contentElement = document.getElementById("container");
     const populateDropDown = document.getElementById("parkDropDown");
-    const parkNamePreview = document.getElementById("parkPreview");
-    const eatNamePreview = document.getElementById("eatPreview");
-    const bizNamePreview = document.getElementById("bizPreview");
 
     populateDropDown.innerHTML = createDropdownParkFrame();
 
@@ -155,37 +155,27 @@ export const createEventListenerDropDown = () => {
         switch (event.target.id) {
             case "dropState":
                 state = event.target.value;
-                console.log(state);
                 createDropDownPark(state);
                 break;
             case "dropPark":
                 parkId = event.target.value;
 
-                //Fix used to gather parkCode as value while also having the Full name of the park for local api and display
-                const parkName = getParkNameByCode(parkId).then(parkFullName => {
-                    console.log(parkFullName);
-                    updateActiveTrip("parkId", parkFullName);
-                    parkNamePreview.innerHTML = parkFullName;
-                });
+                onParkChanged(parkId);
 
-                //Used to get Weather from API using City Name
-                const getCityVar = getCity(parkId).then(cityName => {
-                    const getWeatherVar = getWeather(cityName).then(fiveDayWeather => {
-                        console.log(fiveDayWeather.list);
-                    })
-                })
                 break;
+
             case "dropEat":
                 eat = event.target.value;
-                console.log(eat);
-                updateActiveTrip("eateryIds", eat);
-                eatNamePreview.innerHTML = eat;
+                
+                onEatChanged(eat);
+        
                 break;
+
             case "dropBiz":
                 biz = event.target.value;
-                console.log(biz);
-                updateActiveTrip("bazararieIds", biz);
-                bizNamePreview.innerHTML = biz;
+
+                onBizChanged(biz);
+                
                 break;
         }
     });

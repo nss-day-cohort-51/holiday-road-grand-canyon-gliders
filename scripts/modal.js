@@ -31,18 +31,17 @@ const modalDetailsInsert = (modalId) => {
         <h2>${modalId} NAME GOES HERE</h2>
         <p>All the info about the ${modalId} the user chose from the dropdown menu goes here. If you click on the X or anywhere that's not on this popup, it will close this window.</p>
       </div> <!-- closes modal-content -->
-      `;
+      `
 };
 
 export const runModal = () => {
-    // ************* ALL THE  MODAL JS *******************
 
     // Get the modal
     const modal = document.getElementById("modal");
 
     document.addEventListener("click", (event) => {
         if (event.target.id.startsWith("detail-button")) {
-            console.log("clicked");
+            console.log("detail button clicked");
 
             const buttonId = event.target.id.split("--")[1];
             // modal display for the given feature
@@ -50,6 +49,7 @@ export const runModal = () => {
             modal.style.display = "block";
         }
         if (event.target.id.startsWith("close-modal")) {
+            console.log("modal X clicked");
             modal.style.display = "none";
         }
     });

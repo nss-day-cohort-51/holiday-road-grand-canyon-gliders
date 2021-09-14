@@ -58,6 +58,7 @@ footer {
     padding: 10px 20px 0px 20px;
     border-radius: 8px;
     border: 2px solid rgb(198, 198, 198);
+    transition: 150ms all;
 }
 
 .team-card img {

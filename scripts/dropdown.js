@@ -1,6 +1,7 @@
 import { stateCodes } from "./tools/StateCodes.js";
 import { settings } from "./Settings.js";
 import { updateActiveTrip } from "./main.js";
+import { putTripCall } from "./data/DataManager.js";
 
 const key = settings.npsKey;
 
@@ -187,11 +188,15 @@ export const resetTripSelection = () => {
     const bizDropDown = document.getElementById("dropBiz");
 
     // reset parkDropdown
-    const populateDropDown = document.getElementById("parkDropDown");
-    populateDropDown.innerHTML = createDropdownParkFrame();
+    parkDropDown.innerHTML = createDropdownParkFrame();
 
     // set remaining dropdowns to default values
     stateDropDown.value = 0;
     eatDropDown.value = 0;
     bizDropDown.value = 0;
+
+    //remove pointer over SaveTrip button and return to default color to deactivate
+    const saveButtonElement = document.querySelector(".save-trip-btn");
+    saveButtonElement.style.cursor = "unset";
+    saveButtonElement.style["background-color"] = "rgb(235, 235, 235)";
 };

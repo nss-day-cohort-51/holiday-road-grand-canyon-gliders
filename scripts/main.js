@@ -1,8 +1,12 @@
 import { resetTripSelection, runDropdown } from "./dropdown.js";
 import { runModal } from "./modal.js";
+import { putTripCall } from "./data/DataManager.js";
+import { updateSavedTrips } from "./SavedTrips.js";
 
 runDropdown();
 runModal();
+// populate Saved Trips
+updateSavedTrips();
 
 // saveActive trip while still being filled out
 let activeTripState = {
@@ -10,6 +14,11 @@ let activeTripState = {
     bazararieIds: [],
     eateryIds: [],
     completed: false,
+};
+
+export const returnActiveTripState = () => {
+    const activeTripStateCopy = activeTripState;
+    return activeTripStateCopy;
 };
 
 // update the state of the activeTrip
@@ -43,25 +52,29 @@ const activateSaveTripButton = () => {
     const saveButtonElement = document.querySelector(".save-trip-btn");
     // change cursor of save button on hover if active
     saveButtonElement.style.cursor = "pointer";
-    saveButtonElement.style.backround = "green";
+    saveButtonElement.style["background-color"] = "green";
 
-    // // clear activeTripState
-    // activeTripState = {
-    //     parkId: null,
-    //     bazararieIds: [],
-    //     eateryIds: [],
-    //     completed: false,
-    // };
-
-    const resetTrip = () => {
+    const submitTrip = () => {
+        // update server with active trip
+        putTripCall();
+        // repopulate Saved Trips List
+        updateSavedTrips();
+        // clear out trip selectors
         resetTripSelection();
-        activeTripState = {
-            parkId: null,
-            bazararieIds: [],
-            eateryIds: [],
-            completed: false,
-        };
+        // clear active trip
+        clearActiveTripState();
+        // remove click eventListener from SubmitButton
+        saveButtonElement.removeEventListener("click", submitTrip);
     };
 
-    saveButtonElement.addEventListener("click", resetTrip);
+    saveButtonElement.addEventListener("click", submitTrip);
+};
+
+const clearActiveTripState = () => {
+    activeTripState = {
+        parkId: null,
+        bazararieIds: [],
+        eateryIds: [],
+        completed: false,
+    };
 };

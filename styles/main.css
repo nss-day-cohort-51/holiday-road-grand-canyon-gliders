@@ -178,3 +178,8 @@ h2 {
     background-color: rgb(235, 235, 235);
     /* border-left: 1px dotted black; */
 }
+
+.saved-trips__card {
+    border-top: solid 2px;
+    text-align: left;
+}

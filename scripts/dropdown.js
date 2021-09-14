@@ -1,6 +1,9 @@
 import { stateCodes } from "./tools/StateCodes.js";
 import { settings } from "./Settings.js";
 import { updateActiveTrip } from "./main.js";
+import { onParkChanged } from "./parks/ParkDataManager.js";
+import { getEatNameById, onEatChanged } from "./eateries/EateryDataManager.js";
+import { getBizNameById, onBizChanged } from "./bizarreries/BizarreriesDataManager.js";
 
 const key = settings.npsKey;
 
@@ -54,6 +57,7 @@ export const createDropDownPark = (input) => {
             for (let i = 0; i < dataVar.data.length; i++) {
                 option = document.createElement("option");
                 option.text = dataVar.data[i].fullName;
+                option.value = dataVar.data[i].parkCode;
                 dropdown.add(option);
             }
         });
@@ -95,6 +99,7 @@ export const createDropDownEat = () => {
             for (let i = 0; i < data.length; i++) {
                 option = document.createElement("option");
                 option.text = data[i].businessName;
+                option.value = data[i].id
                 dropdown.add(option);
             }
         });
@@ -127,6 +132,7 @@ export const createDropDownBiz = () => {
             for (let i = 0; i < data.length; i++) {
                 option = document.createElement("option");
                 option.text = data[i].name;
+                option.value = data[i].id
                 dropdown.add(option);
             }
         });
@@ -137,34 +143,39 @@ export const createEventListenerDropDown = () => {
     //get element statements
     const contentElement = document.getElementById("container");
     const populateDropDown = document.getElementById("parkDropDown");
+
     populateDropDown.innerHTML = createDropdownParkFrame();
 
     //Dropdown event listener
     let state;
-    let park;
-    let eat;
-    let biz;
+    let parkId;
+    let eatId;
+    let bizId;
     contentElement.addEventListener("change", (event) => {
         switch (event.target.id) {
             case "dropState":
                 state = event.target.value;
-                console.log(state);
                 createDropDownPark(state);
                 break;
             case "dropPark":
-                park = event.target.value;
-                console.log(park);
-                updateActiveTrip("parkId", park);
+                parkId = event.target.value;
+
+                onParkChanged(parkId);
+
                 break;
+
             case "dropEat":
-                eat = event.target.value;
-                console.log(eat);
-                updateActiveTrip("eateryIds", eat);
+                eatId = event.target.value;
+                
+                onEatChanged(eatId);
+        
                 break;
+
             case "dropBiz":
-                biz = event.target.value;
-                console.log(biz);
-                updateActiveTrip("bazararieIds", biz);
+                bizId = event.target.value;
+
+                onBizChanged(bizId);
+                
                 break;
         }
     });
@@ -186,9 +197,16 @@ export const resetTripSelection = () => {
     const eatDropDown = document.getElementById("dropEat");
     const bizDropDown = document.getElementById("dropBiz");
 
+    const parkNamePreview = document.getElementById("parkPreview");
+    const eatNamePreview = document.getElementById("eatPreview");
+    const bizNamePreview = document.getElementById("bizPreview");
+
     // reset parkDropdown
     const populateDropDown = document.getElementById("parkDropDown");
     populateDropDown.innerHTML = createDropdownParkFrame();
+    parkNamePreview.innerHTML = "National Park Name";
+    eatNamePreview.innerHTML = "Eatery Name";
+    bizNamePreview.innerHTML = "Bizzarerie Name";
 
     // set remaining dropdowns to default values
     stateDropDown.value = 0;

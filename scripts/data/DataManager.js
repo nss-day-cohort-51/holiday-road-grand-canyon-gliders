@@ -83,3 +83,21 @@ export const putTripCall = () => {
         body: JSON.stringify(postObject),
     }).then((response) => response.json());
 };
+
+export const getBizarreryById = (id) => {
+    return fetch(`http://holidayroad.nss.team/bizarreries?id=${id}`)
+        .then((response) => response.json())
+        .then((parsedResponse) => {
+            console.log();
+
+            return parsedResponse[0];
+        });
+};
+
+export const getEateryById = (id) => {
+    return fetch(`http://holidayroad.nss.team/eateries?id=${id}`)
+        .then((response) => response.json())
+        .then((parsedResponse) => {
+            return parsedResponse[0];
+        });
+};

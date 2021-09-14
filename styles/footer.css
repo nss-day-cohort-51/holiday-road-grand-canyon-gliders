@@ -6,12 +6,14 @@ footer {
     background-color: #D9D9D9;
 }
 
+/* logo is in column 1 */
 .col1 {
     flex: 1;
     padding: 10px 0px;
     margin: auto 0px;
 }
 
+/* copyright quote is in column 2 */
 .col2 {
     flex: 2;
     padding: 30px;
@@ -21,6 +23,7 @@ footer {
     margin: auto auto;
 }
 
+/* Meet The Team cards are in column 3 */
 .col3 {
     flex: 2;
     text-align: center;
@@ -58,7 +61,7 @@ footer {
     padding: 10px 20px 0px 20px;
     border-radius: 8px;
     border: 2px solid rgb(198, 198, 198);
-    transition: 150ms all;
+    transition: 150ms all; /* this controls how smooth hover effect is */
 }
 
 .team-card img {

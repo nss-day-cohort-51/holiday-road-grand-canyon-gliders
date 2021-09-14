@@ -23,6 +23,17 @@ export const getTrips = () => {
     });
 };
 
+export const getAllParks = (Id) => {
+    const key = settings.npsKey;
+    const url = `https://developer.nps.gov/api/v1/parks?limit=500&api_key=${key}`;
+
+    return fetch(url)
+        .then((response) => response.json())
+        .then((parsedResponse) => {
+            return parsedResponse.data;
+        });
+};
+
 export const getParkById = (Id) => {
     const key = settings.npsKey;
     const url = `https://developer.nps.gov/api/v1/parks?id=${Id}&api_key=${key}`;

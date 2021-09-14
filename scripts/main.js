@@ -10,6 +10,7 @@ updateSavedTrips();
 
 // saveActive trip while still being filled out
 let activeTripState = {
+    state: null,
     parkId: null,
     bazararieIds: [],
     eateryIds: [],
@@ -26,6 +27,7 @@ export const updateActiveTrip = (attribute, value) => {
     console.log(activeTripState);
 
     switch (attribute) {
+        case "state":
         case "parkId":
             // update parkId
             activeTripState[attribute] = value;

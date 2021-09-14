@@ -150,6 +150,7 @@ export const createEventListenerDropDown = () => {
             case "dropState":
                 state = event.target.value;
                 console.log(state);
+                updateActiveTrip("state", state);
                 createDropDownPark(state);
                 break;
             case "dropPark":

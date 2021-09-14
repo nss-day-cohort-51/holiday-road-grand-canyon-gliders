@@ -16,11 +16,16 @@ button:focus {
   box-shadow: none;
 }
 
+html {
+  height: 100%;
+}
+
 /* making body:flex, min-height:100vh, & main flex:1 makes footer stay at bottom */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  height: 100%;
   padding: 0px;
   margin: 0px;
   font-family: "Poppins", sans-serif;
@@ -64,21 +69,15 @@ main {
   justify-content: flex-start;
   font-size: 22px;
   font-weight: 600;
-  /* background-color: #D9D9D9; */
-  /*border-top: 3px solid #9B2226;*/ /* red border above dropdowns */
   border-bottom: 3px solid #9B2226; /* red border below dropdowns */
   padding: 10px 40px;
 }
 
 /* Plan Your Next Trip text in options bar */
 .options-container span {
-  flex: 1;
   font-size: 24px;
   white-space: nowrap;
   margin: auto 10px;
-}
-
-#states-parks {
 }
 
 /* State & Park dropdown box */
@@ -88,8 +87,8 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: left;
-  align-content: stretch;
-  align-items: stretch;
+  /* align-content: stretch;
+  align-items: stretch; */
   white-space: nowrap;
   padding: 0px 10px;
   margin: 0px 10px;
@@ -120,7 +119,7 @@ main {
   display: flex;
   flex-direction: row;
   align-self: stretch;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
 }
 
 /* container that holds select and option tags */
@@ -149,6 +148,7 @@ main {
 .trip-container {
   display: flex;
   flex-direction: row;
+  height: 100%;
 }
 
 /* flex to hold headline */
@@ -171,6 +171,7 @@ h2 {
   flex: 3;
   padding: 0px 30px;
   text-align: left;
+  height: 100%;
 }
 
 /* flex container to hold all the preview boxes */
@@ -253,8 +254,8 @@ h2 {
 
 .saved-trips {
   flex: 1;
-  min-height: 700px;
   padding: 0px 30px;
   text-align: center;
   background-color: rgb(245, 245, 245);
+  height: 100%;
 }

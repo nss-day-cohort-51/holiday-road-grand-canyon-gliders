@@ -44,7 +44,7 @@ export const getParkByCode = (input) => {
     
     }
 
-    //Used as function for onParkChanged 0n main
+    //Used as function for onParkChanged on main
 export const onParkChanged = (parkId) => {
     const parkNamePreview = document.getElementById("parkPreview");
 
@@ -59,7 +59,8 @@ export const onParkChanged = (parkId) => {
 
     //Used to get Weather from API using City Name
     const getCityVar = getZip(parkId).then(zipNum => {
-        const getWeatherVar = getWeatherZip(zipNum).then(fiveDayWeather => {
+        const zipCode = zipNum.slice(0, 5);
+        const getWeatherVar = getWeatherZip(zipCode).then(fiveDayWeather => {
             console.log(fiveDayWeather.list);
         })
     })

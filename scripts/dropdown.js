@@ -149,8 +149,8 @@ export const createEventListenerDropDown = () => {
     //Dropdown event listener
     let state;
     let parkId;
-    let eat;
-    let biz;
+    let eatId;
+    let bizId;
     contentElement.addEventListener("change", (event) => {
         switch (event.target.id) {
             case "dropState":
@@ -165,16 +165,16 @@ export const createEventListenerDropDown = () => {
                 break;
 
             case "dropEat":
-                eat = event.target.value;
+                eatId = event.target.value;
                 
-                onEatChanged(eat);
+                onEatChanged(eatId);
         
                 break;
 
             case "dropBiz":
-                biz = event.target.value;
+                bizId = event.target.value;
 
-                onBizChanged(biz);
+                onBizChanged(bizId);
                 
                 break;
         }

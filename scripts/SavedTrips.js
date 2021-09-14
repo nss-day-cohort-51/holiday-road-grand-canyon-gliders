@@ -24,7 +24,8 @@ export const updateSavedTrips = () => {
     let attractionIdToNameDictionary = {};
     let state;
 
-    const savedTripsELem = document.querySelector(".saved-trips-container");
+    const savedTripsELem = document.querySelector(".saved-trips__cards");
+    savedTripsELem.innerHTML = "";
 
     getTrips().then((tripObjs) => {
         // loop through trips saved in DB

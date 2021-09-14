@@ -47,7 +47,6 @@ export const updateActiveTrip = (attribute, value) => {
         activeTripState.completed = true;
         activateSaveTripButton();
     }
-    console.log(activeTripState);
 };
 
 const activateSaveTripButton = () => {
@@ -58,9 +57,9 @@ const activateSaveTripButton = () => {
 
     const submitTrip = () => {
         // update server with active trip
-        putTripCall();
+        putTripCall().then(updateSavedTrips);
         // repopulate Saved Trips List
-        updateSavedTrips();
+        // updateSavedTrips();
         // clear out trip selectors
         resetTripSelection();
         // clear active trip

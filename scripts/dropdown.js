@@ -1,6 +1,8 @@
 import { stateCodes } from "./tools/StateCodes.js";
 import { settings } from "./Settings.js";
 import { updateActiveTrip } from "./main.js";
+import { getCity, getParkNameByCode } from "./parks/ParkDataManager.js";
+import { getWeather } from "./weather/WeatherDataManager.js";
 
 const key = settings.npsKey;
 
@@ -54,6 +56,7 @@ export const createDropDownPark = (input) => {
             for (let i = 0; i < dataVar.data.length; i++) {
                 option = document.createElement("option");
                 option.text = dataVar.data[i].fullName;
+                option.value = dataVar.data[i].parkCode;
                 dropdown.add(option);
             }
         });
@@ -137,11 +140,15 @@ export const createEventListenerDropDown = () => {
     //get element statements
     const contentElement = document.getElementById("container");
     const populateDropDown = document.getElementById("parkDropDown");
+    const parkNamePreview = document.getElementById("parkPreview");
+    const eatNamePreview = document.getElementById("eatPreview");
+    const bizNamePreview = document.getElementById("bizPreview");
+
     populateDropDown.innerHTML = createDropdownParkFrame();
 
     //Dropdown event listener
     let state;
-    let park;
+    let parkId;
     let eat;
     let biz;
     contentElement.addEventListener("change", (event) => {
@@ -152,19 +159,33 @@ export const createEventListenerDropDown = () => {
                 createDropDownPark(state);
                 break;
             case "dropPark":
-                park = event.target.value;
-                console.log(park);
-                updateActiveTrip("parkId", park);
+                parkId = event.target.value;
+                
+                //Fix used to gather parkCode as value while also having the Full name of the park for local api and display
+                const parkName = getParkNameByCode(parkId).then(parkFullName => {
+                    console.log(parkFullName);
+                    updateActiveTrip("parkId", parkFullName);
+                    parkNamePreview.innerHTML = parkFullName;
+                });
+
+                //Used to get Weather from API using City Name
+                const getCityVar = getCity(parkId).then(cityName => {
+                    const getWeatherVar = getWeather(cityName).then(fiveDayWeather => {
+                        console.log(fiveDayWeather);
+                    })
+                })
                 break;
             case "dropEat":
                 eat = event.target.value;
                 console.log(eat);
                 updateActiveTrip("eateryIds", eat);
+                eatNamePreview.innerHTML = eat;
                 break;
             case "dropBiz":
                 biz = event.target.value;
                 console.log(biz);
                 updateActiveTrip("bazararieIds", biz);
+                bizNamePreview.innerHTML = biz;
                 break;
         }
     });
@@ -186,9 +207,16 @@ export const resetTripSelection = () => {
     const eatDropDown = document.getElementById("dropEat");
     const bizDropDown = document.getElementById("dropBiz");
 
+    const parkNamePreview = document.getElementById("parkPreview");
+    const eatNamePreview = document.getElementById("eatPreview");
+    const bizNamePreview = document.getElementById("bizPreview");
+
     // reset parkDropdown
     const populateDropDown = document.getElementById("parkDropDown");
     populateDropDown.innerHTML = createDropdownParkFrame();
+    parkNamePreview.innerHTML = "National Park Name";
+    eatNamePreview.innerHTML = "Eatery Name";
+    bizNamePreview.innerHTML = "Bizzarerie Name";
 
     // set remaining dropdowns to default values
     stateDropDown.value = 0;

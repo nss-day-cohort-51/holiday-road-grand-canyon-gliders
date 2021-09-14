@@ -35,7 +35,6 @@ const modalDetailsInsert = (modalId) => {
 };
 
 export const runModal = () => {
-    // ************* ALL THE  MODAL JS *******************
 
     // Get the modal
     const modal = document.getElementById("modal");

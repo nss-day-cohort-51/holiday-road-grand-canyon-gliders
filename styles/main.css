@@ -1,182 +1,262 @@
-/* demo colors are:
-#B8DBD9 - mint blue/green
-#586F7C - smoky blue/gray
-#2F4550 - dark blue/gray
-#F4F4F9 - smoky white
-#141414 - dark gray/black
+/* Page colors are:
+#66808F - gray/blue
+#85C1BF - blue/green
+#9B2226 - deep red
 */
 
 @import "footer.css";
 @import "modal.css";
 
-/* making body:flex and setting main to flex:1 makes footer stay at bottom */
+/* removes highlights from selected boxes after click */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* making body:flex, min-height:100vh, & main flex:1 makes footer stay at bottom */
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    padding: 0px;
-    margin: 0px;
-    font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Poppins", sans-serif;
 }
 
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
+/* logo container */
 .logo {
-    margin: 10px 0px;
+  margin: 20px 0px;
 }
 
+/* logo */
 .logo-RVTY {
-    width: 175px;
-    padding-left: 50px;
+  width: 175px;
+  padding-left: 50px;
 }
 
 .headline {
-    font-size: 22px;
-    font-weight: 400;
-    text-align: left;
-    padding-right: 100px;
-    margin: auto auto;
-    color: #141414;
-    font-size: 32px;
+  font-size: 26px;
+  font-weight: 400;
+  text-align: left;
+  padding-right: 100px;
+  margin: auto auto;
+  color: #141414;
+  font-size: 36px;
 }
-
 
 main {
-    flex: 1; /* this makes footer stay at bottom if body is a flexbox */
+  flex: 1; /* this makes footer stay at bottom if body is a flexbox */
 }
 
+/* this holds all the dropdowns */
 .options-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    font-size: 22px;
-    font-weight: 600;
-    background-color: #D9D9D9;
-    border-top: 4px solid #8398a4;
-    border-bottom: 4px solid #8398a4;
-    padding: 5px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: 22px;
+  font-weight: 600;
+  /* background-color: #D9D9D9; */
+  /*border-top: 3px solid #9B2226;*/ /* red border above dropdowns */
+  border-bottom: 3px solid #9B2226; /* red border below dropdowns */
+  padding: 10px 40px;
 }
 
+/* Plan Your Next Trip text in options bar */
 .options-container span {
-    flex: 1;
-    white-space: nowrap;
-    margin: auto 5px;
-}
-
-.dropdowns {
-    flex: 1;
-    white-space: nowrap;
-    font-weight: 400;
-    padding: 5px 10px;
-    margin: 3px 10px;
-    border: 3px solid #B8DBD9;
-    border-radius: 10px;
-    background-color: white;
+  flex: 1;
+  font-size: 24px;
+  white-space: nowrap;
+  margin: auto 10px;
 }
 
 #states-parks {
-    display: flex;
-    flex-direction: row;
 }
 
+/* State & Park dropdown box */
+.dropdownsStatesParks {
+  flex: 1;
+  max-width: 450px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-content: stretch;
+  align-items: stretch;
+  white-space: nowrap;
+  padding: 0px 10px;
+  margin: 0px 10px;
+  border: 3px solid darkgray;
+  border-radius: 5px;
+  background-color: white;
+}
+
+/* Eatery & Bizarreries dropdown boxes */
+.dropdowns {
+  flex: 1;
+  max-width: 225px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-content: stretch;
+  align-items: stretch;
+  white-space: nowrap;
+  padding: 0px 10px;
+  margin: 0px 10px;
+  border: 3px solid darkgray;
+  border-radius: 5px;
+  background-color: white;
+}
+
+/* container that holds select and option tags */
+.stateDropDown {
+  display: flex;
+  flex-direction: row;
+  align-self: stretch;
+  justify-content: space-evenly;
+}
+
+/* container that holds select and option tags */
+.parkDropDown {
+  display: flex;
+  flex-direction: row;
+  align-self: stretch;
+  margin-left: 45px;
+}
+
+#dropState, #dropPark {
+  width: 200px;
+  font-size: 20px;
+  font-weight: 600;
+  border: transparent;
+}
+
+#dropEat, #dropBiz {
+  width: 225px;
+  font-size: 20px;
+  font-weight: 600;
+  border: transparent;
+}
+
+/* contains both trip preview & saved trips */
 .trip-container {
-    display: flex;
-    flex-direction: row;
-    /* border: 1px dashed black; */
+  display: flex;
+  flex-direction: row;
 }
 
-h2 {
-    font-size: 26px;
-    font-weight: 600;
-    padding: 0px;
-    margin: 20px auto;
-}
-
-.trip-preview {
-    flex: 3;
-    padding: 0px 30px;
-    text-align: left;
-}
-
+/* flex to hold headline */
 .preview-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
+/* Trip Preview & Saved Trips headline */
+h2 {
+  font-size: 26px;
+  font-weight: 600;
+  padding: 0px;
+  margin: 20px auto;
+}
+
+/* main preview window that displays options chosen */
+.trip-preview {
+  flex: 3;
+  padding: 0px 30px;
+  text-align: left;
+}
+
+/* flex container to hold all the preview boxes */
 .preview-flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
 }
 
 /* this styles each of the boxes that pop up after dropdown selections */
 .preview-box {
-    display: flex;
-    flex-direction: row;
-    padding: 0px;
-    margin: 20px 0px;
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  margin: 20px 0px;
 }
 
 /*  changing the div class="hidden-item" to "preview-box" using js will make it appear */
 .hide-item {
-    /* display: none; */
+  /* display: none; */
 }
 
 .preview-text {
-    /* font-family: "", serif; */
-    font-size: 22px;
-    font-weight: 600;
-    align-self: center;;
+  font-size: 22px;
+  font-weight: 600;
+  align-self: center;;
 }
 
 .preview-text-sm {
-    font-size: 16px;
-    font-weight: 600;
-    align-self: center;;
+  font-size: 16px;
+  font-weight: 600;
+  align-self: center;;
 }
 
 .detail-btn {
-    align-self: center;
-    font-size: 12px;
-    font-weight: 600;
-    text-align: center;
-    width: 60px;
-    padding: 4px 0px;
-    margin-left: 20px;
-    border: 3px solid #586F7C;
-    border-radius: 7px;
-    background-color: #B8DBD9;    
+  align-self: center;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center;
+  cursor: pointer;
+  padding: 4px 5px;
+  margin-left: 20px;
+  border: 3px solid #66808F;
+  border-radius: 5px;
+  background-color: #baebe9;
+  transition: 100ms all;
+}
+
+.detail-btn:hover {
+  background-color: #66808F;
+  color: white;
 }
 
 .save-trip {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .save-trip-btn {
-    text-align: center;
-    width: 100px;
-    font-size: 20px;
-    font-weight: 600;
-    padding: 5px 15px;
-    margin: 50px auto;
-    border: 3px solid #B8DBD9;
-    border-radius: 10px;
-    background-color: rgb(235, 235, 235);    
+  text-align: center;
+  width: 100px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  cursor: pointer;
+  padding: 5px 15px;
+  margin: 50px auto;
+  border: 3px solid #66808F;
+  border-radius: 10px;
+  background-color: rgb(225, 225, 225);
+  transition: 100ms all;    
+}
+
+.save-trip-btn:hover {
+  background-color: #66808F;
+  color: white;
 }
 
 .saved-trips {
-    flex: 1;
-    padding: 0px 30px;
-    text-align: center;
-    background-color: rgb(235, 235, 235);
-    /* border-left: 1px dotted black; */
+  flex: 1;
+  min-height: 700px;
+  padding: 0px 30px;
+  text-align: center;
+  background-color: rgb(245, 245, 245);
 }
 
 .saved-trips__card {

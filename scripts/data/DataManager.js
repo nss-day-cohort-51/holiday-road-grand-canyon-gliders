@@ -41,7 +41,7 @@ export const getParkById = (Id) => {
     return fetch(url)
         .then((response) => response.json())
         .then((parsedResponse) => {
-            return parsedResponse;
+            return parsedResponse.data[0];
         });
 };
 
@@ -88,8 +88,6 @@ export const getBizarreryById = (id) => {
     return fetch(`http://holidayroad.nss.team/bizarreries?id=${id}`)
         .then((response) => response.json())
         .then((parsedResponse) => {
-            console.log();
-
             return parsedResponse[0];
         });
 };

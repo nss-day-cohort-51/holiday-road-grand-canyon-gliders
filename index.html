@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Serif:wght@400;700&family=Playfair+Display&family=Poppins:wght@200;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Serif:wght@400;700&family=Playfair+Display&family=Poppins:wght@200;400;500;600;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/jpg" href="./images/faviconRVTY.png" />
@@ -33,16 +33,17 @@
 
             <span>Plan Your Next Trip:</span>
 
-            <div id="states-parks" class="dropdowns">
+            <div id="states-parks" class="dropdownsStatesParks">
                 <div class="stateDropDown">
                   <select name="dropState" id="dropState">
                 
                   </select>
                 </div>
 
-                <div id="parkDropDown">
+                <div id="parkDropDown" class="parkDropDown">
 
                 </div>
+
             </div> <!-- closes "states-parks"-->
 
             <div id="eateries" class="dropdowns">
@@ -75,8 +76,6 @@
                         <div class="preview-text" id="parkPreview">NATIONAL PARK NAME</div> <!-- closes "preview-text"-->
                         <div id="detail-button--park" class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
 
-                        <!-- The Park PopUp Modal -->
-
                     </div> <!-- closes "park-view"-->
 
                     <div id="weather-view" class="preview-box hide-item">
@@ -90,9 +89,7 @@
 
                         <div class="preview-text" id="eatPreview">EATERY NAME</div> <!-- closes "preview-text"-->
                         <div id="detail-button--eat" class="detail-btn">DETAILS</div> <!-- closes "detail-btn"-->
-                    
-                        <!-- The Eatery PopUp Modal -->
-
+        
                     </div> <!-- closes "eat-view-->
 
                     <div id="bizarre-view" class="preview-box hide-item">

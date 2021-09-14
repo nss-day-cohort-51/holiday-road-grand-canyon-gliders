@@ -257,3 +257,8 @@ h2 {
   background-color: rgb(245, 245, 245);
   height: 100%;
 }
+
+.saved-trips__card {
+    border-top: solid 2px;
+    text-align: left;
+}

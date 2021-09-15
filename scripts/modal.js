@@ -101,6 +101,8 @@ export const runModal = () => {
             modal.style.display = "none";
         }
     });
+};
+
 
     // When the user clicks the button, open the modal
 
@@ -185,4 +187,4 @@ export const runModal = () => {
 //       </div> <!-- closes modal-content -->
 //       `
 // };
-};
+// };

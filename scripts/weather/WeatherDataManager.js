@@ -18,15 +18,15 @@ export const getWeatherZip = (zip) => {
 
 const formatDate = (obj) => {
     const date = new Date(obj);
-    const dateStr = date.toString();
+    const dateStr = date.toString(); // converts date object to a string
     console.log("dateStr is: ", dateStr);
     console.log(typeof dateStr);
-    const formattedDate = dateStr.substring(0,3);
+    const formattedDate = dateStr.substring(0,3); // takes first 3 letters of date string so we can display it as Mon, Tue, etc
     return formattedDate;
 }
 
 const formatTemp = (obj) => {
-    const temp = Math.round(obj);
+    const temp = Math.round(obj); // this rounds the temp to a whole number
     return temp;
 }
 

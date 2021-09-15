@@ -45,7 +45,6 @@ export const createDropDownPark = (input) => {
     defaultOption.setAttribute("value", "0");
 
     defaultOption.text = "Choose A Park";
-    console.log(dropdown);
 
     //add the initial option element to the dropdown menu and set index to that option
     dropdown.add(defaultOption);
@@ -159,7 +158,6 @@ export const createEventListenerDropDown = () => {
         switch (event.target.id) {
             case "dropState":
                 state = event.target.value;
-                console.log(state);
                 updateActiveTrip("state", state);
                 createDropDownPark(state);
                 break;
@@ -204,6 +202,7 @@ export const resetTripSelection = () => {
     const bizDropDown = document.getElementById("dropBiz");
 
     const parkNamePreview = document.getElementById("parkPreview");
+    const weatherView = document.getElementById("weather-view");
     const eatNamePreview = document.getElementById("eatPreview");
     const bizNamePreview = document.getElementById("bizPreview");
 
@@ -212,6 +211,7 @@ export const resetTripSelection = () => {
     const populateDropDown = document.getElementById("parkDropDown");
     populateDropDown.innerHTML = createDropdownParkFrame();
     parkNamePreview.innerHTML = "National Park Name";
+    parkNamePreview.innerHTML = "5 Day Weather Forecast"
     eatNamePreview.innerHTML = "Eatery Name";
     bizNamePreview.innerHTML = "Bizzarerie Name";
 
@@ -223,5 +223,5 @@ export const resetTripSelection = () => {
     //remove pointer over SaveTrip button and return to default color to deactivate
     const saveButtonElement = document.querySelector(".save-trip-btn");
     saveButtonElement.style.cursor = "unset";
-    saveButtonElement.style["background-color"] = "rgb(235, 235, 235)";
+    saveButtonElement.style["background-color"] = "rgb(225, 225, 225)";
 };

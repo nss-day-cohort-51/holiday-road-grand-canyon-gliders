@@ -1,6 +1,10 @@
 import { resetTripSelection, runDropdown } from "./dropdown.js";
-import { runModal } from "./modal.js";
 import { getBizarreryById, getTrips, putTripCall } from "./data/DataManager.js";
+import { runModal, eatDetailsInsert, bizDetailsInsert, parkDetailsInsert } from "./modal.js";
+import { putTripCall, getParkById } from "./data/DataManager.js";
+import { getParkByCode } from "./parks/ParkDataManager.js";
+import { getEatNameById } from "./eateries/EateryDataManager.js";
+import { getBizNameById } from "./bizarreries/BizarreriesDataManager.js";
 import { updateSavedTrips } from "./SavedTrips.js";
 import { getParkById } from "./parks/ParkDataManager.js";
 import { directionLiteral, getDirections } from "./directions/DirectionDataManager.js";
@@ -37,6 +41,33 @@ let activeTripState = {
     completed: false,
 };
 
+export const getParkData = () => {
+    const parkModalPopup = document.getElementById("modal");   
+    const userPark = activeTripState.parkId;
+    const userParkData = getParkById(userPark).then(parkData => {
+        parkModalPopup.innerHTML = parkDetailsInsert(parkData);
+        modal.style.display = "block"; 
+    });
+}
+
+export const getEateryData = () => {
+    const eatModalPopup = document.getElementById("modal");   
+    const userEats = activeTripState.eateryIds[0];
+    const userEatsData = getEatNameById(userEats).then(eatData => {
+        eatModalPopup.innerHTML = eatDetailsInsert(eatData[0]);
+        modal.style.display = "block"; 
+    });
+}
+
+export const getBizarrerieData = () => {
+    const bizModalPopup = document.getElementById("modal");   
+    const userBiz = activeTripState.bazararieIds[0];
+    const userBizData = getBizNameById(userBiz).then(bizData => {
+        bizModalPopup.innerHTML = bizDetailsInsert(bizData[0]);
+        modal.style.display = "block"; 
+    });
+}
+
 export const returnActiveTripState = () => {
     const activeTripStateCopy = activeTripState;
     return activeTripStateCopy;
@@ -44,7 +75,6 @@ export const returnActiveTripState = () => {
 
 // update the state of the activeTrip
 export const updateActiveTrip = (attribute, value) => {
-    console.log(activeTripState);
 
     switch (attribute) {
         case "state":
@@ -73,7 +103,7 @@ const activateSaveTripButton = () => {
     const saveButtonElement = document.querySelector(".save-trip-btn");
     // change cursor of save button on hover if active
     saveButtonElement.style.cursor = "pointer";
-    saveButtonElement.style["background-color"] = "green";
+    saveButtonElement.style["background-color"] = "#85C1BF";
 
     const submitTrip = () => {
         // update server with active trip

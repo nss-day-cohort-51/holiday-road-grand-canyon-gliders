@@ -93,22 +93,24 @@ const fillDirections = document.querySelector(".directions-fill");
 const directionHeaderElement = document.querySelector(".directions-header");
 directionHeaderElement.style.display = "none";
 
-let currentLat;
-let currentLong;
 
 //function used for gaining permission for location
 (function () {
-    navigator.geolocation.getCurrentPosition(
-        function (position) {
-            currentLat = position.coords.latitude;
-            currentLong = position.coords.longitude;
-        },
+    navigator.geolocation.getCurrentPosition(function (position) {
+        currentLat = position.coords.latitude;
+        currentLong = position.coords.longitude;
+    },
         function (error) {
-            // directionElement.style.display = "none";
-        }
-    );
+            directionElement.style.display = "none";
+        })
 })();
+
+let currentLat;
+let currentLong;
+
 const directionsFunc = (input) => {
+
+
     //query slectors for directions button and directions fill
     const directionElement = document.getElementById(`container`);
 

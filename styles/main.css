@@ -6,6 +6,7 @@
 
 @import "footer.css";
 @import "modal.css";
+@import "aside.css";
 
 /* removes highlights from selected boxes after click */
 input:focus,

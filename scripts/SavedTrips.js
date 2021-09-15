@@ -6,6 +6,8 @@ import {
     getBizarreryById,
     getEateryById,
     getParkById,
+    getBizarreriesByIdArray,
+    getEateriesByIdArray,
 } from "./data/DataManager.js";
 import { savedTripCard, savedTripCardDetails } from "./cards/SavedTrip.js";
 
@@ -33,25 +35,32 @@ export const updateSavedTrips = () => {
             // console.log(tripObj);
             let tripDetails = {
                 parkName: null,
-                bizName: null,
-                eatNAME: null,
+                bizName: [],
+                eatName: [],
             };
             // console.log(tripObj);
 
             // Make a Fetch to Bizs Eats and Parks by Id and save the name under trip details
-            getBizarreryById(tripObj.bazararieIds)
-                .then((biz) => {
-                    tripDetails.bizName = biz.name;
+            // console.log(tripObj.bazararieIds);
+            console.log(tripObj);
+            getBizarreriesByIdArray(tripObj.bazararieIds)
+                .then((bizObjs) => {
+                    console.log(bizObjs);
+                    for (const bizObj of bizObjs) {
+                        tripDetails.bizName.push(bizObj.name);
+                    }
                 })
                 .then(() => {
-                    getEateryById(tripObj.eateryIds)
-                        .then((eat) => {
-                            tripDetails.eatName = eat.businessName;
+                    getEateriesByIdArray(tripObj.eateryIds)
+                        .then((eatObjs) => {
+                            for (const eatObj of eatObjs) {
+                                tripDetails.eatName.push(eatObj.businessName);
+                            }
                         })
                         .then(() => {
                             getParkById(tripObj.parkId)
                                 .then((park) => {
-                                    tripDetails.parkName = park.name;
+                                    tripDetails.parkName = park.fullName;
                                 })
                                 .then(() => {
                                     // when all the information is received inject the saved trip card into DOM eith the details containing names

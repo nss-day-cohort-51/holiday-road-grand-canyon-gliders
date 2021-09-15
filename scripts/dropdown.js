@@ -45,7 +45,6 @@ export const createDropDownPark = (input) => {
     defaultOption.setAttribute("value", "0");
 
     defaultOption.text = "Choose A Park";
-    console.log(dropdown);
 
     //add the initial option element to the dropdown menu and set index to that option
     dropdown.add(defaultOption);
@@ -159,7 +158,6 @@ export const createEventListenerDropDown = () => {
         switch (event.target.id) {
             case "dropState":
                 state = event.target.value;
-                console.log(state);
                 updateActiveTrip("state", state);
                 createDropDownPark(state);
                 break;

@@ -15,6 +15,7 @@ export const savedTripCard = (tripDetails) => {
 
 export const savedTripCardDetails = (tripDetails) => {
     let card = `
+    <div class="saved-trips__line-break"></div>
     <div class="saved-trips__card"> 
         <h3>${tripDetails.parkName}</h3>`;
     console.log(tripDetails);

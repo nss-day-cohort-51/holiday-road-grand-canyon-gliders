@@ -2,11 +2,8 @@
     text-align: left;
     margin-bottom: 5px;
     margin-inline-start: 10px;
-
 }
 
-.saved-trip__attraction--elem  {
-}
 
 .saved-trips__card p{
     margin-inline-start: 20px;
@@ -15,4 +12,11 @@
 
 .saved-trips__card h3 {
     margin-block-end: -14px;
+}
+
+.saved-trips__card {
+    /* background-color: ; */
+    margin-top: 3px;
+    background-color: #baebe9;
+
 }

@@ -2,8 +2,25 @@ import { getParkData } from "./main.js";
 import { getEateryData } from "./main.js";
 import { getBizarrerieData } from "./main.js";
 
+const formatPhoneNumber = (obj) => {
+    console.log("obj argument is: ", (typeof obj));
+    const origNum = obj;
+    console.log("origNum is: ", origNum);
+    const arrayOfDigits = Array.from(String(origNum), Number);
+    console.log("arrayOfDigits is: ", arrayOfDigits)
+    arrayOfDigits.splice(0, 0, "(");
+    console.log("arrayOfDigits after splice1 is now: ", arrayOfDigits)
+    arrayOfDigits.splice(4, 0, ") ");
+    arrayOfDigits.splice(8, 0, "-");
+    console.log("arrayOfDigits after splice2 is now: ", arrayOfDigits)
+    const formattedPhoneNumber = arrayOfDigits.join("");
+    console.log("formattedPhoneNumber after join: ", formattedPhoneNumber);
+    return formattedPhoneNumber;
+}
 
 export const parkDetailsInsert = (parkData) => {
+    const parkNum = parkData.contacts.phoneNumbers[0].phoneNumber;
+    const dashedNum = formatPhoneNumber(parkNum);
     return `                        
       <div class="modal-content">
         <span class="close-modal" id="close-modal--${parkData.Id}">&times;</span>
@@ -16,7 +33,7 @@ export const parkDetailsInsert = (parkData) => {
 
         <div class="phone-number">
             <div class="modal-bold">Phone Number: </div>
-            <div>${parkData.contacts.phoneNumbers[0].phoneNumber}</div>
+            <div>${dashedNum}</div>
         </div> <!-- closes wheelchair-->
 
         <div class="fees">

@@ -6,6 +6,7 @@ import {
     getBizarreryById,
     getEateryById,
     getParkById,
+    getSingleTripByDirectionId,
 } from "./data/DataManager.js";
 import { savedTripCard, savedTripCardDetails } from "./cards/SavedTrip.js";
 import { getDirections, directionLiteral } from "./directions/DirectionDataManager.js";
@@ -38,6 +39,7 @@ export const updateSavedTrips = () => {
         for (const tripObj of tripObjs) {
             console.log(tripObj);
             let tripDetails = {
+                id: null,
                 parkName: null,
                 bizName: null,
                 eatNAME: null,
@@ -60,15 +62,20 @@ export const updateSavedTrips = () => {
                                 .then(() => {
                                     // when all the information is received inject the saved trip card into DOM eith the details containing names
                                     savedTripsELem.innerHTML +=
-                                        savedTripCardDetails(tripDetails)
-                                        directionsFunc(3);
-                                });
+                                        savedTripCardDetails(tripDetails, tripObj.directionId)
+                                    ///
+                                    directionsFunc(tripObj.directionId);
+                                })
+                                ;
                         });
                 });
         }
     });
 };
 
+const fillDirections = document.querySelector(".directions-fill");
+const directionHeaderElement = document.querySelector(".directions-header");
+directionHeaderElement.style.display = "none";
 
 const directionsFunc = (input) => {
     let currentLat;
@@ -86,34 +93,43 @@ const directionsFunc = (input) => {
     })();
 
     //query slectors for directions button and directions fill
-    const directionElement = document.querySelector(".directions-btn");
-    const fillDirections = document.querySelector(".directions-fill");
+    const directionElement = document.getElementById(`container`);
+
+    // const fillDirections = document.querySelector(".directions-fill");
 
     //event listener for button
     directionElement.addEventListener("click", event => {
+        if (event.target.id == `directions-btn--${input}`) {
+            directionHeaderElement.style.display = "block";
+            let parkLat;
+            let parkLong;
 
-        //variables for park latitude and longitude
-        let parkLat;
-        let parkLong;
+            //reset the dom for directions
+            fillDirections.innerHTML = "";
 
-        //reset the dom for directions
-        fillDirections.innerHTML = "";
+            //getTrip is used to get directions from local api trips
+            const getTrip = getSingleTripByDirectionId(input).then(taco => {
+                console.log(taco);
+                getParkById(taco[0].parkId).then(parkLoc => {
+                    console.log(parkLoc);
+                    parkLat = parkLoc.latitude;
+                    parkLong = parkLoc.longitude;
+                    
+                        const useVar = getDirections(currentLat, currentLong, parkLat, parkLong).then(function (event) {
+                            if(event.paths == undefined){
+                                fillDirections.innerHTML = directionLiteral("Learn to swim");
+                            }else{
+                                for (let count = 0; count < event.paths[0].instructions.length; count++) {
+    
+                                    fillDirections.innerHTML += directionLiteral(event.paths[0].instructions[count].text);
+        
+                                }
+                            }
+                        }
+                    );
+                });
+            })
+        }
 
-        //getTrip is used to get directions from local api trips
-        const getTrip = getTrips().then(taco => {
-            console.log(taco[input].parkId);
-            getParkById(taco[input].parkId).then(parkLoc => {
-                parkLat = parkLoc.latitude;
-                parkLong = parkLoc.longitude;
-                const useVar = getDirections(currentLat, currentLong, parkLat, parkLong).then(function (event) {
-
-                    for (let count = 0; count < event.paths[0].instructions.length; count++) {
-
-                        fillDirections.innerHTML += directionLiteral(event.paths[0].instructions[count].text);
-
-                    }
-                })
-            });
-        })
     })
 }

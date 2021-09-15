@@ -1,12 +1,10 @@
 import { resetTripSelection, runDropdown } from "./dropdown.js";
-import { getBizarreryById, getTrips, putTripCall } from "./data/DataManager.js";
+import { getBizarreryById, getTrips, putTripCall, getParkById } from "./data/DataManager.js";
 import { runModal, eatDetailsInsert, bizDetailsInsert, parkDetailsInsert } from "./modal.js";
-import { putTripCall, getParkById } from "./data/DataManager.js";
 import { getParkByCode } from "./parks/ParkDataManager.js";
 import { getEatNameById } from "./eateries/EateryDataManager.js";
 import { getBizNameById } from "./bizarreries/BizarreriesDataManager.js";
 import { updateSavedTrips } from "./SavedTrips.js";
-import { getParkById } from "./parks/ParkDataManager.js";
 import { directionLiteral, getDirections } from "./directions/DirectionDataManager.js";
 
 runDropdown();
@@ -14,8 +12,6 @@ runModal();
 // populate Saved Trips
 updateSavedTrips();
 
-
-fillDirections.style.display = "block";
 
 //used for current location
 let currentLat;

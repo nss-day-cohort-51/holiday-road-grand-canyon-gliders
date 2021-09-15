@@ -267,6 +267,7 @@ h2 {
 }
 
 .saved-trips__cards {
+  min-height: 600px;
   max-height: 600px;
   overflow-y: auto;
 }
@@ -284,7 +285,4 @@ h2 {
   border-radius: 10px;
   background-color: rgb(225, 225, 225);
   transition: 100ms all;    
-  min-height: 600px;
-  max-height: 600px;
-  overflow-y: auto;
 }

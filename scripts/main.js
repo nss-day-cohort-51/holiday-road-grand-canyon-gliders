@@ -1,6 +1,8 @@
 import { resetTripSelection, runDropdown } from "./dropdown.js";
-import { runModal } from "./modal.js";
+import { runModal, eatDetailsInsert, bizDetailsInsert } from "./modal.js";
 import { putTripCall } from "./data/DataManager.js";
+import { getEatNameById } from "./eateries/EateryDataManager.js";
+import { getBizNameById } from "./bizarreries/BizarreriesDataManager.js";
 import { updateSavedTrips } from "./SavedTrips.js";
 
 runDropdown();
@@ -16,6 +18,28 @@ let activeTripState = {
     eateryIds: [],
     completed: false,
 };
+
+export const getEateryData = () => {
+    const eatModalPopup = document.getElementById("modal");   
+    const userEats = activeTripState.eateryIds[0];
+    console.log("userEats is: ", userEats);
+    const userEatsData = getEatNameById(userEats).then(eatData => {
+        console.log("eatery business name is: ", eatData[0].businessName);
+        eatModalPopup.innerHTML = eatDetailsInsert(eatData[0]);
+        modal.style.display = "block"; 
+    });
+}
+
+export const getBizarrerieData = () => {
+    const bizModalPopup = document.getElementById("modal");   
+    const userBiz = activeTripState.bazararieIds[0];
+    console.log("userBiz is: ", userBiz);
+    const userBizData = getBizNameById(userBiz).then(bizData => {
+        console.log("biz business name is: ", bizData[0].businessName);
+        bizModalPopup.innerHTML = bizDetailsInsert(bizData[0]);
+        modal.style.display = "block"; 
+    });
+}
 
 export const returnActiveTripState = () => {
     const activeTripStateCopy = activeTripState;

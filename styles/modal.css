@@ -29,12 +29,27 @@ display: none; /* Hidden by default */
     margin: 0px;
 }
 
+.modal-bold {
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.location, .wheelchair, .pets, .wifi {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
 /* The Close Buttons */
 .close-modal {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
+}
+
+.close-modal:hover {
+    cursor: pointer;
 }
 
 .close:hover,

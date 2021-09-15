@@ -45,8 +45,13 @@ export const parkDetailsInsert = (parkData) => {
       </div> <!-- closes modal-content -->
       `
 };
+ const readBool = (input) => {
+     if (input) return "Yes";
+     else return "No";
+ }
 
 export const eatDetailsInsert = (eatData) => {
+
     return `                        
       <div class="modal-content">
         <span class="close-modal" id="close-modal--${eatData.Id}">&times;</span>
@@ -59,7 +64,7 @@ export const eatDetailsInsert = (eatData) => {
 
         <div class="wheelchair">
             <div class="modal-bold">WheelChair Accessible: </div>
-            <div>${eatData.ameneties.wheelchairAccessible}</div>
+            <div>${readBool(eatData.ameneties.wheelchairAccessible)}</div>
         </div> <!-- closes wheelchair-->
 
         <div class="pets">

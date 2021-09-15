@@ -53,7 +53,7 @@ const activateSaveTripButton = () => {
     const saveButtonElement = document.querySelector(".save-trip-btn");
     // change cursor of save button on hover if active
     saveButtonElement.style.cursor = "pointer";
-    saveButtonElement.style["background-color"] = "green";
+    saveButtonElement.style["background-color"] = "#85C1BF";
 
     const submitTrip = () => {
         // update server with active trip

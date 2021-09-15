@@ -223,5 +223,5 @@ export const resetTripSelection = () => {
     //remove pointer over SaveTrip button and return to default color to deactivate
     const saveButtonElement = document.querySelector(".save-trip-btn");
     saveButtonElement.style.cursor = "unset";
-    saveButtonElement.style["background-color"] = "rgb(235, 235, 235)";
+    saveButtonElement.style["background-color"] = "rgb(225, 225, 225)";
 };

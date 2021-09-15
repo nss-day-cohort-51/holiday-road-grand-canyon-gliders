@@ -10,7 +10,7 @@ footer {
 .col1 {
     flex: 1;
     padding: 10px 0px;
-    margin: auto 0px;
+    margin-top: 10px;
 }
 
 /* copyright quote is in column 2 */

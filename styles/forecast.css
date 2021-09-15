@@ -1,0 +1,23 @@
+.forecastCardList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.forecastCard {
+  padding: 10px 20px;
+  margin: 10px;
+  flex: 1;
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px solid darkgray;
+  border-radius: 5px;
+  background-color: lightgray;
+}
+
+.forecastCard h3 {
+  padding: 0px;
+  margin: 0px;
+}

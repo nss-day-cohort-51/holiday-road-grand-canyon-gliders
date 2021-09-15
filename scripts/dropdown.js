@@ -45,7 +45,10 @@ export const createDropDownPark = (input) => {
     defaultOption.setAttribute("value", "0");
 
     defaultOption.text = "Choose A Park";
+<<<<<<< HEAD
     // console.log(dropdown);
+=======
+>>>>>>> feef0bc21e22bd141ec0776c6e4fb1d0fb4f2979
 
     //add the initial option element to the dropdown menu and set index to that option
     dropdown.add(defaultOption);
@@ -159,7 +162,6 @@ export const createEventListenerDropDown = () => {
         switch (event.target.id) {
             case "dropState":
                 state = event.target.value;
-                console.log(state);
                 updateActiveTrip("state", state);
                 createDropDownPark(state);
                 break;
@@ -204,7 +206,7 @@ export const resetTripSelection = () => {
     const bizDropDown = document.getElementById("dropBiz");
 
     const parkNamePreview = document.getElementById("parkPreview");
-    const weatherView = document.getElementById("weather-view");
+    const weatherView = document.querySelector(".preview-text-sm");
     const eatNamePreview = document.getElementById("eatPreview");
     const bizNamePreview = document.getElementById("bizPreview");
 

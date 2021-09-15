@@ -1,17 +1,34 @@
 import { resetTripSelection, runDropdown } from "./dropdown.js";
+import { getBizarreryById, getTrips, putTripCall, getParkById } from "./data/DataManager.js";
 import { runModal, eatDetailsInsert, bizDetailsInsert, parkDetailsInsert } from "./modal.js";
-import { putTripCall, getParkById } from "./data/DataManager.js";
 import { getParkByCode } from "./parks/ParkDataManager.js";
 import { getEatNameById } from "./eateries/EateryDataManager.js";
 import { getBizNameById } from "./bizarreries/BizarreriesDataManager.js";
 import { updateSavedTrips } from "./SavedTrips.js";
+import { directionLiteral, getDirections } from "./directions/DirectionDataManager.js";
 
 runDropdown();
 runModal();
 // populate Saved Trips
 updateSavedTrips();
 
-// saveActive trip while still being filled out
+
+//used for current location
+let currentLat;
+let currentLong;
+
+//Lines 22-29 used for gaining permission for location
+(function () {
+    navigator.geolocation.getCurrentPosition(function (position) {
+        currentLat = position.coords.latitude;
+        currentLong = position.coords.longitude;
+    },
+        function (error) {
+            directionElement.style.display = "none";
+        })
+})();
+
+
 let activeTripState = {
     state: null,
     parkId: null,
@@ -23,9 +40,7 @@ let activeTripState = {
 export const getParkData = () => {
     const parkModalPopup = document.getElementById("modal");   
     const userPark = activeTripState.parkId;
-    console.log("userPark is: ", userPark);
     const userParkData = getParkById(userPark).then(parkData => {
-        console.log("park name is: ", parkData.fullName);
         parkModalPopup.innerHTML = parkDetailsInsert(parkData);
         modal.style.display = "block"; 
     });
@@ -34,9 +49,7 @@ export const getParkData = () => {
 export const getEateryData = () => {
     const eatModalPopup = document.getElementById("modal");   
     const userEats = activeTripState.eateryIds[0];
-    console.log("userEats is: ", userEats);
     const userEatsData = getEatNameById(userEats).then(eatData => {
-        console.log("eatery business name is: ", eatData[0].businessName);
         eatModalPopup.innerHTML = eatDetailsInsert(eatData[0]);
         modal.style.display = "block"; 
     });
@@ -45,9 +58,7 @@ export const getEateryData = () => {
 export const getBizarrerieData = () => {
     const bizModalPopup = document.getElementById("modal");   
     const userBiz = activeTripState.bazararieIds[0];
-    console.log("userBiz is: ", userBiz);
     const userBizData = getBizNameById(userBiz).then(bizData => {
-        console.log("biz business name is: ", bizData[0].businessName);
         bizModalPopup.innerHTML = bizDetailsInsert(bizData[0]);
         modal.style.display = "block"; 
     });
@@ -60,6 +71,10 @@ export const returnActiveTripState = () => {
 
 // update the state of the activeTrip
 export const updateActiveTrip = (attribute, value) => {
+<<<<<<< HEAD
+=======
+
+>>>>>>> feef0bc21e22bd141ec0776c6e4fb1d0fb4f2979
     switch (attribute) {
         case "state":
         case "parkId":

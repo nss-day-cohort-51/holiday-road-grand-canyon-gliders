@@ -13,6 +13,7 @@ export const savedTripCard = (tripDetails) => {
     `;
 };
 
+<<<<<<< HEAD
 export const savedTripCardDetails = (tripDetails) => {
     let card = `
     <div class="saved-trips__line-break"></div>
@@ -41,4 +42,15 @@ export const savedTripCardDetails = (tripDetails) => {
 
     card += `</div>`;
     return card;
+=======
+export const savedTripCardDetails = (tripDetails,directionId) => {
+    return `
+    <div class="saved-trips__card"> 
+        <h3>${tripDetails.parkName}</h3>
+        <p class="saved-trip--baz">Bazarrarie: ${tripDetails.bizName}</p>
+        <p class="saved-trip--eat">Eatery: ${tripDetails.eatName}</p>
+        <button id="directions-btn--${directionId}">DIRECTIONS</button>
+    </div>
+    `;
+>>>>>>> feef0bc21e22bd141ec0776c6e4fb1d0fb4f2979
 };

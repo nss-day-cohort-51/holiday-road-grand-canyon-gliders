@@ -70,11 +70,11 @@ export const updateSavedTrips = () => {
 };
 
 
-const directionsFunc = (int) => {
+const directionsFunc = (input) => {
     let currentLat;
     let currentLong;
 
-    //Lines 22-29 used for gaining permission for location
+    //function used for gaining permission for location
     (function () {
         navigator.geolocation.getCurrentPosition(function (position) {
             currentLat = position.coords.latitude;
@@ -85,17 +85,24 @@ const directionsFunc = (int) => {
             })
     })();
 
+    //query slectors for directions button and directions fill
     const directionElement = document.querySelector(".directions-btn");
     const fillDirections = document.querySelector(".directions-fill");
+
+    //event listener for button
     directionElement.addEventListener("click", event => {
 
+        //variables for park latitude and longitude
         let parkLat;
         let parkLong;
 
+        //reset the dom for directions
         fillDirections.innerHTML = "";
+
+        //getTrip is used to get directions from local api trips
         const getTrip = getTrips().then(taco => {
-            console.log(taco[int].parkId);
-            getParkById(taco[int].parkId).then(parkLoc => {
+            console.log(taco[input].parkId);
+            getParkById(taco[input].parkId).then(parkLoc => {
                 parkLat = parkLoc.latitude;
                 parkLong = parkLoc.longitude;
                 const useVar = getDirections(currentLat, currentLong, parkLat, parkLong).then(function (event) {

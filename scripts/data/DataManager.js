@@ -23,6 +23,17 @@ export const getTrips = () => {
     });
 };
 
+export const getSingleTripByDirectionId = (input) => {
+    //get local trip state
+    return fetch(`http://localhost:8088/trips/?directionId=${input}`).then((response) => {
+        return response.json().then((parsedResponse) => {
+            console.log(parsedResponse);
+
+            return parsedResponse;
+        });
+    });
+};
+
 export const getAllParks = (Id) => {
     const key = settings.npsKey;
     const url = `https://developer.nps.gov/api/v1/parks?limit=500&api_key=${key}`;
@@ -74,6 +85,7 @@ export const putTripCall = () => {
         parkId: activeTrip.parkId,
         bazararieIds: activeTrip.bazararieIds[0],
         eateryIds: activeTrip.eateryIds[0],
+        directionId: activeTrip.parkId + activeTrip.bazararieIds[0] + "A" + activeTrip.eateryIds[0]
     };
     return fetch("http://localhost:8088/trips", {
         method: "POST",

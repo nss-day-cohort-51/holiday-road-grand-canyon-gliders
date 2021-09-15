@@ -202,7 +202,7 @@ export const resetTripSelection = () => {
     const bizDropDown = document.getElementById("dropBiz");
 
     const parkNamePreview = document.getElementById("parkPreview");
-    const weatherView = document.getElementById("weather-view");
+    const weatherView = document.querySelector(".preview-text-sm");
     const eatNamePreview = document.getElementById("eatPreview");
     const bizNamePreview = document.getElementById("bizPreview");
 
@@ -211,7 +211,7 @@ export const resetTripSelection = () => {
     const populateDropDown = document.getElementById("parkDropDown");
     populateDropDown.innerHTML = createDropdownParkFrame();
     parkNamePreview.innerHTML = "National Park Name";
-    parkNamePreview.innerHTML = "5 Day Weather Forecast"
+    weatherView.innerHTML = "5 Day Weather Forecast";
     eatNamePreview.innerHTML = "Eatery Name";
     bizNamePreview.innerHTML = "Bizzarerie Name";
 

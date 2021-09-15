@@ -271,3 +271,18 @@ h2 {
   max-height: 600px;
   overflow-y: auto;
 }
+
+.directions-btn {
+  text-align: center;
+  width: 125px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  cursor: pointer;
+  padding: 5px 15px;
+  margin: 50px auto;
+  border: 3px solid #66808F;
+  border-radius: 10px;
+  background-color: rgb(225, 225, 225);
+  transition: 100ms all;    
+}

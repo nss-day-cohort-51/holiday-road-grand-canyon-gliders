@@ -37,9 +37,10 @@ let currentLong;
             currentLong = position.coords.longitude;
         },
         function (error) {
-            // directionElement.style.display = "none";
+           // directionElement.style.display = "none";
         }
     );
+
 })();
 
 let activeTripState = {

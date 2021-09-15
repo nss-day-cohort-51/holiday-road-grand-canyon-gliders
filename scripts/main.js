@@ -1,6 +1,6 @@
 import { resetTripSelection, runDropdown } from "./dropdown.js";
 import { runModal } from "./modal.js";
-import { putTripCall } from "./data/DataManager.js";
+import { getBizarreryById, putTripCall } from "./data/DataManager.js";
 import { updateSavedTrips } from "./SavedTrips.js";
 import { getParkById } from "./parks/ParkDataManager.js";
 import { directionLiteral, getDirections } from "./directions/DirectionDataManager.js";
@@ -32,6 +32,12 @@ let currentLong;
 //used to gather the direction material through the parkid and current longitude and latitude
 directionElement.addEventListener("click", event => {
 
+    let parkLat;
+    let parkLong;
+    let bizLat;
+    let bizLong;
+    let eatLat;
+    let eatLong;
     fillDirections.innerHTML = "";
     if (
         activeTripState.parkId != null &&
@@ -40,8 +46,9 @@ directionElement.addEventListener("click", event => {
     ) {
         console.log(activeTripState.parkId);
         getParkById(activeTripState.parkId).then(parkLoc => {
-            
-            const useVar = getDirections(currentLat, currentLong, parkLoc.latitude, parkLoc.longitude).then(function (event) {
+            parkLat = parkLoc.latitude;
+            parkLong = parkLoc.longitude;
+            const useVar = getDirections(currentLat, currentLong, parkLat, parkLong).then(function (event) {
                 console.log(event.paths[0].instructions.length);
 
                 for (let count = 0; count < event.paths[0].instructions.length; count++) {
@@ -51,6 +58,20 @@ directionElement.addEventListener("click", event => {
                 }
             })
         });
+
+        // getBizarreryById(activeTripState.bazararieIds).then(bizLoc => {
+        //     bizLat = bizLoc.latitude;
+        //     bizLong = bizLoc.longitude;
+        //     const useVar = getDirections(parkLat, parkLong, bizLat, bizLong).then(function (event) {
+        //         console.log(event.paths[0].instructions.length);
+
+        //         for (let count = 0; count < event.paths[0].instructions.length; count++) {
+
+        //             fillDirections.innerHTML += directionLiteral(event.paths[0].instructions[count].text);
+
+        //         }
+        //     })
+        // })
 
     }
 

@@ -45,6 +45,7 @@ export const createDropDownPark = (input) => {
     defaultOption.setAttribute("value", "0");
 
     defaultOption.text = "Choose A Park";
+    // console.log(dropdown);
 
     //add the initial option element to the dropdown menu and set index to that option
     dropdown.add(defaultOption);
@@ -160,6 +161,7 @@ export const createEventListenerDropDown = () => {
                 state = event.target.value;
                 updateActiveTrip("state", state);
                 createDropDownPark(state);
+                // TODO activate button button.style["display"] = Block
                 break;
             case "dropPark":
                 parkId = event.target.value;
@@ -211,7 +213,7 @@ export const resetTripSelection = () => {
     const populateDropDown = document.getElementById("parkDropDown");
     populateDropDown.innerHTML = createDropdownParkFrame();
     parkNamePreview.innerHTML = "National Park Name";
-    weatherView.innerHTML = "5 Day Weather Forecast";
+    weatherView.innerHTML = "5 Day Weather Forecast by ZipCode";
     eatNamePreview.innerHTML = "Eatery Name";
     bizNamePreview.innerHTML = "Bizzarerie Name";
 

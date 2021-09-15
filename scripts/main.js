@@ -1,6 +1,6 @@
 import { resetTripSelection, runDropdown } from "./dropdown.js";
 import { runModal } from "./modal.js";
-import { getBizarreryById, putTripCall } from "./data/DataManager.js";
+import { getBizarreryById, getTrips, putTripCall } from "./data/DataManager.js";
 import { updateSavedTrips } from "./SavedTrips.js";
 import { getParkById } from "./parks/ParkDataManager.js";
 import { directionLiteral, getDirections } from "./directions/DirectionDataManager.js";
@@ -10,8 +10,7 @@ runModal();
 // populate Saved Trips
 updateSavedTrips();
 
-const directionElement = document.querySelector(".directions-btn");
-const fillDirections = document.querySelector(".directions-fill");
+
 fillDirections.style.display = "block";
 
 //used for current location
@@ -29,55 +28,7 @@ let currentLong;
         })
 })();
 
-//used to gather the direction material through the parkid and current longitude and latitude
-directionElement.addEventListener("click", event => {
 
-    let parkLat;
-    let parkLong;
-    let bizLat;
-    let bizLong;
-    let eatLat;
-    let eatLong;
-    fillDirections.innerHTML = "";
-    if (
-        activeTripState.parkId != null &&
-        activeTripState.bazararieIds.length != 0 &&
-        activeTripState.eateryIds.length != 0
-    ) {
-        console.log(activeTripState.parkId);
-        getParkById(activeTripState.parkId).then(parkLoc => {
-            parkLat = parkLoc.latitude;
-            parkLong = parkLoc.longitude;
-            const useVar = getDirections(currentLat, currentLong, parkLat, parkLong).then(function (event) {
-                console.log(event.paths[0].instructions.length);
-
-                for (let count = 0; count < event.paths[0].instructions.length; count++) {
-
-                    fillDirections.innerHTML += directionLiteral(event.paths[0].instructions[count].text);
-
-                }
-            })
-        });
-
-        // getBizarreryById(activeTripState.bazararieIds).then(bizLoc => {
-        //     bizLat = bizLoc.latitude;
-        //     bizLong = bizLoc.longitude;
-        //     const useVar = getDirections(parkLat, parkLong, bizLat, bizLong).then(function (event) {
-        //         console.log(event.paths[0].instructions.length);
-
-        //         for (let count = 0; count < event.paths[0].instructions.length; count++) {
-
-        //             fillDirections.innerHTML += directionLiteral(event.paths[0].instructions[count].text);
-
-        //         }
-        //     })
-        // })
-
-    }
-
-})
-
-// saveActive trip while still being filled out
 let activeTripState = {
     state: null,
     parkId: null,

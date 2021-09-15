@@ -19,6 +19,7 @@ export const savedTripCardDetails = (tripDetails) => {
         <h3>${tripDetails.parkName}</h3>
         <p class="saved-trip--baz">Bazarrarie: ${tripDetails.bizName}</p>
         <p class="saved-trip--eat">Eatery: ${tripDetails.eatName}</p>
+        <div class="directions-btn">DIRECTIONS</div>
     </div>
     `;
 };

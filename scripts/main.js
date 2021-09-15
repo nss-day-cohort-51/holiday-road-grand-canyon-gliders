@@ -60,8 +60,6 @@ export const returnActiveTripState = () => {
 
 // update the state of the activeTrip
 export const updateActiveTrip = (attribute, value) => {
-    console.log(activeTripState);
-
     switch (attribute) {
         case "state":
         case "parkId":
@@ -77,9 +75,9 @@ export const updateActiveTrip = (attribute, value) => {
     if (
         activeTripState.parkId != null &&
         activeTripState.bazararieIds.length != 0 &&
-        activeTripState.eateryIds.length != 0
+        activeTripState.eateryIds.length != 0 &&
+        activeTripState.completed != true
     ) {
-        // if complete
         activeTripState.completed = true;
         activateSaveTripButton();
     }
@@ -94,8 +92,6 @@ const activateSaveTripButton = () => {
     const submitTrip = () => {
         // update server with active trip
         putTripCall().then(updateSavedTrips);
-        // repopulate Saved Trips List
-        // updateSavedTrips();
         // clear out trip selectors
         resetTripSelection();
         // clear active trip

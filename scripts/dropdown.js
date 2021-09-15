@@ -213,7 +213,7 @@ export const resetTripSelection = () => {
     const populateDropDown = document.getElementById("parkDropDown");
     populateDropDown.innerHTML = createDropdownParkFrame();
     parkNamePreview.innerHTML = "National Park Name";
-    weatherView.innerHTML = "5 Day Weather Forecast";
+    weatherView.innerHTML = "5 Day Weather Forecast by ZipCode";
     eatNamePreview.innerHTML = "Eatery Name";
     bizNamePreview.innerHTML = "Bizzarerie Name";
 

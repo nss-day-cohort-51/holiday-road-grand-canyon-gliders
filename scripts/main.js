@@ -24,7 +24,7 @@ let currentLong;
         currentLong = position.coords.longitude;
     },
         function (error) {
-            directionElement.style.display = "none";
+            console.log("na")
         })
 })();
 

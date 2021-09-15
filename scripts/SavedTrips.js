@@ -77,20 +77,22 @@ const fillDirections = document.querySelector(".directions-fill");
 const directionHeaderElement = document.querySelector(".directions-header");
 directionHeaderElement.style.display = "none";
 
-const directionsFunc = (input) => {
-    let currentLat;
-    let currentLong;
+//function used for gaining permission for location
+(function () {
+    navigator.geolocation.getCurrentPosition(function (position) {
+        currentLat = position.coords.latitude;
+        currentLong = position.coords.longitude;
+    },
+        function (error) {
+            directionElement.style.display = "none";
+        })
+})();
 
-    //function used for gaining permission for location
-    (function () {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            currentLat = position.coords.latitude;
-            currentLong = position.coords.longitude;
-        },
-            function (error) {
-                directionElement.style.display = "none";
-            })
-    })();
+let currentLat;
+let currentLong;
+
+const directionsFunc = (input) => {
+
 
     //query slectors for directions button and directions fill
     const directionElement = document.getElementById(`container`);
@@ -117,7 +119,7 @@ const directionsFunc = (input) => {
                     
                         const useVar = getDirections(currentLat, currentLong, parkLat, parkLong).then(function (event) {
                             if(event.paths == undefined){
-                                fillDirections.innerHTML = directionLiteral("Learn to swim");
+                                fillDirections.innerHTML = directionLiteral("Unable to provide directions");
                             }else{
                                 for (let count = 0; count < event.paths[0].instructions.length; count++) {
     

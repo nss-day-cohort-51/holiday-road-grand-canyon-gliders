@@ -84,13 +84,13 @@ export const putTripCall = () => {
         userId: 1, // hardcode the user as 1 until it's created
         timestamp: Date.now(),
         parkId: activeTrip.parkId,
-        bazararieIds: activeTrip.bazararieIds[0],
-        eateryIds: activeTrip.eateryIds[0],
+        bazararieIds: activeTrip.bazararieIds,
+        eateryIds: activeTrip.eateryIds,
         directionId:
             activeTrip.parkId +
-            activeTrip.bazararieIds[0] +
+            activeTrip.bazararieIds +
             "A" +
-            activeTrip.eateryIds[0],
+            activeTrip.eateryIds,
     };
     return fetch("http://localhost:8088/trips", {
         method: "POST",

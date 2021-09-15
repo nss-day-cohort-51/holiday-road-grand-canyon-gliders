@@ -20,10 +20,10 @@ import {
     getDirections,
 } from "./directions/DirectionDataManager.js";
 
-runDropdown();
-runModal();
-// populate Saved Trips
-updateSavedTrips();
+export const returnActiveTripState = () => {
+    const activeTripStateCopy = activeTripState;
+    return activeTripStateCopy;
+};
 
 //used for current location
 let currentLat;
@@ -37,7 +37,7 @@ let currentLong;
             currentLong = position.coords.longitude;
         },
         function (error) {
-            directionElement.style.display = "none";
+            // directionElement.style.display = "none";
         }
     );
 })();
@@ -75,11 +75,6 @@ export const getBizarrerieData = () => {
         bizModalPopup.innerHTML = bizDetailsInsert(bizData[0]);
         modal.style.display = "block";
     });
-};
-
-export const returnActiveTripState = () => {
-    const activeTripStateCopy = activeTripState;
-    return activeTripStateCopy;
 };
 
 // update the state of the activeTrip
@@ -135,3 +130,8 @@ const clearActiveTripState = () => {
         completed: false,
     };
 };
+
+runDropdown();
+runModal();
+// populate Saved Trips
+updateSavedTrips();

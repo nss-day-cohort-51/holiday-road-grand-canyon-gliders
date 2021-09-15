@@ -6,11 +6,8 @@
 
 @import "footer.css";
 @import "modal.css";
-<<<<<<< HEAD
 @import "forecast.css";
-=======
 @import "aside.css";
->>>>>>> cm-multipleAttractions
 
 /* removes highlights from selected boxes after click */
 input:focus,
@@ -258,20 +255,18 @@ h2 {
 
 .saved-trips {
   flex: 1;
-  padding: 0px 10px 50px 40px;
+  padding: 0px 20px 50px 20px;
   text-align: center;
   background-color: rgb(245, 245, 245);
   height: 100%;
+
 }
 
 .saved-trips__card {
-    border-bottom: 2px solid #9B2226;
     text-align: left;
-    margin-right: 20px; /* keeps separator line from being covered by scroll bar */
-}
+    padding: 9px;}
 
 .saved-trips__cards {
-  min-height: 600px;
-  max-height: 600px;
-  overflow-y: auto;
+  cursor: pointer;
+  background: rgb(186, 255, 255, .4);
 }

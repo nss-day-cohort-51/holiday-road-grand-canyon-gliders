@@ -18,6 +18,11 @@ const formatPhoneNumber = (obj) => {
     return formattedPhoneNumber;
 }
 
+const checkCost = (input) => {
+    if (input == 0) return "Free";
+    else return ("$" + input);
+}
+
 export const parkDetailsInsert = (parkData) => {
     const parkNum = parkData.contacts.phoneNumbers[0].phoneNumber;
     const dashedNum = formatPhoneNumber(parkNum);
@@ -38,13 +43,14 @@ export const parkDetailsInsert = (parkData) => {
 
         <div class="fees">
             <div class="modal-bold">Entrance Fee: </div>
-            <div>\$${parkData.entranceFees[0].cost}</div>
+            <div>${checkCost(parkData.entranceFees[0].cost)}</div>
         </div> <!-- closes fees-->
 
         <p>${parkData.description}</p>
       </div> <!-- closes modal-content -->
       `
 };
+
  const readBool = (input) => {
      if (input) return "Yes";
      else return "No";
@@ -69,12 +75,12 @@ export const eatDetailsInsert = (eatData) => {
 
         <div class="pets">
             <div class="modal-bold">Pet Friendly: </div>
-            <div>${eatData.ameneties.petFriendly}</div>
+            <div>${readBool(eatData.ameneties.petFriendly)}</div>
         </div> <!-- closes pets-->
 
         <div class="wifi">
             <div class="modal-bold">Wifi: </div>
-            <div>${eatData.ameneties.wifi}</div>
+            <div>${readBool(eatData.ameneties.wifi)}</div>
         </div> <!-- closes wifi-->
 
         <p>${eatData.description}</p>

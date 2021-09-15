@@ -25,13 +25,15 @@ export const getTrips = () => {
 
 export const getSingleTripByDirectionId = (input) => {
     //get local trip state
-    return fetch(`http://localhost:8088/trips/?directionId=${input}`).then((response) => {
-        return response.json().then((parsedResponse) => {
-            console.log(parsedResponse);
+    return fetch(`http://localhost:8088/trips/?directionId=${input}`).then(
+        (response) => {
+            return response.json().then((parsedResponse) => {
+                console.log(parsedResponse);
 
-            return parsedResponse;
-        });
-    });
+                return parsedResponse;
+            });
+        }
+    );
 };
 
 export const getAllParks = (Id) => {
@@ -77,15 +79,18 @@ export const getEateries = () => {
 export const putTripCall = () => {
     //get local trip state
     const activeTrip = returnActiveTripState();
-    console.log(activeTrip);
 
     const postObject = {
         userId: 1, // hardcode the user as 1 until it's created
         timestamp: Date.now(),
         parkId: activeTrip.parkId,
-        bazararieIds: activeTrip.bazararieIds[0],
-        eateryIds: activeTrip.eateryIds[0],
-        directionId: activeTrip.parkId + activeTrip.bazararieIds[0] + "A" + activeTrip.eateryIds[0]
+        bazararieIds: activeTrip.bazararieIds,
+        eateryIds: activeTrip.eateryIds,
+        directionId:
+            activeTrip.parkId +
+            activeTrip.bazararieIds +
+            "A" +
+            activeTrip.eateryIds,
     };
     return fetch("http://localhost:8088/trips", {
         method: "POST",
@@ -109,5 +114,42 @@ export const getEateryById = (id) => {
         .then((response) => response.json())
         .then((parsedResponse) => {
             return parsedResponse[0];
+        });
+};
+
+export const getBizarreriesByIdArray = (idArray) => {
+    console.log(idArray);
+    console.log(idArray);
+
+    // id query string should be a
+    let idQueryString = "?";
+    idArray.forEach((id) => {
+        //add an id for each id in the array
+        idQueryString += `id=${id}&`;
+    });
+    // remove the last '&'
+    idQueryString = idQueryString.slice(0, -1);
+
+    return fetch(`http://holidayroad.nss.team/bizarreries${idQueryString}`)
+        .then((response) => response.json())
+        .then((parsedResponse) => {
+            return parsedResponse;
+        });
+};
+
+export const getEateriesByIdArray = (idArray) => {
+    // id query string should be a
+    let idQueryString = "?";
+    idArray.forEach((id) => {
+        //add an id for each id in the array
+        idQueryString += `id=${id}&`;
+    });
+    // remove the last '&'
+    idQueryString = idQueryString.slice(0, -1);
+
+    return fetch(`http://holidayroad.nss.team/eateries${idQueryString}`)
+        .then((response) => response.json())
+        .then((parsedResponse) => {
+            return parsedResponse;
         });
 };

@@ -1,7 +1,7 @@
 import { getParkData } from "./main.js";
 import { getEateryData } from "./main.js";
 import { getBizarrerieData } from "./main.js";
-
+import { returnActiveTripState } from "./main.js";
 const formatPhoneNumber = (obj) => {
     const origNum = obj;
     const arrayOfDigits = Array.from(String(origNum), Number);
@@ -107,15 +107,17 @@ export const runModal = () => {
     // Get the modal
     const modal = document.getElementById("modal");
 
+    const tripState = returnActiveTripState();
+
     document.addEventListener("click", (event) => {
         if (event.target.id.startsWith("detail-button")) {
             const buttonId = event.target.id.split("--")[1];
             // modal display for the given feature
-            if (buttonId === "eat") {
+            if (buttonId === "eat" && tripState.eateryIds != []) {
                 getEateryData();
-            } else if (buttonId === "biz") {
+            } else if (buttonId === "biz" && tripState.bazararieIds != []) {
                 getBizarrerieData();
-            } else if (buttonId === "park") {
+            } else if (buttonId === "park" && tripState.parkId != null) {
                 getParkData();
             }
         }

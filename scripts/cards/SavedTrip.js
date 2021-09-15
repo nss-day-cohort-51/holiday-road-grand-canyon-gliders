@@ -13,12 +13,13 @@ export const savedTripCard = (tripDetails) => {
     `;
 };
 
-export const savedTripCardDetails = (tripDetails) => {
+export const savedTripCardDetails = (tripDetails,directionId) => {
     return `
     <div class="saved-trips__card"> 
         <h3>${tripDetails.parkName}</h3>
         <p class="saved-trip--baz">Bazarrarie: ${tripDetails.bizName}</p>
         <p class="saved-trip--eat">Eatery: ${tripDetails.eatName}</p>
+        <button id="directions-btn--${directionId}">DIRECTIONS</button>
     </div>
     `;
 };

@@ -1,17 +1,34 @@
 import { resetTripSelection, runDropdown } from "./dropdown.js";
+import { getBizarreryById, getTrips, putTripCall, getParkById } from "./data/DataManager.js";
 import { runModal, eatDetailsInsert, bizDetailsInsert, parkDetailsInsert } from "./modal.js";
-import { putTripCall, getParkById } from "./data/DataManager.js";
 import { getParkByCode } from "./parks/ParkDataManager.js";
 import { getEatNameById } from "./eateries/EateryDataManager.js";
 import { getBizNameById } from "./bizarreries/BizarreriesDataManager.js";
 import { updateSavedTrips } from "./SavedTrips.js";
+import { directionLiteral, getDirections } from "./directions/DirectionDataManager.js";
 
 runDropdown();
 runModal();
 // populate Saved Trips
 updateSavedTrips();
 
-// saveActive trip while still being filled out
+
+//used for current location
+let currentLat;
+let currentLong;
+
+//Lines 22-29 used for gaining permission for location
+(function () {
+    navigator.geolocation.getCurrentPosition(function (position) {
+        currentLat = position.coords.latitude;
+        currentLong = position.coords.longitude;
+    },
+        function (error) {
+            console.log("na")
+        })
+})();
+
+
 let activeTripState = {
     state: null,
     parkId: null,

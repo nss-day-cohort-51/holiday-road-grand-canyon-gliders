@@ -19,8 +19,6 @@ export const getWeatherZip = (zip) => {
 const formatDate = (obj) => {
     const date = new Date(obj);
     const dateStr = date.toString(); // converts date object to a string
-    console.log("dateStr is: ", dateStr);
-    console.log(typeof dateStr);
     const formattedDate = dateStr.substring(0,3); // takes first 3 letters of date string so we can display it as Mon, Tue, etc
     return formattedDate;
 }
@@ -33,23 +31,18 @@ const formatTemp = (obj) => {
 export const addWeather = (weatherList, zipCode) => {
 
     const dayOne = formatDate(weatherList[3].dt_txt);
-    console.log("day one is:", dayOne);
     const dayOneTemp = formatTemp(weatherList[3].main.temp);
 
     const dayTwo = formatDate(weatherList[11].dt_txt);
-    console.log("day two is:", dayTwo);
     const dayTwoTemp = formatTemp(weatherList[11].main.temp);
 
     const dayThree = formatDate(weatherList[19].dt_txt);
-    console.log("day three is:", dayThree);
     const dayThreeTemp = formatTemp(weatherList[19].main.temp);
 
     const dayFour = formatDate(weatherList[27].dt_txt);
-    console.log("day four is:", dayFour);
     const dayFourTemp = formatTemp(weatherList[27].main.temp);
 
     const dayFive = formatDate(weatherList[35].dt_txt);
-    console.log("day five is:", dayFive);
     const dayFiveTemp = formatTemp(weatherList[35].main.temp);
 
     return `

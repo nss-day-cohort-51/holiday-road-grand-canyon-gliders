@@ -3,18 +3,12 @@ import { getEateryData } from "./main.js";
 import { getBizarrerieData } from "./main.js";
 
 const formatPhoneNumber = (obj) => {
-    console.log("obj argument is: ", (typeof obj));
     const origNum = obj;
-    console.log("origNum is: ", origNum);
     const arrayOfDigits = Array.from(String(origNum), Number);
-    console.log("arrayOfDigits is: ", arrayOfDigits)
     arrayOfDigits.splice(0, 0, "(");
-    console.log("arrayOfDigits after splice1 is now: ", arrayOfDigits)
     arrayOfDigits.splice(4, 0, ") ");
     arrayOfDigits.splice(8, 0, "-");
-    console.log("arrayOfDigits after splice2 is now: ", arrayOfDigits)
-    const formattedPhoneNumber = arrayOfDigits.join("");
-    console.log("formattedPhoneNumber after join: ", formattedPhoneNumber);
+    const formattedPhoneNumber = arrayOfDigits.join(""); formattedPhoneNumber);
     return formattedPhoneNumber;
 }
 
@@ -130,89 +124,3 @@ export const runModal = () => {
         }
     });
 };
-
-
-    // When the user clicks the button, open the modal
-
-    // parkBtn.onclick = function () {
-    //     modal.style.display = "block";
-    // };
-
-    // eatBtn.onclick = function () {
-    //     eatModal.style.display = "block";
-    // };
-
-    // bizBtn.onclick = function () {
-    //     bizModal.style.display = "block";
-    // };
-
-    // When the user clicks on <span> (x), close the modal
-    // spanPark.onclick = function () {
-    //     modal.style.display = "none";
-    // };
-
-    // spanEats.onclick = function () {
-    //     eatModal.style.display = "none";
-    // };
-
-    // spanBiz.onclick = function () {
-    //     bizModal.style.display = "none";
-    // };
-    // TODO reintroduce modal closing when you click out of window
-    // // When the user clicks anywhere outside of the modal, close it
-
-
-
-    // window.onclick = function (event) {
-    //     switch (event.target.id) {
-    //         case modal:
-    //             modal.style.display = "none";
-
-
-
-
-            // case eatModal:
-            //     eatModal.style.display = "none";
-            // case bizModal:
-            //     bizModal.style.display = "none";
-    //     }
-    // };
-
-    // ************* END THE  MODAL JS *******************
-
-    // // Get the modal
-// const modal = document.getElementById("modal");
-
-// // Get the button that opens the modal
-// const parkBtn = document.getElementById("detail-button--park");
-
-// // Get the <span> element that closes the modal
-// const span = document.getElementsByClassName("close")[0];
-
-// // When the user clicks the button, open the modal
-// parkBtn.onclick = function() {
-//   modal.style.display = "block";
-// }
-
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//   modal.style.display = "none";
-// }
-
-// When the user clicks anywhere outside of the modal, close it
-// document.addEventListener("click", (event) => {
-//     if (event.target == modal) {
-//         modal.style.display = "none";
-//     }
-// });
-
-// const modalDetailsInsert = (modalId) => {
-//     return `                        
-//       <div class="modal-content">
-//         <span class="close-modal" id="close-modal--${modalId}">&times;</span>
-//         <h2>${modalId} NAME GOES HERE</h2>
-//         <p>All the info about the ${modalId} the user chose from the dropdown menu goes here. If you click on the X or anywhere that's not on this popup, it will close this window.</p>
-//       </div> <!-- closes modal-content -->
-//       `
-// };
-// };

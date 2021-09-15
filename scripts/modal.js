@@ -1,5 +1,33 @@
+import { getParkData } from "./main.js";
 import { getEateryData } from "./main.js";
 import { getBizarrerieData } from "./main.js";
+
+
+export const parkDetailsInsert = (parkData) => {
+    return `                        
+      <div class="modal-content">
+        <span class="close-modal" id="close-modal--${parkData.Id}">&times;</span>
+        <h2>${parkData.fullName}</h2>
+
+        <div class="address">
+            <div class="modal-bold">Address:  </div>
+            <div>${parkData.addresses[0].line1}, ${parkData.addresses[0].city} ${parkData.addresses[0].stateCode}</div>
+        </div> <!-- closes address-->
+
+        <div class="phone-number">
+            <div class="modal-bold">Phone Number: </div>
+            <div>${parkData.contacts.phoneNumbers[0].phoneNumber}</div>
+        </div> <!-- closes wheelchair-->
+
+        <div class="fees">
+            <div class="modal-bold">Entrance Fee: </div>
+            <div>\$${parkData.entranceFees[0].cost}</div>
+        </div> <!-- closes fees-->
+
+        <p>${parkData.description}</p>
+      </div> <!-- closes modal-content -->
+      `
+};
 
 export const eatDetailsInsert = (eatData) => {
     return `                        
@@ -35,7 +63,7 @@ export const eatDetailsInsert = (eatData) => {
 export const bizDetailsInsert = (bizData) => {
     return `                        
       <div class="modal-content">
-        <span class="close-modal" id="close-modal--${bizData.Id}">&times;</span>
+        <span class="close-modal" id="close-modal--${bizData.Id}">&times;</span> 
         <h2>${bizData.name}</h2>
 
         <div class="location">
@@ -65,7 +93,7 @@ export const runModal = () => {
                 getBizarrerieData();
             }
             else if (buttonId === "park") {
-                // getParkData();
+                getParkData();
             }
         }
         if (event.target.id.startsWith("close-modal")) {

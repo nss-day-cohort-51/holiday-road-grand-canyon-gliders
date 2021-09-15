@@ -204,6 +204,7 @@ export const resetTripSelection = () => {
     const bizDropDown = document.getElementById("dropBiz");
 
     const parkNamePreview = document.getElementById("parkPreview");
+    const weatherView = document.getElementById("weather-view");
     const eatNamePreview = document.getElementById("eatPreview");
     const bizNamePreview = document.getElementById("bizPreview");
 

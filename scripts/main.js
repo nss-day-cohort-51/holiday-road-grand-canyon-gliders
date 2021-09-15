@@ -1,6 +1,7 @@
 import { resetTripSelection, runDropdown } from "./dropdown.js";
-import { runModal, eatDetailsInsert, bizDetailsInsert } from "./modal.js";
+import { runModal, eatDetailsInsert, bizDetailsInsert, parkDetailsInsert } from "./modal.js";
 import { putTripCall } from "./data/DataManager.js";
+import { getParkByCode } from "./parks/ParkDataManager.js";
 import { getEatNameById } from "./eateries/EateryDataManager.js";
 import { getBizNameById } from "./bizarreries/BizarreriesDataManager.js";
 import { updateSavedTrips } from "./SavedTrips.js";
@@ -18,6 +19,17 @@ let activeTripState = {
     eateryIds: [],
     completed: false,
 };
+
+export const getParkData = () => {
+    const parkModalPopup = document.getElementById("modal");   
+    const userPark = activeTripState.parkId;
+    console.log("userPark is: ", userPark);
+    const userParkData = getParkByCode(userPark).then(parkData => {
+        console.log("park name is: ", parkData.fullName);
+        parkModalPopup.innerHTML = parkDetailsInsert(parkData);
+        modal.style.display = "block"; 
+    });
+}
 
 export const getEateryData = () => {
     const eatModalPopup = document.getElementById("modal");   

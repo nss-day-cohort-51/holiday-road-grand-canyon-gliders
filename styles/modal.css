@@ -26,7 +26,7 @@ display: none; /* Hidden by default */
 .modal-content h2 {
     text-align: center;
     padding: 0px;
-    margin: 0px;
+    margin-bottom: 20px;
 }
 
 .modal-bold {
@@ -34,7 +34,7 @@ display: none; /* Hidden by default */
     margin-right: 10px;
 }
 
-.location, .wheelchair, .pets, .wifi {
+.address, .phone-number, .fees, .location, .wheelchair, .pets, .wifi  {
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -43,7 +43,7 @@ display: none; /* Hidden by default */
 /* The Close Buttons */
 .close-modal {
     color: #aaaaaa;
-    float: right;
+    float: right; /* this floats the X in the top right of modal */
     font-size: 28px;
     font-weight: bold;
 }

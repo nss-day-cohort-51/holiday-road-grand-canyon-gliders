@@ -66,7 +66,6 @@ export const getEateries = () => {
 export const putTripCall = () => {
     //get local trip state
     const activeTrip = returnActiveTripState();
-    console.log("putting", activeTrip);
 
     const postObject = {
         userId: 1, // hardcode the user as 1 until it's created

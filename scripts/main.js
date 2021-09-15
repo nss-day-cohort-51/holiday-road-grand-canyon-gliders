@@ -24,8 +24,6 @@ export const returnActiveTripState = () => {
 
 // update the state of the activeTrip
 export const updateActiveTrip = (attribute, value) => {
-    console.log("updating:", activeTripState);
-
     switch (attribute) {
         case "state":
         case "parkId":
@@ -47,7 +45,6 @@ export const updateActiveTrip = (attribute, value) => {
         activeTripState.completed = true;
         activateSaveTripButton();
     }
-    console.log("updated", activeTripState);
 };
 
 const activateSaveTripButton = () => {

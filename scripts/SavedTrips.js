@@ -6,15 +6,14 @@ import {
     getBizarreryById,
     getEateryById,
     getParkById,
-<<<<<<< HEAD
     getBizarreriesByIdArray,
     getEateriesByIdArray,
-=======
-    getSingleTripByDirectionId,
->>>>>>> feef0bc21e22bd141ec0776c6e4fb1d0fb4f2979
 } from "./data/DataManager.js";
 import { savedTripCard, savedTripCardDetails } from "./cards/SavedTrip.js";
-import { getDirections, directionLiteral } from "./directions/DirectionDataManager.js";
+import {
+    getDirections,
+    directionLiteral,
+} from "./directions/DirectionDataManager.js";
 
 // export const updateSavedTrips = () => {
 //     const savedTripsELem = document.querySelector(".saved-trips-container");
@@ -49,7 +48,6 @@ export const updateSavedTrips = () => {
                 bizName: [],
                 eatName: [],
             };
-<<<<<<< HEAD
             // console.log(tripObj);
 
             // Make a Fetch to Bizs Eats and Parks by Id and save the name under trip details
@@ -61,12 +59,6 @@ export const updateSavedTrips = () => {
                     for (const bizObj of bizObjs) {
                         tripDetails.bizName.push(bizObj.name);
                     }
-=======
-            //Make a Fetch to Bizs Eats and Parks by Id and save the name under trip details
-            getBizarreryById(tripObj.bazararieIds)
-                .then((biz) => {
-                    tripDetails.bizName = biz.name;
->>>>>>> feef0bc21e22bd141ec0776c6e4fb1d0fb4f2979
                 })
                 .then(() => {
                     getEateriesByIdArray(tripObj.eateryIds)
@@ -83,11 +75,13 @@ export const updateSavedTrips = () => {
                                 .then(() => {
                                     // when all the information is received inject the saved trip card into DOM eith the details containing names
                                     savedTripsELem.innerHTML +=
-                                        savedTripCardDetails(tripDetails, tripObj.directionId)
+                                        savedTripCardDetails(
+                                            tripDetails,
+                                            tripObj.directionId
+                                        );
                                     ///
                                     directionsFunc(tripObj.directionId);
-                                })
-                                ;
+                                });
                         });
                 });
         }
@@ -104,13 +98,15 @@ const directionsFunc = (input) => {
 
     //function used for gaining permission for location
     (function () {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            currentLat = position.coords.latitude;
-            currentLong = position.coords.longitude;
-        },
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                currentLat = position.coords.latitude;
+                currentLong = position.coords.longitude;
+            },
             function (error) {
                 directionElement.style.display = "none";
-            })
+            }
+        );
     })();
 
     //query slectors for directions button and directions fill
@@ -119,7 +115,7 @@ const directionsFunc = (input) => {
     // const fillDirections = document.querySelector(".directions-fill");
 
     //event listener for button
-    directionElement.addEventListener("click", event => {
+    directionElement.addEventListener("click", (event) => {
         if (event.target.id == `directions-btn--${input}`) {
             directionHeaderElement.style.display = "block";
             let parkLat;
@@ -129,28 +125,36 @@ const directionsFunc = (input) => {
             fillDirections.innerHTML = "";
 
             //getTrip is used to get directions from local api trips
-            const getTrip = getSingleTripByDirectionId(input).then(taco => {
+            const getTrip = getSingleTripByDirectionId(input).then((taco) => {
                 console.log(taco);
-                getParkById(taco[0].parkId).then(parkLoc => {
+                getParkById(taco[0].parkId).then((parkLoc) => {
                     console.log(parkLoc);
                     parkLat = parkLoc.latitude;
                     parkLong = parkLoc.longitude;
-                    
-                        const useVar = getDirections(currentLat, currentLong, parkLat, parkLong).then(function (event) {
-                            if(event.paths == undefined){
-                                fillDirections.innerHTML = directionLiteral("Learn to swim");
-                            }else{
-                                for (let count = 0; count < event.paths[0].instructions.length; count++) {
-    
-                                    fillDirections.innerHTML += directionLiteral(event.paths[0].instructions[count].text);
-        
-                                }
+
+                    const useVar = getDirections(
+                        currentLat,
+                        currentLong,
+                        parkLat,
+                        parkLong
+                    ).then(function (event) {
+                        if (event.paths == undefined) {
+                            fillDirections.innerHTML =
+                                directionLiteral("Learn to swim");
+                        } else {
+                            for (
+                                let count = 0;
+                                count < event.paths[0].instructions.length;
+                                count++
+                            ) {
+                                fillDirections.innerHTML += directionLiteral(
+                                    event.paths[0].instructions[count].text
+                                );
                             }
                         }
-                    );
+                    });
                 });
-            })
+            });
         }
-
-    })
-}
+    });
+};

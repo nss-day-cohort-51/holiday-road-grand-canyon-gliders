@@ -51,32 +51,32 @@ export const addWeather = (weatherList, zipCode) => {
             
             <section class="forecastCard dayOne">  
                 <h3 class="forecastTitle">${dayOne}</h3>
-                <div>${dayOneTemp}°</div>
-                <div>${weatherList[3].weather[0].main}</div>
+                <div class="temp">${dayOneTemp}°</div>
+                <div class="outlook">${weatherList[3].weather[0].main}</div>
             </section> <!-- closes dayOne -->
 
             <section class="forecastCard dayTwo">
                 <h3 class="forecastTitle">${dayTwo}</h3>
-                <div>${dayTwoTemp}°</div>
-                <div>${weatherList[11].weather[0].main}</div>
+                <div class="temp">${dayTwoTemp}°</div>
+                <div class="outlook">${weatherList[11].weather[0].main}</div>
             </section> <!-- closes dayTwo -->
 
             <section class="forecastCard dayThree">
                 <h3 class="forecastTitle">${dayThree}</h3>
-                <div>${dayThreeTemp}°</div>
-                <div>${weatherList[19].weather[0].main}</div>
+                <div class="temp">${dayThreeTemp}°</div>
+                <div class="outlook">${weatherList[19].weather[0].main}</div>
             </section> <!-- closes dayThree -->
 
             <section class="forecastCard dayFour">
                 <h3 class="forecastTitle">${dayFour}</h3>
-                <div>${dayFourTemp}°</div>
-                <div>${weatherList[27].weather[0].main}</div>
+                <div class="temp">${dayFourTemp}°</div>
+                <div class="outlook">${weatherList[27].weather[0].main}</div>
             </section> <!-- closes dayFour -->
 
             <section class="forecastCard dayFive">
                 <h3 class="forecastTitle">${dayFive}</h3>
-                <div>${dayFiveTemp}°</div>
-                <div>${weatherList[35].weather[0].main}</div>
+                <div class="temp">${dayFiveTemp}°</div>
+                <div class="outlook">${weatherList[35].weather[0].main}</div>
             </section> <!-- closes dayFive -->
 
         </div> <!-- closes forecastCardList -->

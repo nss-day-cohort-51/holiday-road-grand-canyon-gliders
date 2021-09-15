@@ -20,7 +20,6 @@ export const onEatChanged = (eat) => {
     const eatNamePreview = document.getElementById("eatPreview");
 
     const getEatVar = getEatNameById(eat).then(eatName => {
-        console.log(eatName[0].businessName);
         eatNamePreview.innerHTML = eatName[0].businessName;
     })
     updateActiveTrip("eateryIds", eat);

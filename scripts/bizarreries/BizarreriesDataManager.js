@@ -20,7 +20,6 @@ export const onBizChanged = (biz) => {
     const bizNamePreview = document.getElementById("bizPreview");
 
     const getBizVar = getBizNameById(biz).then(bizName => {
-            console.log(bizName[0].name);
             bizNamePreview.innerHTML = bizName[0].name;
         })
         updateActiveTrip("bazararieIds", biz);

@@ -109,7 +109,6 @@ export const runModal = () => {
 
     document.addEventListener("click", (event) => {
         if (event.target.id.startsWith("detail-button")) {
-            console.log("detail button clicked");
             const buttonId = event.target.id.split("--")[1];
             // modal display for the given feature
             if (buttonId === "eat") {
@@ -121,7 +120,6 @@ export const runModal = () => {
             }
         }
         if (event.target.id.startsWith("close-modal")) {
-            console.log("modal X clicked");
             modal.style.display = "none";
         }
     });

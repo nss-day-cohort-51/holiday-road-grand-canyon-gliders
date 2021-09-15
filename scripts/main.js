@@ -23,9 +23,7 @@ let activeTripState = {
 export const getParkData = () => {
     const parkModalPopup = document.getElementById("modal");   
     const userPark = activeTripState.parkId;
-    console.log("userPark is: ", userPark);
     const userParkData = getParkById(userPark).then(parkData => {
-        console.log("park name is: ", parkData.fullName);
         parkModalPopup.innerHTML = parkDetailsInsert(parkData);
         modal.style.display = "block"; 
     });
@@ -34,9 +32,7 @@ export const getParkData = () => {
 export const getEateryData = () => {
     const eatModalPopup = document.getElementById("modal");   
     const userEats = activeTripState.eateryIds[0];
-    console.log("userEats is: ", userEats);
     const userEatsData = getEatNameById(userEats).then(eatData => {
-        console.log("eatery business name is: ", eatData[0].businessName);
         eatModalPopup.innerHTML = eatDetailsInsert(eatData[0]);
         modal.style.display = "block"; 
     });
@@ -45,9 +41,7 @@ export const getEateryData = () => {
 export const getBizarrerieData = () => {
     const bizModalPopup = document.getElementById("modal");   
     const userBiz = activeTripState.bazararieIds[0];
-    console.log("userBiz is: ", userBiz);
     const userBizData = getBizNameById(userBiz).then(bizData => {
-        console.log("biz business name is: ", bizData[0].businessName);
         bizModalPopup.innerHTML = bizDetailsInsert(bizData[0]);
         modal.style.display = "block"; 
     });
@@ -60,7 +54,6 @@ export const returnActiveTripState = () => {
 
 // update the state of the activeTrip
 export const updateActiveTrip = (attribute, value) => {
-    console.log(activeTripState);
 
     switch (attribute) {
         case "state":

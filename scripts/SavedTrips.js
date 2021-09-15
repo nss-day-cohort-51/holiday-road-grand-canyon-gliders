@@ -36,6 +36,8 @@ export const updateSavedTrips = () => {
                 bizName: null,
                 eatNAME: null,
             };
+            // console.log(tripObj);
+
             // Make a Fetch to Bizs Eats and Parks by Id and save the name under trip details
             getBizarreryById(tripObj.bazararieIds)
                 .then((biz) => {

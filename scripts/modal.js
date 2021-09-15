@@ -82,16 +82,16 @@ export const runModal = () => {
     // };
     // TODO reintroduce modal closing when you click out of window
     // // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        switch (event.target.id) {
-            case modal:
-                modal.style.display = "none";
-            // case eatModal:
-            //     eatModal.style.display = "none";
-            // case bizModal:
-            //     bizModal.style.display = "none";
-        }
-    };
+    // window.onclick = function (event) {
+    //     switch (event.target.id) {
+    //         case modal:
+    //             modal.style.display = "none";
+    //         // case eatModal:
+    //         //     eatModal.style.display = "none";
+    //         // case bizModal:
+    //         //     bizModal.style.display = "none";
+    //     }
+    // };
 
     // ************* END THE  MODAL JS *******************
 };

@@ -61,7 +61,6 @@ export const onParkChanged = (parkId) => {
     const getCityVar = getZip(parkId).then(zipNum => {
         const zipCode = zipNum.slice(0, 5);
         const getWeatherVar = getWeatherZip(zipCode).then(fiveDayWeather => {
-            console.log(fiveDayWeather.list);
             const displayWeather = document. querySelector(".preview-text-sm");
             displayWeather.innerHTML = addWeather(fiveDayWeather.list, zipCode);
         })

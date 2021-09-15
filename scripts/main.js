@@ -53,7 +53,6 @@ const activateSaveTripButton = () => {
     saveButtonElement.style.cursor = "pointer";
     saveButtonElement.style["background-color"] = "green";
 
-    console.log("adding Event Listener");
     const submitTrip = () => {
         // update server with active trip
         putTripCall().then(updateSavedTrips);

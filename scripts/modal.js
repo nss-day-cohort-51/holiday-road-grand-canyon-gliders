@@ -9,7 +9,7 @@ const formatPhoneNumber = (obj) => {
     arrayOfDigits.splice(0, 0, "(");
     arrayOfDigits.splice(4, 0, ") ");
     arrayOfDigits.splice(8, 0, "-");
-    const formattedPhoneNumber = arrayOfDigits.join(""); formattedPhoneNumber);
+    const formattedPhoneNumber = arrayOfDigits.join("");
     return formattedPhoneNumber;
     } else return obj;
 }

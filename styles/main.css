@@ -6,6 +6,7 @@
 
 @import "footer.css";
 @import "modal.css";
+@import "forecast.css";
 
 /* removes highlights from selected boxes after click */
 input:focus,
@@ -16,9 +17,9 @@ button:focus {
   box-shadow: none;
 }
 
-html {
+/* html {
   height: 100%;
-}
+} */
 
 /* making body:flex, min-height:100vh, & main flex:1 makes footer stay at bottom */
 body {
@@ -44,7 +45,7 @@ header {
 
 /* logo */
 .logo-RVTY {
-  width: 175px;
+  width: 200px;
   padding-left: 50px;
 }
 
@@ -77,7 +78,7 @@ main {
 .options-container span {
   font-size: 24px;
   white-space: nowrap;
-  margin: auto 10px;
+  margin: 0px 30px 0px 10px;
 }
 
 /* State & Park dropdown box */
@@ -90,8 +91,8 @@ main {
   white-space: nowrap;
   padding: 0px 10px;
   margin: 0px 20px;
-  border: 3px solid darkgray;
-  border-radius: 5px;
+  /* border: 3px solid darkgray;
+  border-radius: 5px; */
   background-color: white;
 }
 
@@ -107,8 +108,8 @@ main {
   white-space: nowrap;
   padding: 0px 10px;
   margin: 0px 20px;
-  border: 3px solid darkgray;
-  border-radius: 5px;
+  /* border: 3px solid darkgray;
+  border-radius: 5px; */
   background-color: white;
 }
 
@@ -130,14 +131,14 @@ main {
 
 #dropState, #dropPark {
   width: 200px;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   border: transparent;
 }
 
 #dropEat, #dropBiz {
-  width: 225px;
-  font-size: 20px;
+  width: 240px;
+  font-size: 22px;
   font-weight: 600;
   border: transparent;
 }
@@ -146,7 +147,6 @@ main {
 .trip-container {
   display: flex;
   flex-direction: row;
-  height: 100%;
 }
 
 /* flex to hold headline */
@@ -184,12 +184,7 @@ h2 {
   display: flex;
   flex-direction: row;
   padding: 0px;
-  margin: 20px 0px;
-}
-
-/*  changing the div class="hidden-item" to "preview-box" using js will make it appear */
-.hide-item {
-  /* display: none; */
+  margin: 20px;
 }
 
 .preview-text {
@@ -201,7 +196,7 @@ h2 {
 .preview-text-sm {
   font-size: 16px;
   font-weight: 600;
-  align-self: center;;
+  align-self: center;
 }
 
 .detail-btn {
@@ -235,14 +230,14 @@ h2 {
   width: 100px;
   font-size: 20px;
   font-weight: 600;
-  color: #000000;
   cursor: pointer;
   padding: 5px 15px;
   margin: 50px auto;
+  color: #000000;
   border: 3px solid #66808F;
-  border-radius: 10px;
   background-color: rgb(225, 225, 225);
-  transition: 100ms all;    
+  border-radius: 10px;
+  transition: 100ms all;  
 }
 
 .save-trip-btn:hover {
@@ -250,20 +245,29 @@ h2 {
   color: white;
 }
 
+.save-trip-btn:disabled,
+.save-trip-btn[disabled]{
+  color: #000000;
+  border: 3px solid #66808F;
+  background-color: rgb(225, 225, 225);
+}
+
 .saved-trips {
   flex: 1;
-  padding: 0px 30px;
+  padding: 0px 10px 50px 40px;
   text-align: center;
   background-color: rgb(245, 245, 245);
   height: 100%;
 }
 
 .saved-trips__card {
-    border-top: solid 2px;
+    border-bottom: 2px solid #9B2226;
     text-align: left;
+    margin-right: 20px; /* keeps separator line from being covered by scroll bar */
 }
 
 .saved-trips__cards {
-  max-height: 700px;
-  overflow: scroll;
+  min-height: 600px;
+  max-height: 600px;
+  overflow-y: auto;
 }

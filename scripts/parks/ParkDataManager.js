@@ -1,6 +1,6 @@
 import { settings } from "../Settings.js";
 import { updateActiveTrip } from "../main.js";
-import { getWeatherZip } from "../weather/WeatherDataManager.js";
+import { getWeatherZip, addWeather } from "../weather/WeatherDataManager.js";
 
 export const getParks = (input) => {
 
@@ -16,7 +16,7 @@ return fetch(url)
 }
 
 
-//Used to get the city using the parkCode
+//Used to get the city (zipcode?) using the parkCode
 export const getZip = (input) => {
 
     const key = settings.npsKey;
@@ -57,11 +57,14 @@ export const onParkChanged = (parkId) => {
         updateActiveTrip("parkId", getId.id);
     });
 
-    //Used to get Weather from API using City Name
+    // Used to get Weather from API using Zip Code
     const getCityVar = getZip(parkId).then(zipNum => {
         const zipCode = zipNum.slice(0, 5);
         const getWeatherVar = getWeatherZip(zipCode).then(fiveDayWeather => {
             console.log(fiveDayWeather.list);
+            const displayWeather = document. querySelector(".preview-text-sm");
+            displayWeather.innerHTML = addWeather(fiveDayWeather.list, zipCode);
         })
     })
-}
+} 
+

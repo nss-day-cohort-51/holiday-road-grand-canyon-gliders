@@ -1,17 +1,29 @@
 import { resetTripSelection, runDropdown } from "./dropdown.js";
-import { getBizarreryById, getTrips, putTripCall, getParkById } from "./data/DataManager.js";
-import { runModal, eatDetailsInsert, bizDetailsInsert, parkDetailsInsert } from "./modal.js";
+import {
+    getBizarreryById,
+    getTrips,
+    putTripCall,
+    getParkById,
+} from "./data/DataManager.js";
+import {
+    runModal,
+    eatDetailsInsert,
+    bizDetailsInsert,
+    parkDetailsInsert,
+} from "./modal.js";
 import { getParkByCode } from "./parks/ParkDataManager.js";
 import { getEatNameById } from "./eateries/EateryDataManager.js";
 import { getBizNameById } from "./bizarreries/BizarreriesDataManager.js";
 import { updateSavedTrips } from "./SavedTrips.js";
-import { directionLiteral, getDirections } from "./directions/DirectionDataManager.js";
+import {
+    directionLiteral,
+    getDirections,
+} from "./directions/DirectionDataManager.js";
 
-runDropdown();
-runModal();
-// populate Saved Trips
-updateSavedTrips();
-
+export const returnActiveTripState = () => {
+    const activeTripStateCopy = activeTripState;
+    return activeTripStateCopy;
+};
 
 //used for current location
 let currentLat;
@@ -19,15 +31,17 @@ let currentLong;
 
 //Lines 22-29 used for gaining permission for location
 (function () {
-    navigator.geolocation.getCurrentPosition(function (position) {
-        currentLat = position.coords.latitude;
-        currentLong = position.coords.longitude;
-    },
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            currentLat = position.coords.latitude;
+            currentLong = position.coords.longitude;
+        },
         function (error) {
-            console.log("na")
-        })
-})();
+           // directionElement.style.display = "none";
+        }
+    );
 
+})();
 
 let activeTripState = {
     state: null,
@@ -38,40 +52,34 @@ let activeTripState = {
 };
 
 export const getParkData = () => {
-    const parkModalPopup = document.getElementById("modal");   
+    const parkModalPopup = document.getElementById("modal");
     const userPark = activeTripState.parkId;
-    const userParkData = getParkById(userPark).then(parkData => {
+    const userParkData = getParkById(userPark).then((parkData) => {
         parkModalPopup.innerHTML = parkDetailsInsert(parkData);
-        modal.style.display = "block"; 
+        modal.style.display = "block";
     });
-}
+};
 
 export const getEateryData = () => {
-    const eatModalPopup = document.getElementById("modal");   
+    const eatModalPopup = document.getElementById("modal");
     const userEats = activeTripState.eateryIds[0];
-    const userEatsData = getEatNameById(userEats).then(eatData => {
+    const userEatsData = getEatNameById(userEats).then((eatData) => {
         eatModalPopup.innerHTML = eatDetailsInsert(eatData[0]);
-        modal.style.display = "block"; 
+        modal.style.display = "block";
     });
-}
+};
 
 export const getBizarrerieData = () => {
-    const bizModalPopup = document.getElementById("modal");   
+    const bizModalPopup = document.getElementById("modal");
     const userBiz = activeTripState.bazararieIds[0];
-    const userBizData = getBizNameById(userBiz).then(bizData => {
+    const userBizData = getBizNameById(userBiz).then((bizData) => {
         bizModalPopup.innerHTML = bizDetailsInsert(bizData[0]);
-        modal.style.display = "block"; 
+        modal.style.display = "block";
     });
-}
-
-export const returnActiveTripState = () => {
-    const activeTripStateCopy = activeTripState;
-    return activeTripStateCopy;
 };
 
 // update the state of the activeTrip
 export const updateActiveTrip = (attribute, value) => {
-
     switch (attribute) {
         case "state":
         case "parkId":
@@ -87,9 +95,9 @@ export const updateActiveTrip = (attribute, value) => {
     if (
         activeTripState.parkId != null &&
         activeTripState.bazararieIds.length != 0 &&
-        activeTripState.eateryIds.length != 0
+        activeTripState.eateryIds.length != 0 &&
+        activeTripState.completed != true
     ) {
-        // if complete
         activeTripState.completed = true;
         activateSaveTripButton();
     }
@@ -104,8 +112,6 @@ const activateSaveTripButton = () => {
     const submitTrip = () => {
         // update server with active trip
         putTripCall().then(updateSavedTrips);
-        // repopulate Saved Trips List
-        // updateSavedTrips();
         // clear out trip selectors
         resetTripSelection();
         // clear active trip
@@ -125,3 +131,8 @@ const clearActiveTripState = () => {
         completed: false,
     };
 };
+
+runDropdown();
+runModal();
+// populate Saved Trips
+updateSavedTrips();

@@ -1,6 +1,7 @@
 import { getParkData } from "./main.js";
 import { getEateryData } from "./main.js";
 import { getBizarrerieData } from "./main.js";
+import { returnActiveTripState } from "./main.js";
 
 const formatPhoneNumber = (obj) => {
     if (obj.length == 10) {
@@ -12,24 +13,29 @@ const formatPhoneNumber = (obj) => {
     const formattedPhoneNumber = arrayOfDigits.join("");
     return formattedPhoneNumber;
     } else return obj;
-}
+};
 
 const checkCost = (input) => {
     if (input == 0) return "Free";
-    else return ("$" + input);
-}
+    else return "$" + input;
+};
 
 export const parkDetailsInsert = (parkData) => {
     const parkNum = parkData.contacts.phoneNumbers[0].phoneNumber;
     const dashedNum = formatPhoneNumber(parkNum);
     return `                        
       <div class="modal-content">
-        <span class="close-modal" id="close-modal--${parkData.Id}">&times;</span>
+        <span class="close-modal" id="close-modal--${
+            parkData.Id
+        }">&times;</span>
         <h2>${parkData.fullName}</h2>
 
         <div class="address">
             <div class="modal-bold">Address:  </div>
-            <div>${parkData.addresses[0].line1}, ${parkData.addresses[0].city} ${parkData.addresses[0].stateCode}</div>
+            <div>${parkData.addresses[0].line1}, 
+            ${parkData.addresses[0].city} 
+            ${parkData.addresses[0].stateCode}
+            </div>
         </div> <!-- closes address-->
 
         <div class="phone-number">
@@ -44,16 +50,15 @@ export const parkDetailsInsert = (parkData) => {
 
         <p>${parkData.description}</p>
       </div> <!-- closes modal-content -->
-      `
+      `;
 };
 
- const readBool = (input) => {
-     if (input) return "Yes";
-     else return "No";
- }
+const readBool = (input) => {
+    if (input) return "Yes";
+    else return "No";
+};
 
 export const eatDetailsInsert = (eatData) => {
-
     return `                        
       <div class="modal-content">
         <span class="close-modal" id="close-modal--${eatData.Id}">&times;</span>
@@ -61,7 +66,9 @@ export const eatDetailsInsert = (eatData) => {
 
         <div class="location">
             <div class="modal-bold">Location: </div>
-            <div class="city-state">${eatData.city}, ${eatData.state}</div> <!-- closes -->
+            <div class="city-state">${eatData.city}, ${
+        eatData.state
+    }</div> <!-- closes -->
         </div> <!-- closes location-->
 
         <div class="wheelchair">
@@ -81,7 +88,7 @@ export const eatDetailsInsert = (eatData) => {
 
         <p>${eatData.description}</p>
       </div> <!-- closes modal-content -->
-      `
+      `;
 };
 
 export const bizDetailsInsert = (bizData) => {
@@ -97,26 +104,25 @@ export const bizDetailsInsert = (bizData) => {
 
         <p>${bizData.description}</p>
       </div> <!-- closes modal-content -->
-      `
+      `;
 };
 
 export const runModal = () => {
-
     // Get the modal
     const modal = document.getElementById("modal");
+
+    const tripState = returnActiveTripState();
 
     document.addEventListener("click", (event) => {
         if (event.target.id.startsWith("detail-button")) {
             console.log("detail button clicked");
             const buttonId = event.target.id.split("--")[1];
             // modal display for the given feature
-            if (buttonId === "eat") {
+            if (buttonId === "eat" && tripState.eateryIds != []) {
                 getEateryData();
-            }
-            else if (buttonId === "biz") {
+            } else if (buttonId === "biz" && tripState.bazararieIds != []) {
                 getBizarrerieData();
-            }
-            else if (buttonId === "park") {
+            } else if (buttonId === "park" && tripState.parkId != null) {
                 getParkData();
             }
         }

@@ -6,10 +6,15 @@ import {
     getBizarreryById,
     getEateryById,
     getParkById,
+    getBizarreriesByIdArray,
+    getEateriesByIdArray,
     getSingleTripByDirectionId,
 } from "./data/DataManager.js";
 import { savedTripCard, savedTripCardDetails } from "./cards/SavedTrip.js";
-import { getDirections, directionLiteral } from "./directions/DirectionDataManager.js";
+import {
+    getDirections,
+    directionLiteral,
+} from "./directions/DirectionDataManager.js";
 
 // export const updateSavedTrips = () => {
 //     const savedTripsELem = document.querySelector(".saved-trips-container");
@@ -41,32 +46,43 @@ export const updateSavedTrips = () => {
             let tripDetails = {
                 id: null,
                 parkName: null,
-                bizName: null,
-                eatNAME: null,
+                bizName: [],
+                eatName: [],
             };
-            //Make a Fetch to Bizs Eats and Parks by Id and save the name under trip details
-            getBizarreryById(tripObj.bazararieIds)
-                .then((biz) => {
-                    tripDetails.bizName = biz.name;
+            // console.log(tripObj);
+
+            // Make a Fetch to Bizs Eats and Parks by Id and save the name under trip details
+            // console.log(tripObj.bazararieIds);
+            console.log(tripObj);
+            getBizarreriesByIdArray(tripObj.bazararieIds)
+                .then((bizObjs) => {
+                    console.log(bizObjs);
+                    for (const bizObj of bizObjs) {
+                        tripDetails.bizName.push(bizObj.name);
+                    }
                 })
                 .then(() => {
-                    getEateryById(tripObj.eateryIds)
-                        .then((eat) => {
-                            tripDetails.eatName = eat.businessName;
+                    getEateriesByIdArray(tripObj.eateryIds)
+                        .then((eatObjs) => {
+                            for (const eatObj of eatObjs) {
+                                tripDetails.eatName.push(eatObj.businessName);
+                            }
                         })
                         .then(() => {
                             getParkById(tripObj.parkId)
                                 .then((park) => {
-                                    tripDetails.parkName = park.name;
+                                    tripDetails.parkName = park.fullName;
                                 })
                                 .then(() => {
                                     // when all the information is received inject the saved trip card into DOM eith the details containing names
                                     savedTripsELem.innerHTML +=
-                                        savedTripCardDetails(tripDetails, tripObj.directionId)
+                                        savedTripCardDetails(
+                                            tripDetails,
+                                            tripObj.directionId
+                                        );
                                     ///
                                     directionsFunc(tripObj.directionId);
-                                })
-                                ;
+                                });
                         });
                 });
         }
@@ -79,28 +95,28 @@ directionHeaderElement.style.display = "none";
 
 //function used for gaining permission for location
 (function () {
-    navigator.geolocation.getCurrentPosition(function (position) {
-        currentLat = position.coords.latitude;
-        currentLong = position.coords.longitude;
-    },
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            currentLat = position.coords.latitude;
+            currentLong = position.coords.longitude;
+        },
         function (error) {
-            directionElement.style.display = "none";
-        })
+            // directionElement.style.display = "none";
+        }
+    );
 })();
 
 let currentLat;
 let currentLong;
 
 const directionsFunc = (input) => {
-
-
     //query slectors for directions button and directions fill
     const directionElement = document.getElementById(`container`);
 
     // const fillDirections = document.querySelector(".directions-fill");
 
     //event listener for button
-    directionElement.addEventListener("click", event => {
+    directionElement.addEventListener("click", (event) => {
         if (event.target.id == `directions-btn--${input}`) {
             directionHeaderElement.style.display = "block";
             let parkLat;
@@ -110,28 +126,37 @@ const directionsFunc = (input) => {
             fillDirections.innerHTML = "";
 
             //getTrip is used to get directions from local api trips
-            const getTrip = getSingleTripByDirectionId(input).then(taco => {
+            const getTrip = getSingleTripByDirectionId(input).then((taco) => {
                 console.log(taco);
-                getParkById(taco[0].parkId).then(parkLoc => {
+                getParkById(taco[0].parkId).then((parkLoc) => {
                     console.log(parkLoc);
                     parkLat = parkLoc.latitude;
                     parkLong = parkLoc.longitude;
-                    
-                        const useVar = getDirections(currentLat, currentLong, parkLat, parkLong).then(function (event) {
-                            if(event.paths == undefined){
-                                fillDirections.innerHTML = directionLiteral("Unable to provide directions");
-                            }else{
-                                for (let count = 0; count < event.paths[0].instructions.length; count++) {
-    
-                                    fillDirections.innerHTML += directionLiteral(event.paths[0].instructions[count].text);
-        
-                                }
+
+                    const useVar = getDirections(
+                        currentLat,
+                        currentLong,
+                        parkLat,
+                        parkLong
+                    ).then(function (event) {
+                        if (event.paths == undefined) {
+                            fillDirections.innerHTML = directionLiteral(
+                                "Unable to provide Directions"
+                            );
+                        } else {
+                            for (
+                                let count = 0;
+                                count < event.paths[0].instructions.length;
+                                count++
+                            ) {
+                                fillDirections.innerHTML += directionLiteral(
+                                    event.paths[0].instructions[count].text
+                                );
                             }
                         }
-                    );
+                    });
                 });
-            })
+            });
         }
-
-    })
-}
+    });
+};

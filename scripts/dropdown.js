@@ -147,6 +147,9 @@ export const createEventListenerDropDown = () => {
     //get element statements
     const contentElement = document.getElementById("container");
     const populateDropDown = document.getElementById("parkDropDown");
+    const parkDetailsButton = document.getElementById("detail-button--park");
+    const eatDetailsButton = document.getElementById("detail-button--eat");
+    const bizDetailsButton = document.getElementById("detail-button--biz");
 
     populateDropDown.innerHTML = createDropdownParkFrame();
 
@@ -168,6 +171,8 @@ export const createEventListenerDropDown = () => {
 
                 onParkChanged(parkId);
 
+                parkDetailsButton.style.display = "block";
+
                 break;
 
             case "dropEat":
@@ -175,12 +180,16 @@ export const createEventListenerDropDown = () => {
 
                 onEatChanged(eatId);
 
+                eatDetailsButton.style.display = "block";
+
                 break;
 
             case "dropBiz":
                 bizId = event.target.value;
 
                 onBizChanged(bizId);
+
+                bizDetailsButton.style.display = "block";
 
                 break;
         }
@@ -207,11 +216,19 @@ export const resetTripSelection = () => {
     const weatherView = document.querySelector(".preview-text-sm");
     const eatNamePreview = document.getElementById("eatPreview");
     const bizNamePreview = document.getElementById("bizPreview");
+    const parkDetailsButton = document.getElementById("detail-button--park");
+    const eatDetailsButton = document.getElementById("detail-button--eat");
+    const bizDetailsButton = document.getElementById("detail-button--biz");
 
     // reset parkDropdown
     parkDropDown.innerHTML = createDropdownParkFrame();
     const populateDropDown = document.getElementById("parkDropDown");
     populateDropDown.innerHTML = createDropdownParkFrame();
+
+    parkDetailsButton.style.display = "none";
+    eatDetailsButton.style.display = "none";
+    bizDetailsButton.style.display = "none";
+
     parkNamePreview.innerHTML = "National Park Name";
     weatherView.innerHTML = "5 Day Weather Forecast by ZipCode";
     eatNamePreview.innerHTML = "Eatery Name";

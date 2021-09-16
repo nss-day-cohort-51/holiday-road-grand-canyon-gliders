@@ -14,10 +14,6 @@
   border: 1px dashed black;
 }
 
-.card-one {
-  /* margin: 100px; */
-}
-
 /* This container is needed to position the front and back side */
 .flip-card-inner {
   position: relative;

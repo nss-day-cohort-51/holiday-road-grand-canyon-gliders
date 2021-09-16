@@ -24,11 +24,16 @@
 .saved-trips__cards {
     text-align: left;
     cursor: pointer;
-    padding: 7px 20px 20px 20px;
+    padding: 7px 0 20px 0;
     background: rgb(186, 255, 255, .4);
     min-height: 600px;
     max-height: 600px;
     overflow-y: auto;
+}
+
+.saved-trips-container {
+    overflow-y: auto;
+
 }
 
 .saved-trips__card p {
@@ -49,15 +54,17 @@
     flex-direction: column;
     justify-content: center;
     padding-bottom: 5px;
-    cursor:pointer;
+    margin-inline: 17px;
+    cursor:pointer
+
 }
 
 .saved-trips__line-break {
-    margin-top: 19px;
+    margin-top: 10px;
     border-bottom: 2px solid #9B2226;
 }
 
-.directions-btn {
+ .directions-btn {
     align-self: center;
     width: 150px;
     text-align: center;

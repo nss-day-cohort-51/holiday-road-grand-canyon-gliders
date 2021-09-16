@@ -1,7 +1,6 @@
 import { changeCollapsed, readCollapsed } from "../main.js";
 
 export const collapseSavedTrips = () => {
-    console.log(readCollapsed());
 
     if (readCollapsed()) {
         const savedTripsElem = document.querySelector(".saved-trips");

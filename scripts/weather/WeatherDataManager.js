@@ -88,5 +88,83 @@ export const addWeather = (weatherList, zipCode) => {
             </section> <!-- closes dayFive -->
 
         </div> <!-- closes forecastCardList -->
+
+        <div class="whole-flip-set">
+
+        <div class="flip-card">
+                <div class="flip-card-inner">
+
+                    <div class="flip-card-front">
+                    <h3 class="forecastTitle">${dayOne}</h3>
+                    <div class="temp">${dayOneTemp}°</div>
+                    <div class="outlook">${weatherList[0].weather[0].main}</div>
+                    <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[0].weather[0].icon}@2x.png" /></div>
+                    </div> <!-- closes flip-card-inner -->
+
+                    <div class="flip-card-back">
+                    <h3 class="forecastTitle">${dayOne}</h3>
+                    <div class="outlook">${weatherList[0].weather[0].description}</div>
+                    <div class="outlook">Low: ${weatherList[0].weather[0].main.temp_min}°</div>
+                    <div class="outlook">High:${weatherList[0].weather[0].main.temp_max}°</div>
+                    <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[0].weather[0].icon}@2x.png" /></div>
+                    </div> <!-- closes flip-card-back -->
+
+                </div> <!-- closes flip-card-inner -->
+        </div> <!-- closes flip-card -->
+    
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h1>Front</h1>
+                    <p>Test Words</p>
+                </div> <!-- closes flip-card-inner -->
+                <div class="flip-card-back">
+                    <h1>Back</h1>
+                    <p>Test Words</p>
+                </div> <!-- closes flip-card-back -->
+            </div> <!-- closes flip-card-inner -->
+        </div> <!-- closes flip-card -->
+    
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h1>Front</h1>
+                    <p>Test Words</p>
+                </div> <!-- closes flip-card-inner -->
+                <div class="flip-card-back">
+                    <h1>Back</h1>
+                    <p>Test Words</p>
+                </div> <!-- closes flip-card-back -->
+            </div> <!-- closes flip-card-inner -->
+        </div> <!-- closes flip-card -->
+    
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h1>Front</h1>
+                    <p>Test Words</p>
+                </div> <!-- closes flip-card-inner -->
+                <div class="flip-card-back">
+                    <h1>Back</h1>
+                    <p>Test Words</p>
+                </div> <!-- closes flip-card-back -->
+            </div> <!-- closes flip-card-inner -->
+        </div> <!-- closes flip-card -->
+    
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h1>Front</h1>
+                    <p>Test Words</p>
+                </div> <!-- closes flip-card-inner -->
+                <div class="flip-card-back">
+                    <h1>Back</h1>
+                    <p>Test Words</p>
+                </div> <!-- closes flip-card-back -->
+            </div> <!-- closes flip-card-inner -->
+        </div> <!-- closes flip-card -->
+    
+    </div> <!-- closes one-giant-div -->
+
         `;
 };

@@ -168,6 +168,7 @@ export const printEventsModalNone = () => {
     <span class="close-modal" id="close-modal--events">&times;</span> 
       <div class="dates">
         <h2>No Events</h2>
+        <div class="modal-bold-invalid">No current events for this park</div>
     </div> <!-- closes modal-content -->
     `
 
@@ -195,7 +196,7 @@ export const printDirectionsModalNone = () => {
     <span class="close-modal" id="close-modal--events">&times;</span> 
       <div class="dates">
         <h2>Unable to provide directions</h2>
-        <div class="modal-bold-invalid">Either permission for location has been rejected or the coordinates can not be accessed by road</div>
+        <div class="modal-bold-invalid">Either permission for location has been rejected or the coordinates can not be directly accessed by road</div>
     </div> <!-- closes modal-content -->
     `
 

@@ -5,7 +5,7 @@
     text-align: center;
     background-color: rgb(245, 245, 245);
     height: 100%;
-  }
+}
 
 .saved-trip__attraction--header {
     font-size: 18px;
@@ -29,7 +29,7 @@
     min-height: 600px;
     max-height: 600px;
     overflow-y: auto;
-  }
+}
 
 .saved-trips__card p {
     margin-inline-start: 35px;
@@ -38,7 +38,6 @@
 }
 
 .saved-trips__card h3 {
-    /* margin-block-end: -14px; */
     padding-left: 15px;
     margin: 15px 0px 10px 0px;
     font-size: 22px;
@@ -46,15 +45,10 @@
 }
 
 .saved-trips__card {
-    /* background-color: ; */
-    /* margin-top: 3px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* padding-left: 15px; */
     padding-bottom: 5px;
-    /* margin-inline: 20px;
-    margin-right: 30px; */
     cursor:pointer;
 }
 
@@ -77,4 +71,4 @@
     border-radius: 10px;
     background-color: rgb(225, 225, 225);
     transition: 100ms all;  
-  }
+}

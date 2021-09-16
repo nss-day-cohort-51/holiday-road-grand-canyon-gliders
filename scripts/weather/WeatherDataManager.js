@@ -88,5 +88,5 @@ export const addWeather = (weatherList, zipCode) => {
             </section> <!-- closes dayFive -->
 
         </div> <!-- closes forecastCardList -->
-    `;
+        `;
 };

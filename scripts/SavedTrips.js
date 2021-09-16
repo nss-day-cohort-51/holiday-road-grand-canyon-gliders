@@ -15,6 +15,7 @@ import {
     getDirections,
     directionLiteral,
 } from "./directions/DirectionDataManager.js";
+import { getEventsByParkCode } from "./parks/ParkDataManager.js";
 
 // export const updateSavedTrips = () => {
 //     const savedTripsELem = document.querySelector(".saved-trips-container");
@@ -188,12 +189,16 @@ export const eventFunc = (input) => {
             //fetch calls to gather the trip selected--then gather the parkId of selected trip and pass that parkId to the getParks to then get activities from that specific park
             const getTrip = getSingleTripByDirectionId(input).then((taco) => {
                 getParkById(taco[0].parkId).then((parkEvent) => {
-                    getEventsByParkName(parkEvent.name).then(event => {
-
-                        // for (let count = 0; count < 2; count++) {
-                        //     console.log(parkEvent.name);
-                        //     fillEvent.innerHTML += fillEvents(event.activities[count].name);
-                        // };
+                    console.log(parkEvent.parkCode);
+                    getEventsByParkCode(parkEvent.parkCode).then(event => {
+                        console.log(event);
+                        if (event.length == 0 ){
+                            fillEvent.innerHTML = "No Events"
+                        }else{
+                            for (let count = 0; count < 2; count++) {
+                                fillEvent.innerHTML += fillEvents(event[count]);
+                            };
+                        }
                     });
                 });
             });

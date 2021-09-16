@@ -40,12 +40,16 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
     }
 
     card += `<button id="directions-btn--${directionId}">DIRECTIONS</button><button id="events-btn--${directionId}">EVENTS</button>
-    <ul class="eventFill"></ul>
+    <div class="eventFill"></div>
     </div>`;
     return card;
 };
 
 //Literal for events
 export const fillEvents = (input) => {
-    return `<li class="event">${input}</li>`
+    return `<h5>${input.description}</h5>
+            <p>${input.datestart}</p>
+            <p>${input.times[0].timestart} - ${input.times[0].timeend}</p>
+            <p>${input.feeinfo}
+    `
 };

@@ -39,7 +39,7 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
         card += `</div>`;
     }
 
-    card += `<button id="directions-btn--${directionId} "class="directions-btn">DIRECTIONS</button>
+    card += `<button id="directions-btn--${directionId}" class="directions-btn">DIRECTIONS</button>
     </div>`;
     return card;
 };

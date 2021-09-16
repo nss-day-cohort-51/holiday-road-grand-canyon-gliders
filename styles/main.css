@@ -8,6 +8,7 @@
 @import "modal.css";
 @import "forecast.css";
 @import "aside.css";
+@import "weather.css";
 
 /* removes highlights from selected boxes after click */
 input:focus,
@@ -251,13 +252,4 @@ h2 {
   color: #000000;
   border: 3px solid #66808F;
   background-color: rgb(225, 225, 225);
-}
-
-.saved-trips {
-  flex: 1;
-  padding: 0px 30px 50px 30px;
-  margin: 0px;
-  text-align: center;
-  background-color: rgb(245, 245, 245);
-  height: 100%;
 }

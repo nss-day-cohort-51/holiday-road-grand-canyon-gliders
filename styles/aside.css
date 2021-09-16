@@ -63,7 +63,7 @@
     border-bottom: 2px solid #9B2226;
 }
 
-.directions-btn {
+ .directions-btn {
     align-self: center;
     width: 150px;
     text-align: center;
@@ -77,4 +77,4 @@
     border-radius: 10px;
     background-color: rgb(225, 225, 225);
     transition: 100ms all;  
-  }
+  } 

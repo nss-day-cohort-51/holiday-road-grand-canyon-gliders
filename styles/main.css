@@ -258,7 +258,7 @@ h2 {
 
 .saved-trips {
   flex: 1;
-  padding: 0px 0px 50px 0px;
+  padding: 0;
   text-align: center;
   background-color: rgb(245, 245, 245);
   height: 100%;
@@ -284,9 +284,10 @@ h2 {
   background: rgb(186, 255, 255, .4);
   /* min-height: 600px; */
   /* max-height: 600px; */
-  overflow-y: auto;
   border-left: solid #b8dbd9 2px;
   padding-top: 0;
+  overflow-x: hidden;
+
 }
 
 

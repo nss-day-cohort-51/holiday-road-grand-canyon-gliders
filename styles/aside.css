@@ -28,8 +28,12 @@
     background: rgb(186, 255, 255, .4);
     min-height: 600px;
     max-height: 600px;
-    overflow-y: auto;
   }
+
+.saved-trips-container {
+    overflow-y: auto;
+
+}
 
 .saved-trips__card p {
     margin-inline-start: 35px;

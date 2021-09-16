@@ -10,11 +10,12 @@ import {
     getEateriesByIdArray,
     getSingleTripByDirectionId,
 } from "./data/DataManager.js";
-import { savedTripCard, savedTripCardDetails } from "./cards/SavedTrip.js";
+import { fillEvents, savedTripCard, savedTripCardDetails } from "./cards/SavedTrip.js";
 import {
     getDirections,
     directionLiteral,
 } from "./directions/DirectionDataManager.js";
+import { getEventsByParkCode } from "./parks/ParkDataManager.js";
 
 // export const updateSavedTrips = () => {
 //     const savedTripsELem = document.querySelector(".saved-trips-container");
@@ -82,6 +83,7 @@ export const updateSavedTrips = () => {
                                         );
                                     ///
                                     directionsFunc(tripObj.directionId);
+                                    eventFunc(tripObj.directionId);
                                 });
                         });
                 });
@@ -118,16 +120,16 @@ const directionsFunc = (input) => {
     //event listener for button
     directionElement.addEventListener("click", (event) => {
         if (event.target.id == `directions-btn--${input}`) {
-            directionHeaderElement.style.display = "block";
             let parkLat;
             let parkLong;
 
             //reset the dom for directions
             fillDirections.innerHTML = "";
+            directionHeaderElement.style.display = "block"
+            directionHeaderElement.innerHTML = "Directions";
 
             //getTrip is used to get directions from local api trips
             const getTrip = getSingleTripByDirectionId(input).then((taco) => {
-                console.log(taco);
                 getParkById(taco[0].parkId).then((parkLoc) => {
                     console.log(parkLoc);
                     parkLat = parkLoc.latitude;
@@ -160,3 +162,52 @@ const directionsFunc = (input) => {
         }
     });
 };
+
+
+//querySelector for events to populate on DOM
+const fillEvent = document.querySelector(".directions-fill");
+
+//Events Function
+export const eventFunc = (input) => {
+
+    //obtain container for eventListener
+    const directionElement = document.getElementById(`container`);
+
+    //add eventListener for on clic;
+    directionElement.addEventListener("click", (event) => {
+
+        //clear existing html if any
+        fillEvent.innerHTML = "";
+
+        //if statement to decide which card the user selected
+        if (event.target.id == `events-btn--${input}`) {
+
+            //Set header to Events
+            directionHeaderElement.innerHTML = "Events";
+            directionHeaderElement.style.display = "block";
+
+            //fetch calls to gather the trip selected--then gather the parkId of selected trip and pass that parkId to the getParks to then get activities from that specific park
+            const getTrip = getSingleTripByDirectionId(input).then((taco) => {
+                getParkById(taco[0].parkId).then((parkEvent) => {
+                    console.log(parkEvent.parkCode);
+                    getEventsByParkCode(parkEvent.parkCode).then(event => {
+                        console.log(event);
+                        if (event.length == 0 ){
+                            fillEvent.innerHTML = "No Events"
+                        }else if(event.length == 1){
+                            for (let count = 0; count < event.length; count++) {
+                                fillEvent.innerHTML += fillEvents(event[count]);
+                            };
+                        }else {
+                            for (let count = 0; count < 2; count++) {
+                                fillEvent.innerHTML += fillEvents(event[count]);
+                            };
+                        }
+                    });
+                });
+            });
+        }
+
+    })
+
+}

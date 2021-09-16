@@ -182,7 +182,8 @@ export const eventFunc = (input) => {
         if(event.target.id == `events-btn--${input}`){
             
             //Set header to Events
-            directionHeaderElement.innerHTML = "Events"
+            directionHeaderElement.innerHTML = "Events";
+            directionHeaderElement.style.display = "block";
 
             //fetch calls to gather the trip selected--then gather the parkId of selected trip and pass that parkId to the getParks to then get activities from that specific park
             const getTrip = getSingleTripByDirectionId(input).then((taco) => {

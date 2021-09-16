@@ -53,15 +53,9 @@
     justify-content: center;
     /* padding-left: 15px; */
     padding-bottom: 5px;
-<<<<<<< HEAD
     margin-inline: 17px;
     cursor:pointer
 
-=======
-    /* margin-inline: 20px;
-    margin-right: 30px; */
-    cursor:pointer;
->>>>>>> main
 }
 
 .saved-trips__line-break {

@@ -8,11 +8,8 @@
 @import "modal.css";
 @import "forecast.css";
 @import "aside.css";
-<<<<<<< HEAD
 @import "collapse.css";
-=======
 @import "weather.css";
->>>>>>> main
 
 /* removes highlights from selected boxes after click */
 input:focus,
@@ -258,7 +255,6 @@ h2 {
   border: 3px solid #66808F;
   background-color: rgb(225, 225, 225);
 }
-<<<<<<< HEAD
 
 .saved-trips {
   flex: 1;
@@ -296,5 +292,3 @@ h2 {
   background-color: rgb(225, 225, 225);
   transition: 100ms all;    
 }
-=======
->>>>>>> main

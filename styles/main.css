@@ -24,6 +24,11 @@ button:focus {
   height: 100%;
 } */
 
+html,body{
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 /* making body:flex, min-height:100vh, & main flex:1 makes footer stay at bottom */
 body {
   display: flex;

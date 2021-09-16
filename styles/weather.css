@@ -14,12 +14,10 @@
   width: 110px;
   height: 220px;
   margin: 10px;
-  /* border: 1px solid #f1f1f1; */
   perspective: 1000px; /* 3D effect */
-  /* border: 1px dashed black; */
   border: 3px solid #85C1BF;
   border-radius: 10px;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
 }
 
 /* This container is needed to position the front and back side */
@@ -27,20 +25,19 @@
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
   transition: transform 0.5s;
   transform-style: preserve-3d;
-  /* flex: 1; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
   border-radius: 10px;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
+/* Does horizontal flip when you move the mouse over the flip box container */
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+.flip-card:hover {
+  background-color: #85C1BF;
 }
 
 /* Position the front and back side */
@@ -58,6 +55,7 @@
   background-color: white;
   color: black;
   border-radius: 10px;
+  text-align: center;
 }
 
 /* Style the back side */
@@ -66,6 +64,8 @@
   color: white;
   transform: rotateY(180deg);
   border-radius: 6px;
+  text-align: center;
+
 }
 
 .flip-card-inner h3 {
@@ -73,7 +73,7 @@
   font-weight: 400;
   padding: 0px;
   margin: 15px 0px 0px 0px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .temp {
@@ -82,7 +82,7 @@
   padding-top: 0px;
   padding-left: 5px;
   margin: 0px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .outlook {
@@ -90,7 +90,7 @@
   font-weight: 400;
   padding: 0px;
   margin: 0px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .outlook-back {

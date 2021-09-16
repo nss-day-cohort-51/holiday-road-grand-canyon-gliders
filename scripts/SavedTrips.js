@@ -168,19 +168,19 @@ const fillEvent = document.querySelector(".directions-fill");
 
 //Events Function
 export const eventFunc = (input) => {
-    
+
     //obtain container for eventListener
     const directionElement = document.getElementById(`container`);
 
     //add eventListener for on clic;
     directionElement.addEventListener("click", (event) => {
-        
+
         //clear existing html if any
         fillEvent.innerHTML = "";
-        
+
         //if statement to decide which card the user selected
-        if(event.target.id == `events-btn--${input}`){
-            
+        if (event.target.id == `events-btn--${input}`) {
+
             //Set header to Events
             directionHeaderElement.innerHTML = "Events";
             directionHeaderElement.style.display = "block";
@@ -188,14 +188,17 @@ export const eventFunc = (input) => {
             //fetch calls to gather the trip selected--then gather the parkId of selected trip and pass that parkId to the getParks to then get activities from that specific park
             const getTrip = getSingleTripByDirectionId(input).then((taco) => {
                 getParkById(taco[0].parkId).then((parkEvent) => {
-                    for(let count = 0;count < 3;count++){
-                        console.log(parkEvent.activities[count])
-                        fillEvent.innerHTML += fillEvents(parkEvent.activities[count].name);
-                    }
+                    getEventsByParkName(parkEvent.name).then(event => {
+
+                        // for (let count = 0; count < 2; count++) {
+                        //     console.log(parkEvent.name);
+                        //     fillEvent.innerHTML += fillEvents(event.activities[count].name);
+                        // };
+                    });
                 });
             });
         }
 
     })
-    
+
 }

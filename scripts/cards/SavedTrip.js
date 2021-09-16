@@ -48,4 +48,4 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
 //Literal for events
 export const fillEvents = (input) => {
     return `<li class="event">${input}</li>`
-}
+};

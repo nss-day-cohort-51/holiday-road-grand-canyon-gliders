@@ -80,3 +80,15 @@ export const onParkChanged = (parkId) => {
     })
 } 
 
+
+export const getEventsByParkName = (input) => {
+    const key = settings.npsKey;
+    const url = `https://developer.nps.gov/api/v1/events?parkfullname=${input}&api_key=${key}`;
+
+    return fetch(url)
+        .then(response => response.json())
+        .then(parsedResponse => {
+            return parsedResponse.data;
+        })
+}
+

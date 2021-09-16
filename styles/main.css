@@ -202,6 +202,7 @@ h2 {
 
 .detail-btn {
   align-self: center;
+  display: none;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -267,10 +268,8 @@ h2 {
     padding: 9px;}
 
 .saved-trips__cards {
-<<<<<<< HEAD
   cursor: pointer;
   background: rgb(186, 255, 255, .4);
-=======
   min-height: 600px;
   max-height: 600px;
   overflow-y: auto;
@@ -289,5 +288,4 @@ h2 {
   border-radius: 10px;
   background-color: rgb(225, 225, 225);
   transition: 100ms all;    
->>>>>>> feef0bc21e22bd141ec0776c6e4fb1d0fb4f2979
 }

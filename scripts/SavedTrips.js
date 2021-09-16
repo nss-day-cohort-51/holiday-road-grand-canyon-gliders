@@ -16,6 +16,7 @@ import {
     directionLiteral,
 } from "./directions/DirectionDataManager.js";
 import { getEventsByParkCode } from "./parks/ParkDataManager.js";
+import { printDirectionsModal, printEventsModal, printEventsModalNone, printDirectionsModalNone } from "./modal.js";
 
 // export const updateSavedTrips = () => {
 //     const savedTripsELem = document.querySelector(".saved-trips-container");
@@ -94,6 +95,7 @@ export const updateSavedTrips = () => {
 const fillDirections = document.querySelector(".directions-fill");
 const directionHeaderElement = document.querySelector(".directions-header");
 directionHeaderElement.style.display = "none";
+const modal = document.getElementById("modal");
 
 //function used for gaining permission for location
 (function () {
@@ -142,18 +144,19 @@ const directionsFunc = (input) => {
                         parkLong
                     ).then(function (event) {
                         if (event.paths == undefined) {
-                            fillDirections.innerHTML = directionLiteral(
-                                "Unable to provide Directions"
-                            );
+                            modal.innerHTML = printDirectionsModalNone();
+                            modal.style.display = "block"
                         } else {
+                            modal.innerHTML = printDirectionsModal();
+                            const modalDirectionsList = document.querySelector(".directions-list");
                             for (
                                 let count = 0;
                                 count < event.paths[0].instructions.length;
                                 count++
                             ) {
-                                fillDirections.innerHTML += directionLiteral(
-                                    event.paths[0].instructions[count].text
-                                );
+                                console.log(event.paths[0].instructions[count].text);
+                                modalDirectionsList.innerHTML += directionLiteral(event.paths[0].instructions[count].text);
+                                modal.style.display = "block";
                             }
                         }
                     });
@@ -192,15 +195,18 @@ export const eventFunc = (input) => {
                     console.log(parkEvent.parkCode);
                     getEventsByParkCode(parkEvent.parkCode).then(event => {
                         console.log(event);
-                        if (event.length == 0 ){
-                            fillEvent.innerHTML = "No Events"
-                        }else if(event.length == 1){
+                        if (event.length == 0) {
+                            modal.innerHTML = printEventsModalNone();
+                            modal.style.display = "block";
+                        } else if (event.length == 1) {
                             for (let count = 0; count < event.length; count++) {
-                                fillEvent.innerHTML += fillEvents(event[count]);
+                                modal.innerHTML = printEventsModal(event[count]);
+                                modal.style.display = "block";
                             };
-                        }else {
+                        } else {
                             for (let count = 0; count < 2; count++) {
-                                fillEvent.innerHTML += fillEvents(event[count]);
+                                modal.innerHTML = printEventsModal(event[count]);
+                                modal.style.display = "block";
                             };
                         }
                     });

@@ -64,7 +64,8 @@ display: none; /* Hidden by default */
     overflow-y: scroll;
 }
 
-.modal-bold {
-    font-weight: 600;
+.modal-bold-invalid {
+    display: flex;
+    justify-content: center;
     align-self: center;
 }

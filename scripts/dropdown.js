@@ -171,7 +171,7 @@ export const createEventListenerDropDown = () => {
 
                 onParkChanged(parkId);
 
-                parkDetailsButton.style.display = "block";
+                parkDetailsButton.style.visibility = "visible";
 
                 break;
 
@@ -180,7 +180,7 @@ export const createEventListenerDropDown = () => {
 
                 onEatChanged(eatId);
 
-                eatDetailsButton.style.display = "block";
+                eatDetailsButton.style.visibility = "visible";
 
                 break;
 
@@ -189,7 +189,7 @@ export const createEventListenerDropDown = () => {
 
                 onBizChanged(bizId);
 
-                bizDetailsButton.style.display = "block";
+                bizDetailsButton.style.visibility = "visible";
 
                 break;
         }
@@ -229,10 +229,10 @@ export const resetTripSelection = () => {
     eatDetailsButton.style.display = "none";
     bizDetailsButton.style.display = "none";
 
-    parkNamePreview.innerHTML = "National Park Name";
+    parkNamePreview.innerHTML = "CHOOSE NATIONAL PARK ABOVE";
     weatherView.innerHTML = "5 Day Weather Forecast by ZipCode";
-    eatNamePreview.innerHTML = "Eatery Name";
-    bizNamePreview.innerHTML = "Bizzarerie Name";
+    eatNamePreview.innerHTML = "CHOOSE EATERY ABOVE";
+    bizNamePreview.innerHTML = "CHOOSE BIZARRARY ABOVE";
 
     // set remaining dropdowns to default values
     stateDropDown.value = 0;

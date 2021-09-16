@@ -144,6 +144,8 @@ export const printEventsModal = (input) => {
       <div class="dates">
       <span class="close-modal" id="close-modal--events">&times;</span> 
       <h2>Events</h2>
+          <h3>${input.parkfullname}<h3>
+          <div></div>
           <div class="modal-bold">Date:</div>
           <div>${input.datestart}</div>
           <div class="modal-bold">Start Time:</div>

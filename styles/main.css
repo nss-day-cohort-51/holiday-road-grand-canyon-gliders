@@ -8,6 +8,7 @@
 @import "modal.css";
 @import "forecast.css";
 @import "aside.css";
+@import "collapse.css";
 @import "weather.css";
 
 /* removes highlights from selected boxes after click */
@@ -254,4 +255,61 @@ h2 {
   color: #000000;
   border: 3px solid #66808F;
   background-color: rgb(225, 225, 225);
+}
+
+.saved-trips {
+  flex: 1;
+  padding: 0;
+  text-align: center;
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+}
+
+.saved-trips__card {
+    text-align: left;
+    padding: 9px;}
+
+.saved-trips__header {
+  height: 83px;
+  margin-top: 0;
+  background: #ddf9f9;
+  padding-top: 0;
+  width: 238px;
+  position: absolute;
+  z-index: 1;
+  border-bottom: #9b2226 solid 2px;
+}
+
+.saved-trips__cards {
+  cursor: pointer;
+  background: rgb(186, 255, 255, .4);
+  min-height: 750px;
+  /* max-height: 600px; */
+  border-left: solid #b8dbd9 2px;
+  padding-top: 0;
+  overflow-x: hidden;
+  border-bottom: solid #b8dbd9 2px;
+}
+
+
+.directions-btn {
+  display: inline;
+  text-align: center;
+  width: 94px;
+  font-size: 10px;
+  font-weight: 506000;
+  color: #000000;
+  cursor: pointer;
+  padding: 5px 15px;
+  border: 2px solid #66808F;
+  border-radius: 10px;
+  background-color: rgb(225, 225, 225);
+  transition: 100ms all;
+  margin-right: 11px;
+}
+
+.saved-trip__btns {
+  margin-top: 5px;
+  width: 253px;
+  margin-left: -9px;
 }

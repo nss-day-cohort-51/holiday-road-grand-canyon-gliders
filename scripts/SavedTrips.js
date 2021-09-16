@@ -39,7 +39,10 @@ export const updateSavedTrips = () => {
     let state;
 
     const savedTripsELem = document.querySelector(".saved-trips__cards");
-    savedTripsELem.innerHTML = "";
+    savedTripsELem.innerHTML = `<div class="saved-trips__header">
+                                    <h2>Saved Trips<h2>
+                                </div>
+                                <div class="saved-tips-cards-container">`;
 
     getTrips().then((tripObjs) => {
         // loop through trips saved in DB
@@ -163,7 +166,6 @@ const directionsFunc = (input) => {
 
 //Events Function
 export const eventFunc = (input) => {
-
     //obtain container for eventListener
     const directionElement = document.getElementById(`container`);
 
@@ -177,7 +179,7 @@ export const eventFunc = (input) => {
             const getTrip = getSingleTripByDirectionId(input).then((taco) => {
                 getParkById(taco[0].parkId).then((parkEvent) => {
                     console.log(parkEvent.parkCode);
-                    getEventsByParkCode(parkEvent.parkCode).then(event => {
+                    getEventsByParkCode(parkEvent.parkCode).then((event) => {
                         console.log(event);
                         if (event.length == 0) {
                             modal.innerHTML = printEventsModalNone();
@@ -197,7 +199,5 @@ export const eventFunc = (input) => {
                 });
             });
         }
-
-    })
-
-}
+    });
+};

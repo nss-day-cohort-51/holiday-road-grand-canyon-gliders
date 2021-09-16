@@ -24,12 +24,16 @@
 .saved-trips__cards {
     text-align: left;
     cursor: pointer;
-    padding: 7px 20px 20px 20px;
+    padding: 7px 0 20px 0;
     background: rgb(186, 255, 255, .4);
     min-height: 600px;
     max-height: 600px;
-    overflow-y: auto;
   }
+
+.saved-trips-container {
+    overflow-y: auto;
+
+}
 
 .saved-trips__card p {
     margin-inline-start: 35px;
@@ -37,13 +41,6 @@
     font-size: 17px;
 }
 
-.saved-trips__card h3 {
-    /* margin-block-end: -14px; */
-    padding-left: 15px;
-    margin: 15px 0px 10px 0px;
-    font-size: 22px;
-    font-weight: 600;
-}
 
 .saved-trips__card {
     /* background-color: ; */
@@ -53,13 +50,13 @@
     justify-content: center;
     /* padding-left: 15px; */
     padding-bottom: 5px;
-    /* margin-inline: 20px;
-    margin-right: 30px; */
-    cursor:pointer;
+    margin-inline: 17px;
+    cursor:pointer
+
 }
 
 .saved-trips__line-break {
-    margin-top: 19px;
+    margin-top: 10px;
     border-bottom: 2px solid #9B2226;
 }
 

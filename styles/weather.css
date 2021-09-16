@@ -30,6 +30,7 @@
   flex-direction: column;
   justify-content: center;
   /* align-items: center; */
+  border-radius: 5px;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -44,12 +45,14 @@
   height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
+  border-radius: 5px;
 }
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
   background-color: #bbb;
   color: black;
+  border-radius: 5px;
 }
 
 /* Style the back side */
@@ -57,4 +60,5 @@
   background-color: dodgerblue;
   color: white;
   transform: rotateY(180deg);
+  border-radius: 5px;
 }

@@ -53,33 +53,38 @@ export const addWeather = (weatherList, zipCode) => {
             <section class="forecastCard dayOne">  
                 <h3 class="forecastTitle">${dayOne}</h3>
                 <div class="temp">${dayOneTemp}°</div>
-                <div class="outlook">${weatherList[3].weather[0].main}<br><img src="http://openweathermap.org/img/wn/${weatherList[3].weather[0].icon}@2x.png" /></div>
+                <div class="outlook">${weatherList[0].weather[0].main}</div>
+                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[0].weather[0].icon}@2x.png" /></div>
             </section> <!-- closes dayOne -->
 
             <section class="forecastCard dayTwo">
                 <h3 class="forecastTitle">${dayTwo}</h3>
                 <div class="temp">${dayTwoTemp}°</div>
-                <div class="outlook">${weatherList[11].weather[0].main}<br><img src="http://openweathermap.org/img/wn/${weatherList[11].weather[0].icon}@2x.png" /></div>
+                <div class="outlook">${weatherList[8].weather[0].main}</div>
+                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[8].weather[0].icon}@2x.png" /></div>
             </section> <!-- closes dayTwo -->
 
             <section class="forecastCard dayThree">
                 <h3 class="forecastTitle">${dayThree}</h3>
                 <div class="temp">${dayThreeTemp}°</div>
-                <div class="outlook">${weatherList[19].weather[0].main}<br><img src="http://openweathermap.org/img/wn/${weatherList[19].weather[0].icon}@2x.png" /></div>
+                <div class="outlook">${weatherList[16].weather[0].main}</div>
+                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[16].weather[0].icon}@2x.png" /></div>
             </section> <!-- closes dayThree -->
 
             <section class="forecastCard dayFour">
                 <h3 class="forecastTitle">${dayFour}</h3>
                 <div class="temp">${dayFourTemp}°</div>
-                <div class="outlook">${weatherList[27].weather[0].main}<br><img src="http://openweathermap.org/img/wn/${weatherList[27].weather[0].icon}@2x.png" /></div>
+                <div class="outlook">${weatherList[24].weather[0].main}</div>
+                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[24].weather[0].icon}@2x.png" />
+                </div>
             </section> <!-- closes dayFour -->
 
             <section class="forecastCard dayFive">
                 <h3 class="forecastTitle">${dayFive}</h3>
                 <div class="temp">${dayFiveTemp}°</div>
-                <div class="outlook">${weatherList[35].weather[0].main}<br>
-                <img src="http://openweathermap.org/img/wn/${weatherList[35].weather[0].icon}@2x.png" />
-                    </div>
+                <div class="outlook">${weatherList[32].weather[0].main}</div>
+                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[32].weather[0].icon}@2x.png" />
+                </div>
             </section> <!-- closes dayFive -->
 
         </div> <!-- closes forecastCardList -->

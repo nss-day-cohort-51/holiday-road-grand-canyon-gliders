@@ -10,13 +10,14 @@
 }
 
 .forecastCard {
-  padding: 10px 0px 0px 0px;
+  padding-top: 15px;
   margin: 10px;
   flex: 1;
   width: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   border: 3px solid #85C1BF;
   border-radius: 5px;
   background-color: rgb(255, 255, 255);
@@ -43,11 +44,12 @@
   font-weight: 400;
   padding: 0px;
   margin: 0px;
-  text-align: center; 
+  text-align: center;
+ 
 }
 
-.outlook img {
-  margin: 0px;
+.weather-icon {
+  margin: 0px auto;
   padding: 0px;
-  align-self: flex-end;
+  vertical-align: bottom;
 }

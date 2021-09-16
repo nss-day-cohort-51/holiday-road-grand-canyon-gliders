@@ -30,140 +30,142 @@ const formatTemp = (obj) => {
 
 export const addWeather = (weatherList, zipCode) => {
 
-    const dayOne = formatDate(weatherList[3].dt_txt);
-    const dayOneTemp = formatTemp(weatherList[3].main.temp);
-    const dayOneIcon =  weatherList[3].main;
+    const dayOne = formatDate(weatherList[0].dt_txt);
+    const dayOneTemp = formatTemp(weatherList[0].main.temp);
+    const dayOneIcon =  weatherList[0].main;
 
-    const dayTwo = formatDate(weatherList[11].dt_txt);
-    const dayTwoTemp = formatTemp(weatherList[11].main.temp);
+    const dayTwo = formatDate(weatherList[8].dt_txt);
+    const dayTwoTemp = formatTemp(weatherList[8].main.temp);
 
-    const dayThree = formatDate(weatherList[19].dt_txt);
-    const dayThreeTemp = formatTemp(weatherList[19].main.temp);
+    const dayThree = formatDate(weatherList[16].dt_txt);
+    const dayThreeTemp = formatTemp(weatherList[16].main.temp);
 
-    const dayFour = formatDate(weatherList[27].dt_txt);
-    const dayFourTemp = formatTemp(weatherList[27].main.temp);
+    const dayFour = formatDate(weatherList[24].dt_txt);
+    const dayFourTemp = formatTemp(weatherList[24].main.temp);
 
-    const dayFive = formatDate(weatherList[35].dt_txt);
-    const dayFiveTemp = formatTemp(weatherList[35].main.temp);
+    const dayFive = formatDate(weatherList[32].dt_txt);
+    const dayFiveTemp = formatTemp(weatherList[32].main.temp);
 
     return ` 
         <span>Forecast For The Next 5 Days in ${zipCode}</span>
-        <div class="forecastCardList">
-
-            <section class="forecastCard dayOne">  
-                <h3 class="forecastTitle">${dayOne}</h3>
-                <div class="temp">${dayOneTemp}°</div>
-                <div class="outlook">${weatherList[0].weather[0].main}</div>
-                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[0].weather[0].icon}@2x.png" /></div>
-            </section> <!-- closes dayOne -->
-
-            <section class="forecastCard dayTwo">
-                <h3 class="forecastTitle">${dayTwo}</h3>
-                <div class="temp">${dayTwoTemp}°</div>
-                <div class="outlook">${weatherList[8].weather[0].main}</div>
-                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[8].weather[0].icon}@2x.png" /></div>
-            </section> <!-- closes dayTwo -->
-
-            <section class="forecastCard dayThree">
-                <h3 class="forecastTitle">${dayThree}</h3>
-                <div class="temp">${dayThreeTemp}°</div>
-                <div class="outlook">${weatherList[16].weather[0].main}</div>
-                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[16].weather[0].icon}@2x.png" /></div>
-            </section> <!-- closes dayThree -->
-
-            <section class="forecastCard dayFour">
-                <h3 class="forecastTitle">${dayFour}</h3>
-                <div class="temp">${dayFourTemp}°</div>
-                <div class="outlook">${weatherList[24].weather[0].main}</div>
-                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[24].weather[0].icon}@2x.png" />
-                </div>
-            </section> <!-- closes dayFour -->
-
-            <section class="forecastCard dayFive">
-                <h3 class="forecastTitle">${dayFive}</h3>
-                <div class="temp">${dayFiveTemp}°</div>
-                <div class="outlook">${weatherList[32].weather[0].main}</div>
-                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[32].weather[0].icon}@2x.png" />
-                </div>
-            </section> <!-- closes dayFive -->
-
-        </div> <!-- closes forecastCardList -->
 
         <div class="whole-flip-set">
 
+        <!-- card one -->
         <div class="flip-card">
                 <div class="flip-card-inner">
-
+                
                     <div class="flip-card-front">
-                    <h3 class="forecastTitle">${dayOne}</h3>
+                    <h3 class="title-front">${dayOne}</h3>
                     <div class="temp">${dayOneTemp}°</div>
                     <div class="outlook">${weatherList[0].weather[0].main}</div>
                     <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[0].weather[0].icon}@2x.png" /></div>
                     </div> <!-- closes flip-card-inner -->
 
                     <div class="flip-card-back">
-                    <h3 class="forecastTitle">${dayOne}</h3>
-                    <div class="outlook">${weatherList[0].weather[0].description}</div>
-                    <div class="outlook">Low: ${weatherList[0].main.temp_min}°</div>
-                    <div class="outlook">High:${weatherList[0].main.temp_max}°</div>
+                    <h3 class="title-back">${dayOne}</h3>
+                    <div class="outlook-back">${weatherList[0].weather[0].description}</div>
+                    <div class="temp-title">Low:</div>
+                    <div class="temp-result">${weatherList[0].main.temp_min}°</div>
+                    <div class="temp-title">High:</div>
+                    <div class="temp-result">${weatherList[0].main.temp_max}°</div>
                     </div> <!-- closes flip-card-back -->
 
                 </div> <!-- closes flip-card-inner -->
         </div> <!-- closes flip-card -->
     
+        <!-- card two -->
         <div class="flip-card">
             <div class="flip-card-inner">
+
                 <div class="flip-card-front">
-                    <h1>Front</h1>
-                    <p>Test Words</p>
+                <h3 class="forecastTitle">${dayTwo}</h3>
+                <div class="temp">${dayTwoTemp}°</div>
+                <div class="outlook">${weatherList[8].weather[0].main}</div>
+                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[8].weather[0].icon}@2x.png" /></div>
                 </div> <!-- closes flip-card-inner -->
+
                 <div class="flip-card-back">
-                    <h1>Back</h1>
-                    <p>Test Words</p>
+                <h3 class="title-back">${dayOne}</h3>
+                <div class="outlook-back">${weatherList[8].weather[0].description}</div>
+                <div class="temp-title">Low:</div>
+                <div class="temp-result">${weatherList[8].main.temp_min}°</div>
+                <div class="temp-title">High:</div>
+                <div class="temp-result">${weatherList[8].main.temp_max}°</div>
                 </div> <!-- closes flip-card-back -->
+
             </div> <!-- closes flip-card-inner -->
         </div> <!-- closes flip-card -->
     
+        <!-- card three -->
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <h1>Front</h1>
-                    <p>Test Words</p>
+                <h3 class="forecastTitle">${dayThree}</h3>
+                <div class="temp">${dayThreeTemp}°</div>
+                <div class="outlook">${weatherList[16].weather[0].main}</div>
+                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[16].weather[0].icon}@2x.png" /></div>
                 </div> <!-- closes flip-card-inner -->
+
                 <div class="flip-card-back">
-                    <h1>Back</h1>
-                    <p>Test Words</p>
+                <h3 class="title-back">${dayOne}</h3>
+                <div class="outlook-back">${weatherList[16].weather[0].description}</div>
+                <div class="temp-title">Low:</div>
+                <div class="temp-result">${weatherList[16].main.temp_min}°</div>
+                <div class="temp-title">High:</div>
+                <div class="temp-result">${weatherList[16].main.temp_max}°</div>
                 </div> <!-- closes flip-card-back -->
+
             </div> <!-- closes flip-card-inner -->
         </div> <!-- closes flip-card -->
     
+        <!-- card four -->
         <div class="flip-card">
             <div class="flip-card-inner">
+
                 <div class="flip-card-front">
-                    <h1>Front</h1>
-                    <p>Test Words</p>
-                </div> <!-- closes flip-card-inner -->
+                <h3 class="forecastTitle">${dayFour}</h3>
+                <div class="temp">${dayFourTemp}°</div>
+                <div class="outlook">${weatherList[24].weather[0].main}</div>
+                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[24].weather[0].icon}@2x.png" /></div> 
+                </div> <!-- closes flip-card-front -->
+
                 <div class="flip-card-back">
-                    <h1>Back</h1>
-                    <p>Test Words</p>
+                <h3 class="title-back">${dayOne}</h3>
+                <div class="outlook-back">${weatherList[24].weather[0].description}</div>
+                <div class="temp-title">Low:</div>
+                <div class="temp-result">${weatherList[24].main.temp_min}°</div>
+                <div class="temp-title">High:</div>
+                <div class="temp-result">${weatherList[24].main.temp_max}°</div>
                 </div> <!-- closes flip-card-back -->
+
             </div> <!-- closes flip-card-inner -->
         </div> <!-- closes flip-card -->
     
+        <!-- card five -->
         <div class="flip-card">
             <div class="flip-card-inner">
+
                 <div class="flip-card-front">
-                    <h1>Front</h1>
-                    <p>Test Words</p>
-                </div> <!-- closes flip-card-inner -->
+                <h3 class="forecastTitle">${dayFive}</h3>
+                <div class="temp">${dayFiveTemp}°</div>
+                <div class="outlook">${weatherList[32].weather[0].main}</div>
+                <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[32].weather[0].icon}@2x.png" /></div>
+                </div> <!-- closes flip-card-front -->
+
                 <div class="flip-card-back">
-                    <h1>Back</h1>
-                    <p>Test Words</p>
+                <h3 class="title-back">${dayOne}</h3>
+                <div class="outlook-back">${weatherList[32].weather[0].description}</div>
+                <div class="temp-title">Low:</div>
+                <div class="temp-result">${weatherList[32].main.temp_min}°</div>
+                <div class="temp-title">High:</div>
+                <div class="temp-result">${weatherList[32].main.temp_max}°</div>
                 </div> <!-- closes flip-card-back -->
+
             </div> <!-- closes flip-card-inner -->
         </div> <!-- closes flip-card -->
     
-    </div> <!-- closes one-giant-div -->
+    </div> <!-- closes whole-flip-set -->
 
         `;
 };

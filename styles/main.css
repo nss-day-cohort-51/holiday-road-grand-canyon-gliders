@@ -6,7 +6,7 @@
 
 @import "footer.css";
 @import "modal.css";
-@import "forecast.css";
+/* @import "forecast.css"; */
 @import "aside.css";
 @import "collapse.css";
 @import "weather.css";
@@ -19,10 +19,6 @@ button:focus {
   outline: none;
   box-shadow: none;
 }
-
-/* html {
-  height: 100%;
-} */
 
 /* making body:flex, min-height:100vh, & main flex:1 makes footer stay at bottom */
 body {
@@ -170,6 +166,8 @@ h2 {
 /* main preview window that displays options chosen */
 .trip-preview {
   flex: 3;
+  min-height: 750px;
+  max-height: 750px;
   padding: 0px 30px;
   text-align: left;
   height: 100%;
@@ -284,7 +282,7 @@ h2 {
   cursor: pointer;
   background: rgb(186, 255, 255, .4);
   min-height: 750px;
-  /* max-height: 600px; */
+  max-height: 750px;
   border-left: solid #b8dbd9 2px;
   padding-top: 0;
   overflow-x: hidden;

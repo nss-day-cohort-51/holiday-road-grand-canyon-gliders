@@ -13,11 +13,11 @@ export const collapseSavedTrips = () => {
         // console.log(savedTripsElem.style["width"]);
     } else {
         const savedTripsElem = document.querySelector(".saved-trips");
-        // savedTripsElem.style["width"] = "";
-        savedTripsElem.style["max-width"] = "225";
+        savedTripsElem.style["width"] = "0";
+        savedTripsElem.style["max-width"] = "253x";
         changeCollapsed();
-        savedTripsElem.style["flex"] = "1  1  2% ";
-        // savedTripsElem.style["flex"] = "unset   ";
+        savedTripsElem.style["flex-basis"] = "250px ";
+        // savedTripsElem.style["flex"] = "1   ";
 
         // savedTripsElem.style["width"] = "";
         // console.log("clicked");

@@ -8,6 +8,7 @@
 @import "modal.css";
 @import "forecast.css";
 @import "aside.css";
+@import "weather.css";
 
 /* removes highlights from selected boxes after click */
 input:focus,
@@ -159,7 +160,7 @@ main {
 
 /* Trip Preview & Saved Trips headline */
 h2 {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 600;
   padding: 0px;
   margin: 20px auto;
@@ -185,7 +186,7 @@ h2 {
   display: flex;
   flex-direction: row;
   padding: 0px;
-  margin: 20px;
+  margin: 40px 20px 20px 20px;
 }
 
 .preview-text {
@@ -251,43 +252,4 @@ h2 {
   color: #000000;
   border: 3px solid #66808F;
   background-color: rgb(225, 225, 225);
-}
-
-.saved-trips {
-  flex: 1;
-  padding: 0px 20px 50px 20px;
-  text-align: center;
-  background-color: rgb(245, 245, 245);
-  height: 100%;
-
-}
-
-.saved-trips__card {
-    text-align: left;
-    padding: 9px;}
-
-.saved-trips__cards {
-<<<<<<< HEAD
-  cursor: pointer;
-  background: rgb(186, 255, 255, .4);
-=======
-  min-height: 600px;
-  max-height: 600px;
-  overflow-y: auto;
-}
-
-.directions-btn {
-  text-align: center;
-  width: 125px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #000000;
-  cursor: pointer;
-  padding: 5px 15px;
-  margin: 50px auto;
-  border: 3px solid #66808F;
-  border-radius: 10px;
-  background-color: rgb(225, 225, 225);
-  transition: 100ms all;    
->>>>>>> feef0bc21e22bd141ec0776c6e4fb1d0fb4f2979
 }

@@ -1,0 +1,220 @@
+
+.saved-trips.collapsable {
+    flex: unset;
+    width: 0;
+    overflow-x: hidden;
+    transition: 1s;
+    position: relative
+}
+
+.saved-trips.collapsable h2{
+    white-space: nowrap;
+    position: absolute;
+    top: 0%;
+    z-index: 1;
+    background: #ddf9f9;
+    margin-left: 32px;
+}
+
+.saved-trip__card--header{
+    position: relative;
+    height: 88px;
+    width: 165px;
+    height: 47px;
+
+}
+
+.saved-trip__text {
+    height: 20px;
+    position: relative;
+}
+
+.saved-trip__text p{
+    width: 162px;
+    position: absolute;
+    margin-inline-start: 35px;
+    font-size: 12px;
+}
+
+.saved-tips-cards-container {
+    margin-top: 83px;
+}
+
+.saved-trip__card--header > h3 {
+
+    font-size: 13px;
+    position: absolute;
+    font-weight: 700;
+
+}
+
+.saved-trip__attraction--header h5 {
+    margin-block: 0;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 13px;
+
+
+}
+
+.saved-trip__attractions {
+    /* position: absolute; */
+    /* width: 196px;
+    background: #b8dbd9;
+    border-radius: 7px;
+    padding-bottom: 30px; */
+}
+
+.saved-trips__card > button {
+    margin-top: 20px;
+    width: 200px;
+}
+.trip-helpers__nav{
+    transform: rotate(
+-90deg);
+    margin-left: -146px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    height: 35px;
+    width: 320px;
+    left: 0%;
+    top: 12rem;
+    display: flex;
+    flex-flow: row;
+    position: relative;
+    background: #c7e5e4;
+    padding-left: 3px;
+    padding-right: 3px;
+ 
+    justify-content: center;    
+}
+
+.trip-helpers__nav-item {
+
+    cursor: pointer;
+    /* background-color: #lightb8dbd9; */
+    width: 100px;
+    height: 25px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    margin-inline: 3px;
+    /* margin-top: 5px; */
+}
+
+
+
+#saved-trips__collapse-button {
+    float: left;
+    width: 147px;
+    padding: 5px 8px;
+    height: 24px;
+    position: relative;
+    border: none;
+    left: 100%;
+    top: -23rem;
+    cursor: pointer;
+    background: #b8dbd9;
+    transform: rotate( 
+-90deg);
+    margin-left: -68px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+/* Add reverse borders to Collapse-saved-trips tab */
+.tab-left:after {
+    right: -20px;
+    border-radius: 0 0 0 10px;
+    box-shadow: -11px 0.25px 0px 0px #b8dbd9;
+}
+
+.tab-left:before {
+    left: -20px;
+    border-radius: 0 0 10px 0;
+    box-shadow: 11px 0.25px 0px 0px #b8dbd9;
+}
+
+.tab-left:before,
+.tab-left:after {
+	content: "";
+	position: absolute;
+	height: 10px;
+	width: 20px;
+	bottom: 0;
+}
+
+/* Add reverse borders to saved-trips nav tab */
+.tab-right {
+    position: absolute
+}
+
+.tab-right:before,
+.tab-right:after {
+    content: "";
+    height: 10px;
+    width: 20px;
+    bottom: 0;
+}
+
+
+
+/*  Fade in and out text for collapse button */
+.collapse-button--transition-text {
+    text-align: center;
+    margin: auto
+}
+#collapse-button--transition-show {
+    opacity: 1;
+    position: absolute;
+    color: black;
+    /* animation-name: FadeIn; */
+    animation-duration: 1s;
+    margin-inline: 5px;
+
+}
+  
+#collapse-button--transition-hide {
+    position: absolute;
+    opacity: 0;
+    color: black;
+    /* animation-name: FadeIn; */
+    animation-duration: 1s;
+    margin-inline: 8px;
+
+}
+  
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    95% {
+        opacity: 0;
+    }
+
+  
+    100% {
+        opacity: 1;
+    }
+}
+  
+@keyframes FadeOut {
+    0% {
+        opacity: 1;
+    }
+    75%{
+        opacity:1;
+    }
+    95%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.saved-trips__card {
+    display: flex;
+    flex-flow: column   ;
+}

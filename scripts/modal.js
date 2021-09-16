@@ -127,11 +127,14 @@ export const runModal = () => {
             }
         }
         if (event.target.id.startsWith("close-modal")) {
-            console.log("modal X clicked");
+            modal.style.display = "none";
+        }
+        if(event.target.id == "modal"){
             modal.style.display = "none";
         }
     });
 };
+
 
 
 export const printEventsModal = (input) => {

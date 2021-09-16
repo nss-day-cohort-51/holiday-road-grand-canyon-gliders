@@ -2,7 +2,7 @@
 .modal {
 display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 2; /* Sit on top */
     padding-top: 300px; /* Location of the box */
     left: 0;
     top: 0;
@@ -57,4 +57,15 @@ display: none; /* Hidden by default */
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.directions-list{
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.modal-bold-invalid {
+    display: flex;
+    justify-content: center;
+    align-self: center;
 }

@@ -185,7 +185,8 @@ h2 {
 /* this styles each of the boxes that pop up after dropdown selections */
 .preview-box {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  justify-content: left;
   padding: 0px;
   margin: 40px 20px 20px 20px;
 }
@@ -204,14 +205,14 @@ h2 {
 
 .detail-btn {
   align-self: center;
-  display: none;
+  visibility: hidden;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
   text-align: center;
   cursor: pointer;
   padding: 4px 5px;
-  margin-left: 20px;
+  margin-right: 20px;
   border: 3px solid #66808F;
   border-radius: 5px;
   background-color: #baebe9;

@@ -21,7 +21,6 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
             <h3>${tripDetails.parkName}</h3>
         </div>
         <div class="saved-trip__attractions">`;
-    console.log(tripDetails);
 
     //populate with eateries and Bazarraries
     if (tripDetails.bizName != []) {
@@ -61,11 +60,3 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
     return card;
 };
 
-//Literal for events
-export const fillEvents = (input) => {
-    return `<h5>${input.description}</h5>
-            <p>${input.datestart}</p>
-            <p>${input.times[0].timestart} - ${input.times[0].timeend}</p>
-            <p>${input.feeinfo}
-    `;
-};

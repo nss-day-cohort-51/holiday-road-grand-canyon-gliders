@@ -39,7 +39,7 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
         card += `</div>`;
     }
 
-    card += `<button id="directions-btn--${directionId}">DIRECTIONS</button><button id="events-btn--${directionId}">EVENTS</button>
+    card += `<button id="directions-btn--${directionId}" class="directions-btn">DIRECTIONS</button><button id="events-btn--${directionId}">EVENTS</button>
     <div class="eventFill"></div>
     </div>`;
     return card;

@@ -194,7 +194,11 @@ export const eventFunc = (input) => {
                         console.log(event);
                         if (event.length == 0 ){
                             fillEvent.innerHTML = "No Events"
-                        }else{
+                        }else if(event.length == 1){
+                            for (let count = 0; count < event.length; count++) {
+                                fillEvent.innerHTML += fillEvents(event[count]);
+                            };
+                        }else {
                             for (let count = 0; count < 2; count++) {
                                 fillEvent.innerHTML += fillEvents(event[count]);
                             };

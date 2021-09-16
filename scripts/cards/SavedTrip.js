@@ -56,6 +56,7 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
         <button id="events-btn--${directionId}" class="directions-btn">EVENTS</button>
         <div class="eventFill"></div>
     </div>
+    </div>
     </div>`;
     return card;
 };

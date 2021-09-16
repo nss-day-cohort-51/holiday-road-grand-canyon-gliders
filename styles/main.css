@@ -269,13 +269,14 @@ h2 {
     padding: 9px;}
 
 .saved-trips__header {
-  height: 41px;
+  height: 83px;
   margin-top: 0;
   background: #ddf9f9;
   padding-top: 0;
   width: 238px;
   position: absolute;
   z-index: 1;
+  border-bottom: #9b2226 solid 2px;
 }
 
 .saved-trips__cards {

@@ -44,7 +44,8 @@ export const updateSavedTrips = () => {
     const savedTripsELem = document.querySelector(".saved-trips__cards");
     savedTripsELem.innerHTML = `<div class="saved-trips__header">
                                     <h2>Saved Trips<h2>
-                                </div>`;
+                                </div>
+                                <div class="saved-tips-cards-container">`;
 
     getTrips().then((tripObjs) => {
         // loop through trips saved in DB

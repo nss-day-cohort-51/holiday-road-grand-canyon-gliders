@@ -13,8 +13,8 @@ export const collapseSavedTrips = () => {
         // console.log(savedTripsElem.style["width"]);
     } else {
         const savedTripsElem = document.querySelector(".saved-trips");
-        // savedTripsElem.style["width"] = "";
-        savedTripsElem.style["width"] = "225";
+        // savedTripsElem.style["width"] = "252";
+        savedTripsElem.style["max-width"] = "252";
         changeCollapsed();
         savedTripsElem.style["flex"] = "1  1  2% ";
         // savedTripsElem.style["flex"] = "unset   ";

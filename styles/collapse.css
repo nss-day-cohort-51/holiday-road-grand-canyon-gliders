@@ -11,13 +11,9 @@
     white-space: nowrap;
     position: absolute;
     top: 0%;
-    margin: 0 0 0 30px;
-    /* margin-left: 49px; */
-    /* margin: 0; */
-    /* 13%: ; */
-    /* margin: 0; */
     z-index: 1;
     background: #ddf9f9;
+    margin-left: 32px;
 }
 
 .saved-trip__card--header{
@@ -38,6 +34,10 @@
     position: absolute;
     margin-inline-start: 35px;
     font-size: 12px;
+}
+
+.saved-tips-cards-container {
+    margin-top: 83px;
 }
 
 .saved-trip__card--header > h3 {

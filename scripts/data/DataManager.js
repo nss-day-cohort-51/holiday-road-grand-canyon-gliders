@@ -16,8 +16,7 @@ export const getTrips = () => {
     //get local trip state
     return fetch("http://localhost:8088/trips").then((response) => {
         return response.json().then((parsedResponse) => {
-            console.log(parsedResponse);
-
+            
             return parsedResponse;
         });
     });
@@ -118,8 +117,6 @@ export const getEateryById = (id) => {
 };
 
 export const getBizarreriesByIdArray = (idArray) => {
-    console.log(idArray);
-    console.log(idArray);
 
     // id query string should be a
     let idQueryString = "?";

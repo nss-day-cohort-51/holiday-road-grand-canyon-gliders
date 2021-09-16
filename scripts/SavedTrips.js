@@ -47,7 +47,6 @@ export const updateSavedTrips = () => {
     getTrips().then((tripObjs) => {
         // loop through trips saved in DB
         for (const tripObj of tripObjs) {
-            console.log(tripObj);
             let tripDetails = {
                 id: null,
                 parkName: null,
@@ -58,10 +57,8 @@ export const updateSavedTrips = () => {
 
             // Make a Fetch to Bizs Eats and Parks by Id and save the name under trip details
             // console.log(tripObj.bazararieIds);
-            console.log(tripObj);
             getBizarreriesByIdArray(tripObj.bazararieIds)
                 .then((bizObjs) => {
-                    console.log(bizObjs);
                     for (const bizObj of bizObjs) {
                         tripDetails.bizName.push(bizObj.name);
                     }

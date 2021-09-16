@@ -21,7 +21,6 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
             <h3>${tripDetails.parkName}</h3>
         </div>
         <div class="saved-trip__attractions">`;
-    console.log(tripDetails);
 
     //populate with eateries and Bazarraries
     if (tripDetails.bizName != []) {

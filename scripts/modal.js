@@ -2,7 +2,9 @@ import { getParkData } from "./main.js";
 import { getEateryData } from "./main.js";
 import { getBizarrerieData } from "./main.js";
 import { returnActiveTripState } from "./main.js";
+
 const formatPhoneNumber = (obj) => {
+    if (obj.length == 10) {
     const origNum = obj;
     const arrayOfDigits = Array.from(String(origNum), Number);
     arrayOfDigits.splice(0, 0, "(");
@@ -10,6 +12,7 @@ const formatPhoneNumber = (obj) => {
     arrayOfDigits.splice(8, 0, "-");
     const formattedPhoneNumber = arrayOfDigits.join("");
     return formattedPhoneNumber;
+    } else return obj;
 };
 
 const checkCost = (input) => {
@@ -29,9 +32,10 @@ export const parkDetailsInsert = (parkData) => {
 
         <div class="address">
             <div class="modal-bold">Address:  </div>
-            <div>${parkData.addresses[0].line1}, ${
-        parkData.addresses[0].city
-    } ${parkData.addresses[0].stateCode}</div>
+            <div>${parkData.addresses[0].line1}, 
+            ${parkData.addresses[0].city} 
+            ${parkData.addresses[0].stateCode}
+            </div>
         </div> <!-- closes address-->
 
         <div class="phone-number">
@@ -111,6 +115,7 @@ export const runModal = () => {
 
     document.addEventListener("click", (event) => {
         if (event.target.id.startsWith("detail-button")) {
+            console.log("detail button clicked");
             const buttonId = event.target.id.split("--")[1];
             // modal display for the given feature
             if (buttonId === "eat" && tripState.eateryIds != []) {
@@ -122,6 +127,7 @@ export const runModal = () => {
             }
         }
         if (event.target.id.startsWith("close-modal")) {
+            console.log("modal X clicked");
             modal.style.display = "none";
         }
     });

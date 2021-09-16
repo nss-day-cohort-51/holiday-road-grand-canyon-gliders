@@ -148,7 +148,7 @@ export const printEventsModal = (input) => {
           <div></div>
           <div class="modal-bold">Date:</div>
           <div>${input.datestart}</div>
-          <div class="modal-bold">Start Time:</div>
+          <div class="modal-bold">Time:</div>
           <div>${input.times[0].timestart} - ${input.times[0].timeend}</div>
       </div> <!-- closes dates-->
 

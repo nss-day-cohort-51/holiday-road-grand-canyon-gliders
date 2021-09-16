@@ -10,7 +10,7 @@ import {
     getEateriesByIdArray,
     getSingleTripByDirectionId,
 } from "./data/DataManager.js";
-import { savedTripCard, savedTripCardDetails } from "./cards/SavedTrip.js";
+import { fillEvents, savedTripCard, savedTripCardDetails } from "./cards/SavedTrip.js";
 import {
     getDirections,
     directionLiteral,
@@ -82,6 +82,7 @@ export const updateSavedTrips = () => {
                                         );
                                     ///
                                     directionsFunc(tripObj.directionId);
+                                    eventFunc(tripObj.directionId);
                                 });
                         });
                 });
@@ -118,16 +119,16 @@ const directionsFunc = (input) => {
     //event listener for button
     directionElement.addEventListener("click", (event) => {
         if (event.target.id == `directions-btn--${input}`) {
-            directionHeaderElement.style.display = "block";
             let parkLat;
             let parkLong;
 
             //reset the dom for directions
             fillDirections.innerHTML = "";
+            directionHeaderElement.style.display = "block"
+            directionHeaderElement.innerHTML = "Directions";
 
             //getTrip is used to get directions from local api trips
             const getTrip = getSingleTripByDirectionId(input).then((taco) => {
-                console.log(taco);
                 getParkById(taco[0].parkId).then((parkLoc) => {
                     console.log(parkLoc);
                     parkLat = parkLoc.latitude;
@@ -160,3 +161,32 @@ const directionsFunc = (input) => {
         }
     });
 };
+
+const fillEvent = document.querySelector(".directions-fill");
+
+export const eventFunc = (input) => {
+    
+    const directionElement = document.getElementById(`container`);
+
+    directionElement.addEventListener("click", (event) => {
+        
+        fillEvent.innerHTML = "";
+        
+
+        if(event.target.id == `events-btn--${input}`){
+            
+            directionHeaderElement.innerHTML = "Events"
+
+            const getTrip = getSingleTripByDirectionId(input).then((taco) => {
+                getParkById(taco[0].parkId).then((parkEvent) => {
+                    for(let count = 0;count < 3;count++){
+                        console.log(parkEvent.activities[count])
+                        fillEvent.innerHTML += fillEvents(parkEvent.activities[count].name);
+                    }
+                });
+            });
+        }
+
+    })
+    
+}

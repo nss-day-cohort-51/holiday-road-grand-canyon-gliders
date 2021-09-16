@@ -39,7 +39,12 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
         card += `</div>`;
     }
 
-    card += `<button id="directions-btn--${directionId}">DIRECTIONS</button>
+    card += `<button id="directions-btn--${directionId}">DIRECTIONS</button><button id="events-btn--${directionId}">EVENTS</button>
+    <ul class="eventFill"></ul>
     </div>`;
     return card;
 };
+
+export const fillEvents = (input) => {
+    return `<li class="event">${input}</li>`
+}

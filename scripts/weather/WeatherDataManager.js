@@ -104,9 +104,8 @@ export const addWeather = (weatherList, zipCode) => {
                     <div class="flip-card-back">
                     <h3 class="forecastTitle">${dayOne}</h3>
                     <div class="outlook">${weatherList[0].weather[0].description}</div>
-                    <div class="outlook">Low: ${weatherList[0].weather[0].main.temp_min}°</div>
-                    <div class="outlook">High:${weatherList[0].weather[0].main.temp_max}°</div>
-                    <div><img class="weather-icon" src="http://openweathermap.org/img/wn/${weatherList[0].weather[0].icon}@2x.png" /></div>
+                    <div class="outlook">Low: ${weatherList[0].main.temp_min}°</div>
+                    <div class="outlook">High:${weatherList[0].main.temp_max}°</div>
                     </div> <!-- closes flip-card-back -->
 
                 </div> <!-- closes flip-card-inner -->

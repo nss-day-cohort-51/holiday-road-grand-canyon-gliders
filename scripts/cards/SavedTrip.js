@@ -45,6 +45,7 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
     return card;
 };
 
+//Literal for events
 export const fillEvents = (input) => {
     return `<li class="event">${input}</li>`
 }

@@ -127,8 +127,77 @@ export const runModal = () => {
             }
         }
         if (event.target.id.startsWith("close-modal")) {
-            console.log("modal X clicked");
+            modal.style.display = "none";
+        }
+        if(event.target.id == "modal"){
             modal.style.display = "none";
         }
     });
 };
+
+
+
+export const printEventsModal = (input) => {
+
+    return `                        
+    <div class="modal-content">
+      <div class="dates">
+      <span class="close-modal" id="close-modal--events">&times;</span> 
+      <h2>Events</h2>
+          <div class="modal-bold">Date:</div>
+          <div>${input.datestart}</div>
+          <div class="modal-bold">Start Time:</div>
+          <div>${input.times[0].timestart} - ${input.times[0].timeend}</div>
+      </div> <!-- closes dates-->
+
+      <div class="fees">
+          <div class="modal-bold">Fee Info: </div>
+          <div>${input.feeinfo}</div>
+      </div> <!-- closes fees-->
+
+      <p>${input.description}</p>
+    </div> <!-- closes modal-content -->
+    `
+
+}
+
+export const printEventsModalNone = () => {
+
+    return `                        
+    <div class="modal-content">
+    <span class="close-modal" id="close-modal--events">&times;</span> 
+      <div class="dates">
+        <h2>No Events</h2>
+        <div class="modal-bold-invalid">No current events for this park</div>
+    </div> <!-- closes modal-content -->
+    `
+
+}
+
+export const printDirectionsModal = () => {
+
+    return `                        
+    <div class="modal-content">
+      <div class="dates">
+      <span class="close-modal" id="close-modal--events">&times;</span> 
+      <h2>Directions</h2>
+        <ul class="directions-list">
+            
+        </ul>
+    </div> <!-- closes modal-content -->
+    `
+
+}
+
+export const printDirectionsModalNone = () => {
+
+    return `                        
+    <div class="modal-content">
+    <span class="close-modal" id="close-modal--events">&times;</span> 
+      <div class="dates">
+        <h2>Unable to provide directions</h2>
+        <div class="modal-bold-invalid">Either permission for location has been rejected or the coordinates can not be directly accessed by road</div>
+    </div> <!-- closes modal-content -->
+    `
+
+}

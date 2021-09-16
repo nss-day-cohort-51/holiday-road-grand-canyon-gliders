@@ -191,7 +191,8 @@ export const printDirectionsModalNone = () => {
     <div class="modal-content">
     <span class="close-modal" id="close-modal--events">&times;</span> 
       <div class="dates">
-        <h2>Unable to provide directions.</h2>
+        <h2>Unable to provide directions</h2>
+        <div class="modal-bold-invalid">Either permission for location has been rejected or the coordinates can not be accessed by road</div>
     </div> <!-- closes modal-content -->
     `
 

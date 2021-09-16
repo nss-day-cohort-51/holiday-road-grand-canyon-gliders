@@ -45,11 +45,3 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
     return card;
 };
 
-//Literal for events
-export const fillEvents = (input) => {
-    return `<h5>${input.description}</h5>
-            <p>${input.datestart}</p>
-            <p>${input.times[0].timestart} - ${input.times[0].timeend}</p>
-            <p>${input.feeinfo}
-    `
-};

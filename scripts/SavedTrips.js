@@ -10,7 +10,7 @@ import {
     getEateriesByIdArray,
     getSingleTripByDirectionId,
 } from "./data/DataManager.js";
-import { fillEvents, savedTripCard, savedTripCardDetails } from "./cards/SavedTrip.js";
+import { savedTripCard, savedTripCardDetails } from "./cards/SavedTrip.js";
 import {
     getDirections,
     directionLiteral,
@@ -92,9 +92,6 @@ export const updateSavedTrips = () => {
     });
 };
 
-const fillDirections = document.querySelector(".directions-fill");
-const directionHeaderElement = document.querySelector(".directions-header");
-directionHeaderElement.style.display = "none";
 const modal = document.getElementById("modal");
 
 //function used for gaining permission for location
@@ -124,11 +121,6 @@ const directionsFunc = (input) => {
         if (event.target.id == `directions-btn--${input}`) {
             let parkLat;
             let parkLong;
-
-            //reset the dom for directions
-            fillDirections.innerHTML = "";
-            directionHeaderElement.style.display = "block"
-            directionHeaderElement.innerHTML = "Directions";
 
             //getTrip is used to get directions from local api trips
             const getTrip = getSingleTripByDirectionId(input).then((taco) => {
@@ -167,8 +159,7 @@ const directionsFunc = (input) => {
 };
 
 
-//querySelector for events to populate on DOM
-const fillEvent = document.querySelector(".directions-fill");
+
 
 //Events Function
 export const eventFunc = (input) => {
@@ -179,15 +170,8 @@ export const eventFunc = (input) => {
     //add eventListener for on clic;
     directionElement.addEventListener("click", (event) => {
 
-        //clear existing html if any
-        fillEvent.innerHTML = "";
-
         //if statement to decide which card the user selected
         if (event.target.id == `events-btn--${input}`) {
-
-            //Set header to Events
-            directionHeaderElement.innerHTML = "Events";
-            directionHeaderElement.style.display = "block";
 
             //fetch calls to gather the trip selected--then gather the parkId of selected trip and pass that parkId to the getParks to then get activities from that specific park
             const getTrip = getSingleTripByDirectionId(input).then((taco) => {

@@ -58,3 +58,13 @@ display: none; /* Hidden by default */
     text-decoration: none;
     cursor: pointer;
 }
+
+.directions-list{
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.modal-bold {
+    font-weight: 600;
+    align-self: center;
+}

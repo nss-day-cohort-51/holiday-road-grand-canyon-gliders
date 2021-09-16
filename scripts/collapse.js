@@ -7,7 +7,6 @@ const collapseButtonElem = document.getElementById(
 );
 
 collapseButtonElem.addEventListener("click", (event) => {
-    console.log("triggerd Collapses");
 
     collapseSavedTrips();
     // if collapsed
@@ -32,4 +31,3 @@ collapseButtonElem.addEventListener("click", (event) => {
     }
 });
 
-console.log("imported");

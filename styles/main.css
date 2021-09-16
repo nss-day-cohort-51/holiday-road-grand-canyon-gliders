@@ -20,6 +20,11 @@ button:focus {
   box-shadow: none;
 }
 
+html,body{
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 /* making body:flex, min-height:100vh, & main flex:1 makes footer stay at bottom */
 body {
   display: flex;
@@ -279,7 +284,6 @@ h2 {
 }
 
 .saved-trips__cards {
-  cursor: pointer;
   background: rgb(186, 255, 255, .4);
   min-height: 750px;
   max-height: 750px;

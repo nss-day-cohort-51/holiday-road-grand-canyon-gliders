@@ -225,9 +225,9 @@ export const resetTripSelection = () => {
     const populateDropDown = document.getElementById("parkDropDown");
     populateDropDown.innerHTML = createDropdownParkFrame();
 
-    parkDetailsButton.style.display = "none";
-    eatDetailsButton.style.display = "none";
-    bizDetailsButton.style.display = "none";
+    parkDetailsButton.style.visibility = "hidden";
+    eatDetailsButton.style.visibility = "hidden";
+    bizDetailsButton.style.visibility = "hidden";
 
     parkNamePreview.innerHTML = "CHOOSE NATIONAL PARK ABOVE";
     weatherView.innerHTML = "5 Day Weather Forecast by ZipCode";

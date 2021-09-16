@@ -23,7 +23,6 @@
 
 .saved-trips__cards {
     text-align: left;
-    cursor: pointer;
     padding: 7px 0 20px 0;
     background: rgb(186, 255, 255, .4);
     min-height: 600px;
@@ -55,8 +54,7 @@
     justify-content: center;
     padding-bottom: 5px;
     margin-inline: 17px;
-    cursor:pointer
-
+    cursor: default;
 }
 
 .saved-trips__line-break {

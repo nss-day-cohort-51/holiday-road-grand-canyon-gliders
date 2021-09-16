@@ -16,7 +16,7 @@ export const collapseSavedTrips = () => {
         // savedTripsElem.style["width"] = "";
         savedTripsElem.style["width"] = "225";
         changeCollapsed();
-        savedTripsElem.style["flex"] = "1  1  13% ";
+        savedTripsElem.style["flex"] = "1  1  2% ";
         // savedTripsElem.style["flex"] = "unset   ";
 
         // savedTripsElem.style["width"] = "";

@@ -14,16 +14,53 @@
     margin: 0 0 0 30px;
     /* margin-left: 49px; */
     /* margin: 0; */
-    13%: ;
+    /* 13%: ; */
     /* margin: 0; */
     z-index: 1;
     background: #ddf9f9;
 }
 
-.saved-trip__card--header h3 {
+.saved-trip__card--header{
+    position: relative;
+    height: 88px;
+    width: 165px;
+    height: 83px;
+}
+
+.saved-trip__text {
+    height: 20px;
+    position: relative;
+}
+
+.saved-trip__text p{
+    width: 162px;
+    position:absolute;
+}
+
+.saved-trip__card--header > h3 {
+    font-size: 17px;
+
     position: absolute
 }
 
+.saved-trip__attraction--header h5 {
+    margin-block: 0;
+    margin-top: 20px;
+
+}
+
+.saved-trip__attractions {
+    /* position: absolute; */
+    /* width: 196px;
+    background: #b8dbd9;
+    border-radius: 7px;
+    padding-bottom: 30px; */
+}
+
+.saved-trips__card > button {
+    margin-top: 20px;
+    width: 200px;
+}
 .trip-helpers__nav{
     transform: rotate(
 -90deg);
@@ -60,9 +97,9 @@
 
 #saved-trips__collapse-button {
     float: left;
-    width: 56px;
+    width: 147px;
     padding: 5px 8px;
-    height: 17px;
+    height: 24px;
     position: relative;
     border: none;
     left: 100%;
@@ -71,7 +108,7 @@
     background: #b8dbd9;
     transform: rotate( 
 -90deg);
-    margin-left: -19px;
+    margin-left: -68px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -167,4 +204,9 @@
     100% {
         opacity: 0;
     }
+}
+
+.saved-trips__card {
+    display: flex;
+    flex-flow: column   ;
 }

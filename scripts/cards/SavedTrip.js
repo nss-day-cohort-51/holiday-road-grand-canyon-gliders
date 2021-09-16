@@ -17,15 +17,18 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
     let card = `
     <div class="saved-trips__line-break"></div>
     <div class="saved-trips__card"> 
-        <div class =".saved-trip__card--header">
+        <div class ="saved-trip__card--header">
             <h3>${tripDetails.parkName}</h3>
-        </div>`;
+        </div>
+        <div class="saved-trip__attractions">`;
     console.log(tripDetails);
 
     //populate with eateries and Bazarraries
     if (tripDetails.bizName != []) {
         card += `<div class="saved-trip__attraction"> 
-                    <h5 class="saved-trip__attraction--header">Bazzararies:</h5>`;
+                    <div class="saved-trip__attraction--header">
+                        <h5>Bazzararies:</h5>
+                    </div>`;
         tripDetails.bizName.forEach((biz) => {
             card += `<div class="saved-trip__text">
                         <p class="saved-trip__attraction--elem"> ${biz}</p>
@@ -36,13 +39,15 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
 
     if (tripDetails.eatName != []) {
         card += `<div class="saved-trip__attraction"> 
-                    <h5 class="saved-trip__attraction--header">Eateries:</h5>`;
+                    <div class="saved-trip__attraction--header">
+                        <h5>Eateries:</h5>
+                    </div>`;
         tripDetails.eatName.forEach((eat) => {
             card += `<div class="saved-trip__text">
                         <p class="saved-trip__attraction--elem"> ${eat}</p>
                     </div>`;
         });
-        card += `</div>`;
+        card += `</div></div>`;
     }
 
     card += `<button id="directions-btn--${directionId}">DIRECTIONS</button>

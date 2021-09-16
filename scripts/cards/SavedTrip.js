@@ -17,7 +17,9 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
     let card = `
     <div class="saved-trips__line-break"></div>
     <div class="saved-trips__card"> 
-        <h3>${tripDetails.parkName}</h3>`;
+        <div class =".saved-trip__card--header">
+            <h3>${tripDetails.parkName}</h3>
+        </div>`;
     console.log(tripDetails);
 
     //populate with eateries and Bazarraries
@@ -25,7 +27,9 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
         card += `<div class="saved-trip__attraction"> 
                     <h5 class="saved-trip__attraction--header">Bazzararies:</h5>`;
         tripDetails.bizName.forEach((biz) => {
-            card += `<p class="saved-trip__attraction--elem"> ${biz}</p>`;
+            card += `<div class="saved-trip__text">
+                        <p class="saved-trip__attraction--elem"> ${biz}</p>
+                    </div>`;
         });
         card += `</div>`;
     }
@@ -34,7 +38,9 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
         card += `<div class="saved-trip__attraction"> 
                     <h5 class="saved-trip__attraction--header">Eateries:</h5>`;
         tripDetails.eatName.forEach((eat) => {
-            card += `<p class="saved-trip__attraction--elem"> ${eat}</p>`;
+            card += `<div class="saved-trip__text">
+                        <p class="saved-trip__attraction--elem"> ${eat}</p>
+                    </div>`;
         });
         card += `</div>`;
     }

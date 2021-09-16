@@ -8,6 +8,7 @@
 @import "modal.css";
 @import "forecast.css";
 @import "aside.css";
+@import "collapse.css";
 
 /* removes highlights from selected boxes after click */
 input:focus,
@@ -255,11 +256,10 @@ h2 {
 
 .saved-trips {
   flex: 1;
-  padding: 0px 20px 50px 20px;
+  padding: 0px 0px 50px 0px;
   text-align: center;
   background-color: rgb(245, 245, 245);
   height: 100%;
-
 }
 
 .saved-trips__card {
@@ -267,12 +267,10 @@ h2 {
     padding: 9px;}
 
 .saved-trips__cards {
-<<<<<<< HEAD
   cursor: pointer;
   background: rgb(186, 255, 255, .4);
-=======
-  min-height: 600px;
-  max-height: 600px;
+  /* min-height: 600px; */
+  /* max-height: 600px; */
   overflow-y: auto;
 }
 
@@ -289,5 +287,4 @@ h2 {
   border-radius: 10px;
   background-color: rgb(225, 225, 225);
   transition: 100ms all;    
->>>>>>> feef0bc21e22bd141ec0776c6e4fb1d0fb4f2979
 }

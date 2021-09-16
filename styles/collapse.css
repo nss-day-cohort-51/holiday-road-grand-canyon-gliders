@@ -29,10 +29,10 @@
     position: relative;
 }
 
-.saved-trip__text p{
+.saved-trip__text p {
     width: 162px;
     position: absolute;
-    margin-inline-start: 35px;
+    /* margin-inline-start: 35px; */
     font-size: 12px;
 }
 
@@ -41,29 +41,25 @@
 }
 
 .saved-trip__card--header > h3 {
-
     font-size: 13px;
     position: absolute;
     font-weight: 700;
-
 }
 
 .saved-trip__attraction--header h5 {
     margin-block: 0;
     margin-top: 20px;
-    font-weight: 500;
-    font-size: 13px;
-
-
+    font-weight: 600;
+    font-size: 15px;
 }
 
-.saved-trip__attractions {
-    /* position: absolute; */
-    /* width: 196px;
+/* .saved-trip__attractions {
+    position: absolute;
+    width: 196px;
     background: #b8dbd9;
     border-radius: 7px;
-    padding-bottom: 30px; */
-}
+    padding-bottom: 30px;
+} */
 
 .saved-trips__card > button {
     margin-top: 20px;
@@ -90,7 +86,6 @@
 }
 
 .trip-helpers__nav-item {
-
     cursor: pointer;
     /* background-color: #lightb8dbd9; */
     width: 100px;
@@ -100,8 +95,6 @@
     margin-inline: 3px;
     /* margin-top: 5px; */
 }
-
-
 
 #saved-trips__collapse-button {
     float: left;
@@ -120,7 +113,6 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-
 
 /* Add reverse borders to Collapse-saved-trips tab */
 .tab-left:after {

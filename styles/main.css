@@ -294,26 +294,3 @@ h2 {
   overflow-x: hidden;
   border-bottom: solid #b8dbd9 2px;
 }
-
-
-.directions-btn {
-  display: inline;
-  text-align: center;
-  width: 94px;
-  font-size: 10px;
-  font-weight: 506000;
-  color: #000000;
-  cursor: pointer;
-  padding: 5px 15px;
-  border: 2px solid #66808F;
-  border-radius: 10px;
-  background-color: rgb(225, 225, 225);
-  transition: 100ms all;
-  margin-right: 11px;
-}
-
-.saved-trip__btns {
-  margin-top: 5px;
-  width: 253px;
-  margin-left: -9px;
-}

@@ -268,6 +268,16 @@ h2 {
     text-align: left;
     padding: 9px;}
 
+.saved-trips__header {
+  height: 41px;
+  margin-top: 0;
+  background: #ddf9f9;
+  padding-top: 0;
+  width: 238px;
+  position: absolute;
+  z-index: 1;
+}
+
 .saved-trips__cards {
   cursor: pointer;
   background: rgb(186, 255, 255, .4);
@@ -275,20 +285,28 @@ h2 {
   /* max-height: 600px; */
   overflow-y: auto;
   border-left: solid #b8dbd9 2px;
-
+  padding-top: 0;
 }
 
+
 .directions-btn {
+  display: inline;
   text-align: center;
-  width: 125px;
-  font-size: 20px;
-  font-weight: 600;
+  width: 94px;
+  font-size: 10px;
+  font-weight: 506000;
   color: #000000;
   cursor: pointer;
   padding: 5px 15px;
-  margin: 50px auto;
-  border: 3px solid #66808F;
+  border: 2px solid #66808F;
   border-radius: 10px;
   background-color: rgb(225, 225, 225);
-  transition: 100ms all;    
+  transition: 100ms all;
+  margin-right: 11px;
+}
+
+.saved-trip__btns {
+  margin-top: 5px;
+  width: 253px;
+  margin-left: -9px;
 }

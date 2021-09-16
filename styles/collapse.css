@@ -24,7 +24,8 @@
     position: relative;
     height: 88px;
     width: 165px;
-    height: 83px;
+    height: 47px;
+
 }
 
 .saved-trip__text {
@@ -34,18 +35,25 @@
 
 .saved-trip__text p{
     width: 162px;
-    position:absolute;
+    position: absolute;
+    margin-inline-start: 35px;
+    font-size: 12px;
 }
 
 .saved-trip__card--header > h3 {
-    font-size: 17px;
 
-    position: absolute
+    font-size: 13px;
+    position: absolute;
+    font-weight: 700;
+
 }
 
 .saved-trip__attraction--header h5 {
     margin-block: 0;
     margin-top: 20px;
+    font-weight: 500;
+    font-size: 13px;
+
 
 }
 

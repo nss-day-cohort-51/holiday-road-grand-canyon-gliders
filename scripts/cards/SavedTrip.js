@@ -50,8 +50,12 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
         card += `</div></div>`;
     }
 
-    card += `<button id="directions-btn--${directionId}" class="directions-btn">DIRECTIONS</button><button id="events-btn--${directionId}" class="directions-btn">EVENTS</button>
-    <div class="eventFill"></div>
+    card += `
+    <div class="saved-trip__btns"> 
+        <button id="directions-btn--${directionId}" class="directions-btn">DIRECTIONS</button>
+        <button id="events-btn--${directionId}" class="directions-btn">EVENTS</button>
+        <div class="eventFill"></div>
+    </div>
     </div>`;
     return card;
 };
@@ -62,5 +66,5 @@ export const fillEvents = (input) => {
             <p>${input.datestart}</p>
             <p>${input.times[0].timestart} - ${input.times[0].timeend}</p>
             <p>${input.feeinfo}
-    `
+    `;
 };

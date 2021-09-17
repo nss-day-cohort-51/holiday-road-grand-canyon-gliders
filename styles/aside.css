@@ -7,11 +7,15 @@
     height: 100%;
 }
 
+.saved-trip__attraction {
+    margin-bottom: 5px;
+}
+
 .saved-trip__attraction--header {
     font-size: 18px;
     font-weight: 600;
     text-align: left;
-    margin-inline-start: 25px;
+    margin-inline-start: 10px;
     margin-top: 5px;
     margin-bottom: 0px;
 }
@@ -36,13 +40,12 @@
 }
 
 .saved-trips__card p {
-    margin-inline-start: 35px;
+    margin-inline-start: 15px;
     margin-bottom: 5px;
     font-size: 17px;
 }
 
 .saved-trips__card h3 {
-    padding-left: 15px;
     margin: 15px 0px 10px 0px;
     font-size: 22px;
     font-weight: 600;
@@ -63,18 +66,26 @@
     border-bottom: 2px solid #9B2226;
 }
 
- .directions-btn {
+.saved-trip__btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    margin: 10px 3px 0px 3px;
+  }
+
+.directions-btn {
     align-self: center;
     width: 150px;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     color: #000000;
     cursor: pointer;
-    padding: 8px 0px;
-    margin-top: 15px;
+    padding: 5px 5px;
+    margin: 15px 3px 0px 3px;
     border: 3px solid #66808F;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: rgb(225, 225, 225);
     transition: 100ms all;  
 }

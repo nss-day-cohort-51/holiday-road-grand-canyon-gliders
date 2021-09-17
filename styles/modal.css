@@ -26,6 +26,7 @@ display: none; /* Hidden by default */
 .modal-content h2 {
     text-align: center;
     padding: 0px;
+    margin-top: 5px;
     margin-bottom: 20px;
 }
 
@@ -34,7 +35,7 @@ display: none; /* Hidden by default */
     margin-right: 10px;
 }
 
-.address, .phone-number, .fees, .location, .wheelchair, .pets, .wifi  {
+.address, .phone-number, .fees, .location, .wheelchair, .pets, .wifi, .event-date, .event-time {
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -68,4 +69,14 @@ display: none; /* Hidden by default */
     display: flex;
     justify-content: center;
     align-self: center;
+}
+
+.event-date {
+    font-weight: 400;
+    padding-left: 10px;
+}
+
+.event-time {
+    font-weight: 400;
+    padding-left: 10px;
 }

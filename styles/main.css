@@ -94,8 +94,6 @@ main {
   white-space: nowrap;
   padding: 0px 10px;
   margin: 0px 20px;
-  /* border: 3px solid darkgray;
-  border-radius: 5px; */
   background-color: white;
 }
 
@@ -111,8 +109,6 @@ main {
   white-space: nowrap;
   padding: 0px 10px;
   margin: 0px 20px;
-  /* border: 3px solid darkgray;
-  border-radius: 5px; */
   background-color: white;
 }
 
@@ -121,7 +117,6 @@ main {
   display: flex;
   flex-direction: row;
   align-self: stretch;
-  /* justify-content: space-evenly; */
 }
 
 /* container that holds select and option tags */
@@ -185,12 +180,20 @@ h2 {
 }
 
 /* this styles each of the boxes that pop up after dropdown selections */
-.preview-box {
+.preview-box1 {
   display: flex;
   flex-direction: row-reverse;
   justify-content: left;
   padding: 0px;
   margin: 40px 20px 20px 20px;
+}
+
+.preview-box2 {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+  padding: 0px;
+  margin: 20px 20px 20px 20px;
 }
 
 .preview-text {
@@ -202,7 +205,14 @@ h2 {
 .preview-text-sm {
   font-size: 16px;
   font-weight: 600;
-  align-self: center;
+}
+
+.forecast-placeholder {
+margin-left: 15px;
+}
+
+.preview-text-sm span {
+  margin-left: 15px;
 }
 
 .detail-btn {
@@ -223,7 +233,7 @@ h2 {
 
 .detail-btn:hover {
   background-color: #66808F;
-  color: white;
+  color: black;
 }
 
 .save-trip {
@@ -239,24 +249,24 @@ h2 {
   font-weight: 600;
   cursor: pointer;
   padding: 5px 15px;
-  margin: 50px auto;
+  margin-bottom: 30px;
   color: #000000;
   border: 3px solid #66808F;
-  background-color: rgb(225, 225, 225);
+  background-color: #B8DBD9;
   border-radius: 10px;
   transition: 100ms all;  
 }
 
 .save-trip-btn:hover {
   background-color: #66808F;
-  color: white;
+  color: black;
 }
 
 .save-trip-btn:disabled,
-.save-trip-btn[disabled]{
+.save-trip-btn[disabled] {
   color: #000000;
   border: 3px solid #66808F;
-  background-color: rgb(225, 225, 225);
+  background-color: #B8DBD9;
 }
 
 .saved-trips {
@@ -268,8 +278,8 @@ h2 {
 }
 
 .saved-trips__card {
-    text-align: left;
-    padding: 9px;}
+  text-align: left;
+  padding: 9px;}
 
 .saved-trips__header {
   height: 83px;
@@ -290,27 +300,4 @@ h2 {
   padding-top: 0;
   overflow-x: hidden;
   border-bottom: solid #b8dbd9 2px;
-}
-
-
-.directions-btn {
-  display: inline;
-  text-align: center;
-  width: 94px;
-  font-size: 10px;
-  font-weight: 506000;
-  color: #000000;
-  cursor: pointer;
-  padding: 5px 15px;
-  border: 2px solid #66808F;
-  border-radius: 10px;
-  background-color: rgb(225, 225, 225);
-  transition: 100ms all;
-  margin-right: 11px;
-}
-
-.saved-trip__btns {
-  margin-top: 5px;
-  width: 253px;
-  margin-left: -9px;
 }

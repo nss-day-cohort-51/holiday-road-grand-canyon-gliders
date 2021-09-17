@@ -188,12 +188,20 @@ h2 {
 }
 
 /* this styles each of the boxes that pop up after dropdown selections */
-.preview-box {
+.preview-box1 {
   display: flex;
   flex-direction: row-reverse;
   justify-content: left;
   padding: 0px;
   margin: 40px 20px 20px 20px;
+}
+
+.preview-box2 {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: left;
+  padding: 0px;
+  margin: 20px 20px 20px 20px;
 }
 
 .preview-text {
@@ -250,7 +258,8 @@ margin-left: 15px;
   font-weight: 600;
   cursor: pointer;
   padding: 5px 15px;
-  margin: 50px auto;
+  /* margin: 50px auto; */
+  margin-bottom: 30px;
   color: #000000;
   border: 3px solid #66808F;
   background-color: #B8DBD9;
@@ -296,7 +305,7 @@ margin-left: 15px;
 .saved-trips__cards {
   background: rgb(186, 255, 255, .4);
   min-height: 750px;
-  /* max-height: 600px; */
+  /* max-height: 750px; */
   border-left: solid #b8dbd9 2px;
   padding-top: 0;
   overflow-x: hidden;

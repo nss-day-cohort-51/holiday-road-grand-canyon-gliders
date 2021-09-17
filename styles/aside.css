@@ -72,21 +72,19 @@
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
-    margin-top: 5px 3px;
-    /* width: 200px; */
-    /* margin-left: 44px; */
+    margin: 10px 3px 0px 3px;
   }
 
   .directions-btn {
     align-self: center;
     width: 150px;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     color: #000000;
     cursor: pointer;
-    padding: 8px 0px;
-    margin-top: 15px;
+    padding: 5px 5px;
+    margin: 15px 3px 0px 3px;
     border: 3px solid #66808F;
     border-radius: 5px;
     background-color: rgb(225, 225, 225);

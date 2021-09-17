@@ -150,12 +150,20 @@ export const printEventsModal = (input) => {
     return `                        
     <div class="modal-content">
       <div class="dates">
-      <span class="close-modal" id="close-modal--events">&times;</span> 
-      <h2>Events</h2>
-          <div class="modal-bold">Date:</div>
-          <div>${input.datestart}</div>
-          <div class="modal-bold">Start Time:</div>
-          <div>${input.times[0].timestart} - ${input.times[0].timeend}</div>
+
+        <span class="close-modal" id="close-modal--events">&times;</span> 
+        <h2>Events</h2>
+
+            <div class="event-date"">
+                <div class="modal-bold">Date:</div>
+                <div>${input.datestart}</div>
+            </div> <!-- closes event-date"-->
+
+            <div class="event-time">
+                <div class="modal-bold">Start Time:</div>
+                <div>${input.times[0].timestart} - ${input.times[0].timeend}</div>
+            </div> <!-- closes event-time"-->
+
       </div> <!-- closes dates-->
 
       <div class="fees">

@@ -35,7 +35,7 @@ display: none; /* Hidden by default */
     margin-right: 10px;
 }
 
-.address, .phone-number, .fees, .location, .wheelchair, .pets, .wifi  {
+.address, .phone-number, .fees, .location, .wheelchair, .pets, .wifi, .event-date, .event-time {
     display: flex;
     flex-direction: row;
     justify-content: left;

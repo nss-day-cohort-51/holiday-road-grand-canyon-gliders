@@ -10,6 +10,7 @@
 .saved-trip__attraction {
     margin-bottom: 5px;
 }
+
 .saved-trip__attraction--header {
     font-size: 18px;
     font-weight: 600;
@@ -41,7 +42,6 @@
     margin-bottom: 5px;
     font-size: 17px;
 }
-
 
 .saved-trips__card {
     /* background-color: ; */

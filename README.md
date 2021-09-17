@@ -1,11 +1,10 @@
-# RV There Yet?	:national_park:
+# RV There Yet?	
 
 ![RV Anamtion](	https://media.giphy.com/media/UoMYl8LHwtIZYUCypc/giphy.gif)
-<!-- ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif) -->
+
 **RV There Yet?** is a trip planning website designed for the would be traveler to find and explore destinations along their way.  Searching a trip will allow you to explore National Parks, oddities and eateries along your way as well as give you access to the information to plan the perfect trip.  
 
 ## Setup
----
 ### Local Server
 
 To get the full features from **RV There Yet?** you will need to host a server for your database locally.  Using the Node Project Manager (npm) this can be installed with the following command in terminal. 
@@ -26,8 +25,8 @@ The application is currenlty limited to require personal access keys for access 
 
 
 ## Meet The Design Team
----
-Each member of the design team is available for help with the project or other questions you might have.  Reach out to us on LinkIn. 
+
+Each member of the design team is available for help with the project or other questions you might have.  Connect with us on LinkedIn:
  - [Colin Miller](https://www.linkedin.com/in/colin-miller-587704212)
 
  - [Brady Williams](https://www.linkedin.com/in/brady-c-williams)

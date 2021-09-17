@@ -61,7 +61,7 @@ export const getParkData = () => {
 
 export const getEateryData = () => {
     const eatModalPopup = document.getElementById("modal");
-    const userEats = activeTripState.eateryIds[0];
+    const userEats = activeTripState.eateryIds.at(-1);
     const userEatsData = getEatNameById(userEats).then((eatData) => {
         eatModalPopup.innerHTML = eatDetailsInsert(eatData[0]);
         modal.style.display = "block";
@@ -70,7 +70,7 @@ export const getEateryData = () => {
 
 export const getBizarrerieData = () => {
     const bizModalPopup = document.getElementById("modal");
-    const userBiz = activeTripState.bazararieIds[0];
+    const userBiz = activeTripState.bazararieIds.at(-1);
     const userBizData = getBizNameById(userBiz).then((bizData) => {
         bizModalPopup.innerHTML = bizDetailsInsert(bizData[0]);
         modal.style.display = "block";

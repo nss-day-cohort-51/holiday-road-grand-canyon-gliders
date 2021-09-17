@@ -70,3 +70,13 @@ display: none; /* Hidden by default */
     justify-content: center;
     align-self: center;
 }
+
+.event-date {
+    font-weight: 400;
+    padding-left: 10px;
+}
+
+.event-time {
+    font-weight: 400;
+    padding-left: 10px;
+}

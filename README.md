@@ -1,5 +1,7 @@
 # RV There Yet?	:national_park:
 
+![RV Anamtion](	https://media0.giphy.com/media/UoMYl8LHwtIZYUCypc/…6zael4m7od2dzj7s21r9q3pkb10qii&rid=giphy.gif&ct=g)
+
 **RV There Yet?** is a trip planning website designed for the would be traveler to find and explore destinations along their way.  Searching a trip will allow you to explore National Parks, oddities and eateries along your way as well as give you access to the information to plan the perfect trip.  
 
 ## Setup

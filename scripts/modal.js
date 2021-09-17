@@ -135,40 +135,36 @@ export const runModal = () => {
     });
 };
 
-const feeChecker = (obj) => {
-    if (obj == "" || 
-        obj == undefined ||
-        obj == null ||
-        obj == NaN) {
-        return "No info available";
-    }
-    else return obj;
-}
+let fee;
+let time;
 
 export const printEventsModal = (input) => {
-    const feeInfo = feeChecker(input.feeinfo);
+    if(input.feeinfo == ""){
+        fee = "No info available"
+    }else{
+        fee = input.feeinfo;
+    }
+
+    if(input.times[0].timestart == ""){
+        time = "No info available";
+    }else{
+        time = input.times[0].timestart + "-" + input.times[0].timeend;
+    }
+
     return `                        
     <div class="modal-content">
       <div class="dates">
-
-        <span class="close-modal" id="close-modal--events">&times;</span> 
-        <h2>Events</h2>
-
-            <div class="event-date"">
-                <div class="modal-bold">Date:</div>
-                <div>${input.datestart}</div>
-            </div> <!-- closes event-date"-->
-
-            <div class="event-time">
-                <div class="modal-bold">Start Time:</div>
-                <div>${input.times[0].timestart} - ${input.times[0].timeend}</div>
-            </div> <!-- closes event-time"-->
-
+      <span class="close-modal" id="close-modal--events">&times;</span> 
+      <h2>Events</h2>
+          <h3>${input.parkfullname}<h3>
+          <div></div>
+          <div class="modal-bold">Date: ${input.datestart}</div>
+          <div class="modal-bold">Time: ${time} </div>
       </div> <!-- closes dates-->
 
       <div class="fees">
           <div class="modal-bold">Fee Info: </div>
-          <div>${feeInfo}</div>
+          <div>${fee}</div>
       </div> <!-- closes fees-->
 
       <p>${input.description}</p>
@@ -211,7 +207,7 @@ export const printDirectionsModalNone = () => {
     <div class="modal-content">
     <span class="close-modal" id="close-modal--events">&times;</span> 
       <div class="dates">
-        <h2>Unable to provide directions</h2>
+        <h2>Unable To Provide Directions</h2>
         <div class="modal-bold-invalid">Either permission for location has been rejected or the coordinates can not be directly accessed by road</div>
     </div> <!-- closes modal-content -->
     `

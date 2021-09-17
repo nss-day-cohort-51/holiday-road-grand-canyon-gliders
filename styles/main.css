@@ -94,8 +94,6 @@ main {
   white-space: nowrap;
   padding: 0px 10px;
   margin: 0px 20px;
-  /* border: 3px solid darkgray;
-  border-radius: 5px; */
   background-color: white;
 }
 
@@ -111,8 +109,6 @@ main {
   white-space: nowrap;
   padding: 0px 10px;
   margin: 0px 20px;
-  /* border: 3px solid darkgray;
-  border-radius: 5px; */
   background-color: white;
 }
 
@@ -121,7 +117,6 @@ main {
   display: flex;
   flex-direction: row;
   align-self: stretch;
-  /* justify-content: space-evenly; */
 }
 
 /* container that holds select and option tags */
@@ -210,7 +205,6 @@ h2 {
 .preview-text-sm {
   font-size: 16px;
   font-weight: 600;
-  /* align-self: center; */
 }
 
 .forecast-placeholder {
@@ -255,7 +249,6 @@ margin-left: 15px;
   font-weight: 600;
   cursor: pointer;
   padding: 5px 15px;
-  /* margin: 50px auto; */
   margin-bottom: 30px;
   color: #000000;
   border: 3px solid #66808F;
@@ -285,8 +278,8 @@ margin-left: 15px;
 }
 
 .saved-trips__card {
-    text-align: left;
-    padding: 9px;}
+  text-align: left;
+  padding: 9px;}
 
 .saved-trips__header {
   height: 83px;
@@ -302,11 +295,7 @@ margin-left: 15px;
 .saved-trips__cards {
   background: rgb(186, 255, 255, .4);
   min-height: 750px;
-<<<<<<< HEAD
-  /* max-height: 750px; */
-=======
   max-height: 750px;
->>>>>>> main
   border-left: solid #b8dbd9 2px;
   padding-top: 0;
   overflow-x: hidden;

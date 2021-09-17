@@ -65,9 +65,9 @@ export const addWeather = (weatherList, zipCode) => {
                     <h3 class="title-back">${dayOne}</h3>
                     <div class="outlook-back">${weatherList[0].weather[0].description}</div>
                     <div class="temp-title">Low:</div>
-                    <div class="temp-result">${weatherList[0].main.temp_min}°</div>
+                    <div class="temp-result">${formatTemp(weatherList[0].main.temp_min)}°</div>
                     <div class="temp-title">High:</div>
-                    <div class="temp-result">${weatherList[0].main.temp_max}°</div>
+                    <div class="temp-result">${formatTemp(weatherList[0].main.temp_max)}°</div>
                     </div> <!-- closes flip-card-back -->
 
                 </div> <!-- closes flip-card-inner -->
@@ -88,9 +88,9 @@ export const addWeather = (weatherList, zipCode) => {
                 <h3 class="title-back">${dayTwo}</h3>
                 <div class="outlook-back">${weatherList[8].weather[0].description}</div>
                 <div class="temp-title">Low:</div>
-                <div class="temp-result">${weatherList[8].main.temp_min}°</div>
+                <div class="temp-result">${formatTemp(weatherList[8].main.temp_min)}°</div>
                 <div class="temp-title">High:</div>
-                <div class="temp-result">${weatherList[8].main.temp_max}°</div>
+                <div class="temp-result">${formatTemp(weatherList[8].main.temp_max)}°</div>
                 </div> <!-- closes flip-card-back -->
 
             </div> <!-- closes flip-card-inner -->
@@ -110,9 +110,9 @@ export const addWeather = (weatherList, zipCode) => {
                 <h3 class="title-back">${dayThree}</h3>
                 <div class="outlook-back">${weatherList[16].weather[0].description}</div>
                 <div class="temp-title">Low:</div>
-                <div class="temp-result">${weatherList[16].main.temp_min}°</div>
+                <div class="temp-result">${formatTemp(weatherList[16].main.temp_min)}°</div>
                 <div class="temp-title">High:</div>
-                <div class="temp-result">${weatherList[16].main.temp_max}°</div>
+                <div class="temp-result">${formatTemp(weatherList[16].main.temp_max)}°</div>
                 </div> <!-- closes flip-card-back -->
 
             </div> <!-- closes flip-card-inner -->
@@ -133,9 +133,9 @@ export const addWeather = (weatherList, zipCode) => {
                 <h3 class="title-back">${dayFour}</h3>
                 <div class="outlook-back">${weatherList[24].weather[0].description}</div>
                 <div class="temp-title">Low:</div>
-                <div class="temp-result">${weatherList[24].main.temp_min}°</div>
+                <div class="temp-result">${formatTemp(weatherList[24].main.temp_min)}°</div>
                 <div class="temp-title">High:</div>
-                <div class="temp-result">${weatherList[24].main.temp_max}°</div>
+                <div class="temp-result">${formatTemp(weatherList[24].main.temp_max)}°</div>
                 </div> <!-- closes flip-card-back -->
 
             </div> <!-- closes flip-card-inner -->
@@ -156,9 +156,9 @@ export const addWeather = (weatherList, zipCode) => {
                 <h3 class="title-back">${dayFive}</h3>
                 <div class="outlook-back">${weatherList[32].weather[0].description}</div>
                 <div class="temp-title">Low:</div>
-                <div class="temp-result">${weatherList[32].main.temp_min}°</div>
+                <div class="temp-result">${formatTemp(weatherList[32].main.temp_min)}°</div>
                 <div class="temp-title">High:</div>
-                <div class="temp-result">${weatherList[32].main.temp_max}°</div>
+                <div class="temp-result">${formatTemp(weatherList[32].main.temp_max)}°</div>
                 </div> <!-- closes flip-card-back -->
 
             </div> <!-- closes flip-card-inner -->

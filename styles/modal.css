@@ -17,7 +17,7 @@ display: none; /* Hidden by default */
 .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px 50px;
+    padding: 10px 50px;
     border: 6px solid #85C1BF;
     border-radius: 20px;
     width: 60%; /* how much page to take up */
@@ -26,13 +26,13 @@ display: none; /* Hidden by default */
 .modal-content h2 {
     text-align: center;
     padding: 0px;
-    margin-top: 5px;
-    margin-bottom: 20px;
+    margin: 20px 0px;
 }
 
 .modal-bold {
     font-weight: 600;
     margin-right: 10px;
+    white-space: nowrap;
 }
 
 .address, .phone-number, .fees, .location, .wheelchair, .pets, .wifi, .event-date, .event-time {
@@ -69,14 +69,45 @@ display: none; /* Hidden by default */
     display: flex;
     justify-content: center;
     align-self: center;
+    margin-bottom: 20px;
 }
 
-.event-date {
+.dates {
+    padding: 0px;
+    margin: 0px;
+}
+
+.dates h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+.event-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.event-date-time, .fees {
+    display: flex;
+    flex-direction: row;
+}
+
+.event-date, .event-time {
+    margin-left: 40px;
     font-weight: 400;
     padding-left: 10px;
 }
 
-.event-time {
+.event-fee {
+    margin-left: 12px;
     font-weight: 400;
     padding-left: 10px;
+}
+
+.event-info p {
+    font-weight: 400;
+    padding: 0px;
+    margin-top: 5px;
+    margin-bottom: 0px;
 }

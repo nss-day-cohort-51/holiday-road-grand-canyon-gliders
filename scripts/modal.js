@@ -107,6 +107,12 @@ export const bizDetailsInsert = (bizData) => {
       `;
 };
 
+const formatDate = (obj) => {
+    const dateStr = new Date(obj);
+    const formattedDate = dateStr.toDateString();
+    return formattedDate;
+}
+
 export const runModal = () => {
     // Get the modal
     const modal = document.getElementById("modal");
@@ -153,22 +159,35 @@ export const printEventsModal = (input) => {
 
     return `                        
     <div class="modal-content">
-      <div class="dates">
-      <span class="close-modal" id="close-modal--events">&times;</span> 
-      <h2>Events</h2>
-          <h3>${input.parkfullname}<h3>
-          <div></div>
-          <div class="modal-bold">Date: </div><div class="event-date"> ${input.datestart}</div>
-          <div class="modal-bold">Time: </div><div class="event-time"> ${time}</div>
-      </div> <!-- closes dates-->
+        <div class="dates">
 
-      <div class="fees">
-          <div class="modal-bold">Fee Info: </div>
-          <div>${fee}</div>
-      </div> <!-- closes fees-->
+            <span class="close-modal" id="close-modal--events">&times;</span> 
+            <h2>Events</h2>
+            <h3>${input.parkfullname}<h3>
 
-      <p>${input.description}</p>
-      </div> <!-- closes modal-content -->
+            <div class="event-info">
+
+                <div class="event-date-time">
+                    <div class="modal-bold">Date: </div>
+                    <div class="event-date"> ${formatDate(input.datestart)}</div>
+                </div> <!-- closes event-date-time -->
+
+                <div class="event-date-time">
+                    <div class="modal-bold">Time: </div>
+                    <div class="event-time"> ${time}</div>
+                </div> <!-- closes event-date-time-->
+
+                <div class="fees">
+                    <div class="modal-bold">Fee Info: </div>
+                    <div class="event-fee">${fee}</div>
+                </div> <!-- closes fees-->
+
+                <p>${input.description}</p>
+
+            </div> <!-- closes event-info -->
+
+        </div> <!-- closes dates-->
+    </div> <!-- closes modal-content -->
     `
 
 }
@@ -183,7 +202,6 @@ export const printEventsModalNone = () => {
         <div class="modal-bold-invalid">No current events for this park</div>
     </div> <!-- closes modal-content -->
     `
-
 }
 
 export const printDirectionsModal = () => {

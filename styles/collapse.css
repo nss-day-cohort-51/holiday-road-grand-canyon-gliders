@@ -65,6 +65,7 @@
     margin-top: 20px;
     width: 200px;
 }
+
 .trip-helpers__nav{
     transform: rotate(
 -90deg);
@@ -148,8 +149,6 @@
     width: 20px;
     bottom: 0;
 }
-
-
 
 /*  Fade in and out text for collapse button */
 .collapse-button--transition-text {

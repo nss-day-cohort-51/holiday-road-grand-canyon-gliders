@@ -135,10 +135,18 @@ export const runModal = () => {
     });
 };
 
-
+const feeChecker = (obj) => {
+    if (obj == "" || 
+        obj == undefined ||
+        obj == null ||
+        obj == NaN) {
+        return "No info available";
+    }
+    else return obj;
+}
 
 export const printEventsModal = (input) => {
-
+    const feeInfo = feeChecker(input.feeinfo);
     return `                        
     <div class="modal-content">
       <div class="dates">
@@ -152,11 +160,11 @@ export const printEventsModal = (input) => {
 
       <div class="fees">
           <div class="modal-bold">Fee Info: </div>
-          <div>${input.feeinfo}</div>
+          <div>${feeInfo}</div>
       </div> <!-- closes fees-->
 
       <p>${input.description}</p>
-    </div> <!-- closes modal-content -->
+      </div> <!-- closes modal-content -->
     `
 
 }

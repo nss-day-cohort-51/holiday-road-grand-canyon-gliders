@@ -205,7 +205,15 @@ h2 {
 .preview-text-sm {
   font-size: 16px;
   font-weight: 600;
-  align-self: center;
+  /* align-self: center; */
+}
+
+.forecast-placeholder {
+margin-left: 15px;
+}
+
+.preview-text-sm span {
+  margin-left: 15px;
 }
 
 .detail-btn {

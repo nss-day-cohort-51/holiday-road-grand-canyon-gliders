@@ -23,18 +23,6 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
         <div class="saved-trip__attractions">`;
 
     //populate with eateries and Bazarraries
-    if (tripDetails.bizName != []) {
-        card += `<div class="saved-trip__attraction"> 
-                    <div class="saved-trip__attraction--header">
-                        <h5>Bazzararies:</h5>
-                    </div>`;
-        tripDetails.bizName.forEach((biz) => {
-            card += `<div class="saved-trip__text">
-                        <p class="saved-trip__attraction--elem"> ${biz}</p>
-                    </div>`;
-        });
-        card += `</div>`;
-    }
 
     if (tripDetails.eatName != []) {
         card += `<div class="saved-trip__attraction"> 
@@ -47,6 +35,19 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
                     </div>`;
         });
         card += `</div></div>`;
+    }
+    
+    if (tripDetails.bizName != []) {
+        card += `<div class="saved-trip__attraction"> 
+                    <div class="saved-trip__attraction--header">
+                        <h5>Bazzararies:</h5>
+                    </div>`;
+        tripDetails.bizName.forEach((biz) => {
+            card += `<div class="saved-trip__text">
+                        <p class="saved-trip__attraction--elem"> ${biz}</p>
+                    </div>`;
+        });
+        card += `</div>`;
     }
 
     card += `

@@ -234,7 +234,7 @@ margin-left: 15px;
 
 .detail-btn:hover {
   background-color: #66808F;
-  color: white;
+  color: black;
 }
 
 .save-trip {
@@ -253,21 +253,21 @@ margin-left: 15px;
   margin: 50px auto;
   color: #000000;
   border: 3px solid #66808F;
-  background-color: rgb(225, 225, 225);
+  background-color: #B8DBD9;
   border-radius: 10px;
   transition: 100ms all;  
 }
 
 .save-trip-btn:hover {
   background-color: #66808F;
-  color: white;
+  color: black;
 }
 
 .save-trip-btn:disabled,
-.save-trip-btn[disabled]{
+.save-trip-btn[disabled] {
   color: #000000;
   border: 3px solid #66808F;
-  background-color: rgb(225, 225, 225);
+  background-color: #B8DBD9;
 }
 
 .saved-trips {

@@ -72,6 +72,17 @@ display: none; /* Hidden by default */
     margin-bottom: 20px;
 }
 
+.park-img {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.park-img img {
+    width: 500px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
 .dates {
     padding: 0px;
     margin: 0px;

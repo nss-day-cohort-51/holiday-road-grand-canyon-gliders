@@ -1,6 +1,5 @@
 import { getTripDetails } from "../tools/GetTripDetails.js";
 
-// let tripDetails = { parkName: null, bazName: null, eatName: null };
 
 export const savedTripCard = (tripDetails) => {
     // TODO fill in with trip details

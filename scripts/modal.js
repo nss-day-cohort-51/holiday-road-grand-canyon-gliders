@@ -30,6 +30,10 @@ export const parkDetailsInsert = (parkData) => {
         }">&times;</span>
         <h2>${parkData.fullName}</h2>
 
+        <div class="park-img">
+            <img src="${parkData.images[0].url}" alt="national park" />
+        </div> <!-- closes park-img-->
+
         <div class="address">
             <div class="modal-bold">Address:  </div>
             <div>${parkData.addresses[0].line1}, 
@@ -166,7 +170,6 @@ export const printEventsModal = (input) => {
             <h3>${input.parkfullname}<h3>
 
             <div class="event-info">
-
                 <div class="event-date-time">
                     <div class="modal-bold">Date: </div>
                     <div class="event-date"> ${formatDate(input.datestart)}</div>

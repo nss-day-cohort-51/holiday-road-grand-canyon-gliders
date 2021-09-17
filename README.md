@@ -26,7 +26,7 @@ The application is currenlty limited to require personal access keys for access 
 
 ## Meet The Design Team
 
-Each member of the design team is available for help with the project or other questions you might have.  Reach out to us on LinkedIn. 
+Each member of the design team is available for help with the project or other questions you might have.  Connect with us on LinkedIn:
  - [Colin Miller](https://www.linkedin.com/in/colin-miller-587704212)
 
  - [Brady Williams](https://www.linkedin.com/in/brady-c-williams)

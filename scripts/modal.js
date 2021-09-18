@@ -31,7 +31,7 @@ export const parkDetailsInsert = (parkData) => {
         <h2>${parkData.fullName}</h2>
 
         <div class="park-img">
-            <img src="${parkData.images[0].url}" alt="national park" />
+            <img src=${parkData.images[0] != undefined ? parkData.images[0].url : "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg"} alt="National Park Logo"/>
         </div> <!-- closes park-img-->
 
         <div class="address">

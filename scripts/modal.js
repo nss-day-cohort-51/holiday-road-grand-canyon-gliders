@@ -23,6 +23,7 @@ const checkCost = (input) => {
 export const parkDetailsInsert = (parkData) => {
     const parkNum = parkData.contacts.phoneNumbers[0].phoneNumber;
     const dashedNum = formatPhoneNumber(parkNum);
+    
     return `                        
       <div class="modal-content">
         <span class="close-modal" id="close-modal--${
@@ -31,7 +32,7 @@ export const parkDetailsInsert = (parkData) => {
         <h2>${parkData.fullName}</h2>
 
         <div class="park-img">
-            <img src=${parkData.images[0] != undefined ? parkData.images[0].url : "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg"} alt="National Park Logo"/>
+            <img src=${parkData.images[0].url != undefined ? parkData.images[0].url : "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg"} alt="National Park Logo"/>
         </div> <!-- closes park-img-->
 
         <div class="address">
@@ -149,6 +150,30 @@ let fee;
 let time;
 
 export const printEventsModal = (input) => {
+    console.log("input.images[0] is: " + input.images[0]);
+    console.log("input.description is: " + input.description);
+    // console.log("input.images[0].url is: " + input.images[0].url);
+    // const imgUrl = if (input.images[0].url) return input.images[0].url else return undefined;
+    // console.log("imgUrl type is: " + (typeof imgUrl));
+    let fullUrl = "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg"
+    if (input.images[0] != undefined) {
+        console.log("input.images[0] is has a value")
+        const urlPrefix = "https://www.nps.gov"
+        const imgUrl = input.images[0].url;
+        fullUrl = urlPrefix + imgUrl;  
+    }
+    else {
+        console.log("input.images[0] is undefined")
+    }
+    
+    // console.log("urlPrefix is: " + urlPrefix);
+    // const fullUrl = urlPrefix + imgUrl;
+    // console.log("fullUrl is: " + fullUrl);
+
+    // const eventImgUrl = (input.images[0].url !== undefined ? input.images[0].url : "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg");
+
+    // console.log("eventImgUrl is: " + eventImgUrl);
+
     if(input.feeinfo == ""){
         fee = "No info available"
     }else{
@@ -161,36 +186,41 @@ export const printEventsModal = (input) => {
         time = input.times[0].timestart + "-" + input.times[0].timeend;
     }
 
-    return `                        
-    <div class="modal-content">
-        <div class="dates">
+    return `                       
+        <div class="modal-content">
+            <div class="dates">
 
-            <span class="close-modal" id="close-modal--events">&times;</span> 
-            <h2>Events</h2>
-            <h3>${input.parkfullname}<h3>
+                <span class="close-modal" id="close-modal--events">&times;</span> 
+                <h2>Events</h2>
+                <h3>${input.parkfullname}</h3>
 
-            <div class="event-info">
-                <div class="event-date-time">
-                    <div class="modal-bold">Date: </div>
-                    <div class="event-date"> ${formatDate(input.datestart)}</div>
-                </div> <!-- closes event-date-time -->
+                <div class="event-img">
+                <img src=${fullUrl} alt="National Park Logo"/>
+            </div> <!-- closes event-img-->
 
-                <div class="event-date-time">
-                    <div class="modal-bold">Time: </div>
-                    <div class="event-time"> ${time}</div>
-                </div> <!-- closes event-date-time-->
+                <div class="event-info">
+                    <div class="event-date-time">
+                        <div class="modal-bold">Date: </div>
+                        <div class="event-date"> ${formatDate(input.datestart)}</div>
+                    </div> <!-- closes event-date-time -->
 
-                <div class="fees">
-                    <div class="modal-bold">Fee Info: </div>
-                    <div class="event-fee">${fee}</div>
-                </div> <!-- closes fees-->
+                    <div class="event-date-time">
+                        <div class="modal-bold">Time: </div>
+                        <div class="event-time"> ${time}</div>
+                    </div> <!-- closes event-date-time-->
 
-                <p>${input.description}</p>
+                    <div class="fees">
+                        <div class="modal-bold">Fee Info: </div>
+                        <div class="event-fee">${fee}</div>
+                    </div> <!-- closes fees-->
 
-            </div> <!-- closes event-info -->
+                    <section class="scroll-spacer">
+                        <div class="event-description">${input.description}</div>
+                    </section> <!-- closes scroll-spacer-->
+                </div> <!-- closes event-info -->
 
-        </div> <!-- closes dates-->
-    </div> <!-- closes modal-content -->
+            </div> <!-- closes dates-->
+        </div> <!-- closes modal-content -->
     `
 
 }

@@ -18,21 +18,6 @@ import {
 import { getEventsByParkCode } from "./parks/ParkDataManager.js";
 import { printDirectionsModal, printEventsModal, printEventsModalNone, printDirectionsModalNone } from "./modal.js";
 
-// export const updateSavedTrips = () => {
-//     const savedTripsELem = document.querySelector(".saved-trips-container");
-//     getTrips().then((tripObjs) => {
-//         console.log(tripObjs);
-
-//         for (const tripObj of tripObjs) {
-//             savedTripsELem.innerHTML += savedTripCard(tripObj);
-//         }
-//     });
-// };
-// let tripDetails = {
-//     parkName: null,
-//     bizName: null,
-//     eatNAME: null,
-// };
 
 export const updateSavedTrips = () => {
     let attractionIdToNameDictionary = {};

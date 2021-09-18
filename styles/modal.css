@@ -3,12 +3,13 @@
 display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 2; /* Sit on top */
-    padding-top: 300px; /* Location of the box */
+    padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    overflow: auto; 
+    /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
@@ -17,10 +18,12 @@ display: none; /* Hidden by default */
 .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 10px 50px;
+    padding: 10px 100px 30px 100px;
     border: 6px solid #85C1BF;
     border-radius: 20px;
-    width: 60%; /* how much page to take up */
+    width: 80%; /* how much page to take up */
+    /* height: 500px; */
+    /* overflow-y: auto; */
 }
 
 .modal-content h2 {
@@ -79,7 +82,22 @@ display: none; /* Hidden by default */
 
 .park-img img {
     height: 400px;
-    border-radius: 20px;
+    max-width: 800px;
+    border: 5px solid lightgray;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.event-img {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.event-img img {
+    height: 250px;
+    max-width: 95%;
+    border: 5px solid lightgray;
+    border-radius: 15px;
     margin-bottom: 15px;
 }
 
@@ -112,13 +130,20 @@ display: none; /* Hidden by default */
 
 .event-fee {
     margin-left: 12px;
+    margin-bottom: 30px;
     font-weight: 400;
     padding-left: 10px;
 }
 
-.event-info p {
+.scroll-spacer {
+    max-height: 300px;
+    overflow-y: auto;
+    /* padding: 20px; */
+}
+
+.event-description {
     font-weight: 400;
     padding: 0px;
-    margin-top: 5px;
     margin-bottom: 0px;
+    /* border-radius: 20px; */
 }

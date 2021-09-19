@@ -165,14 +165,6 @@ export const printEventsModal = (input) => {
     else {
         console.log("input.images[0] is undefined")
     }
-    
-    // console.log("urlPrefix is: " + urlPrefix);
-    // const fullUrl = urlPrefix + imgUrl;
-    // console.log("fullUrl is: " + fullUrl);
-
-    // const eventImgUrl = (input.images[0].url !== undefined ? input.images[0].url : "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg");
-
-    // console.log("eventImgUrl is: " + eventImgUrl);
 
     if(input.feeinfo == ""){
         fee = "No info available"

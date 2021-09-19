@@ -150,20 +150,12 @@ let fee;
 let time;
 
 export const printEventsModal = (input) => {
-    console.log("input.images[0] is: " + input.images[0]);
-    console.log("input.description is: " + input.description);
-    // console.log("input.images[0].url is: " + input.images[0].url);
-    // const imgUrl = if (input.images[0].url) return input.images[0].url else return undefined;
-    // console.log("imgUrl type is: " + (typeof imgUrl));
+
     let fullUrl = "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg"
     if (input.images[0] != undefined) {
-        console.log("input.images[0] is has a value")
         const urlPrefix = "https://www.nps.gov"
         const imgUrl = input.images[0].url;
         fullUrl = urlPrefix + imgUrl;  
-    }
-    else {
-        console.log("input.images[0] is undefined")
     }
 
     if(input.feeinfo == ""){
@@ -214,7 +206,6 @@ export const printEventsModal = (input) => {
             </div> <!-- closes dates-->
         </div> <!-- closes modal-content -->
     `
-
 }
 
 export const printEventsModalNone = () => {

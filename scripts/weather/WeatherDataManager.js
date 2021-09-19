@@ -46,7 +46,7 @@ export const addWeather = (weatherList, zipCode) => {
     const dayFiveTemp = formatTemp(weatherList[32].main.temp);
 
     return ` 
-        <span>Forecast For The Next 5 Days in ${zipCode}</span>
+        <span>Forecast For The Next 5 Days in ${zipCode} &nbsp; (hover over cards for more info)</span>
 
         <div class="whole-flip-set">
 

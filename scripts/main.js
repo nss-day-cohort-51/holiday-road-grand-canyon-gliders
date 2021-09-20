@@ -1,46 +1,7 @@
 import { resetTripSelection, runDropdown } from "./dropdown.js";
-import {
-    getBizarreryById,
-    getTrips,
-    putTripCall,
-    getParkById,
-} from "./data/DataManager.js";
-import {
-    runModal,
-    eatDetailsInsert,
-    bizDetailsInsert,
-    parkDetailsInsert,
-} from "./modal.js";
-import { getParkByCode } from "./parks/ParkDataManager.js";
-import { getEatNameById } from "./eateries/EateryDataManager.js";
-import { getBizNameById } from "./bizarreries/BizarreriesDataManager.js";
+import { putTripCall, getParkById } from "./data/DataManager.js";
+import { runModal } from "./modal.js";
 import { updateSavedTrips } from "./SavedTrips.js";
-import {
-    directionLiteral,
-    getDirections,
-} from "./directions/DirectionDataManager.js";
-
-export const returnActiveTripState = () => {
-    const activeTripStateCopy = activeTripState;
-    return activeTripStateCopy;
-};
-
-//used for current location
-let currentLat;
-let currentLong;
-
-//Lines 22-29 used for gaining permission for location
-(function () {
-    navigator.geolocation.getCurrentPosition(
-        function (position) {
-            currentLat = position.coords.latitude;
-            currentLong = position.coords.longitude;
-        },
-        function (error) {
-            // directionElement.style.display = "none";
-        }
-    );
-})();
 
 let activeTripState = {
     state: null,
@@ -50,53 +11,44 @@ let activeTripState = {
     completed: false,
 };
 
-export const getParkData = () => {
-    const parkModalPopup = document.getElementById("modal");
-    const userPark = activeTripState.parkId;
-    const userParkData = getParkById(userPark).then((parkData) => {
-        parkModalPopup.innerHTML = parkDetailsInsert(parkData);
-        modal.style.display = "block";
-    });
+// make active trip state readable across modules
+export const returnActiveTripState = () => {
+    const activeTripStateCopy = activeTripState;
+    return activeTripStateCopy;
 };
 
-export const getEateryData = () => {
-    const eatModalPopup = document.getElementById("modal");
-    const userEats = activeTripState.eateryIds.at(-1);
-    const userEatsData = getEatNameById(userEats).then((eatData) => {
-        eatModalPopup.innerHTML = eatDetailsInsert(eatData[0]);
-        modal.style.display = "block";
-    });
-};
+//Lines 22-29 used for gaining permission for location
+navigator.geolocation.getCurrentPosition(function (position) {
+    let currentLat;
+    let currentLong;
 
-export const getBizarrerieData = () => {
-    const bizModalPopup = document.getElementById("modal");
-    const userBiz = activeTripState.bazararieIds.at(-1);
-    const userBizData = getBizNameById(userBiz).then((bizData) => {
-        bizModalPopup.innerHTML = bizDetailsInsert(bizData[0]);
-        modal.style.display = "block";
-    });
-};
+    currentLat = position.coords.latitude;
+    currentLong = position.coords.longitude;
+});
+
+// create variable to store the active trip selection
 
 // update the state of the activeTrip
 export const updateActiveTrip = (attribute, value) => {
     switch (attribute) {
         case "state":
         case "parkId":
-            // update parkId
+            // update parkId or state value
             activeTripState[attribute] = value;
             break;
         case "bazararieIds":
         case "eateryIds":
-            // update BazarrieIds or eateryIds
+            // update BazarrieIds or eateryIds array
             activeTripState[attribute].push(value);
     }
-    // check form completion
+    // check form completion on update
     if (
         activeTripState.parkId != null &&
         activeTripState.bazararieIds.length != 0 &&
         activeTripState.eateryIds.length != 0 &&
         activeTripState.completed != true
     ) {
+        // if form is complete, activate the save trip button
         activeTripState.completed = true;
         activateSaveTripButton();
     }
@@ -111,11 +63,10 @@ const activateSaveTripButton = () => {
     const submitTrip = () => {
         // update server with active trip
         putTripCall().then(updateSavedTrips);
-        // clear out trip selectors
+
         resetTripSelection();
-        // clear active trip
         clearActiveTripState();
-        // remove click eventListener from SubmitButton
+
         saveButtonElement.removeEventListener("click", submitTrip);
     };
 
@@ -136,12 +87,7 @@ runModal();
 // populate Saved Trips
 updateSavedTrips();
 
-//
-//
-// Tab Inserton
-//
-//
-
+// create collapse button event listeners
 import "./collapse.js";
 
 let collapsed = false;

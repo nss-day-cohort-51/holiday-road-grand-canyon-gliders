@@ -1,6 +1,3 @@
-import { getTripDetails } from "../tools/GetTripDetails.js";
-
-
 export const savedTripCard = (tripDetails) => {
     // TODO fill in with trip details
     return `
@@ -23,7 +20,7 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
 
     //populate with eateries and Bazarraries
 
-    if (tripDetails.eatName != []) {
+    if (tripDetails.eatName.length != 0) {
         card += `<div class="saved-trip__attraction"> 
                     <div class="saved-trip__attraction--header">
                         <h5>Eateries:</h5>
@@ -35,8 +32,8 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
         });
         card += `</div></div>`;
     }
-    
-    if (tripDetails.bizName != []) {
+
+    if (tripDetails.bizName.length != 0) {
         card += `<div class="saved-trip__attraction"> 
                     <div class="saved-trip__attraction--header">
                         <h5>Bazzararies:</h5>
@@ -59,4 +56,3 @@ export const savedTripCardDetails = (tripDetails, directionId) => {
     </div>`;
     return card;
 };
-

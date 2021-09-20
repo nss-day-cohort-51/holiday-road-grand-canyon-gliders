@@ -16,7 +16,6 @@ export const getTrips = () => {
     //get local trip state
     return fetch("http://localhost:8088/trips").then((response) => {
         return response.json().then((parsedResponse) => {
-            
             return parsedResponse;
         });
     });
@@ -83,21 +82,75 @@ export const putTripCall = () => {
         userId: 1, // hardcode the user as 1 until it's created
         timestamp: Date.now(),
         parkId: activeTrip.parkId,
-        bazararieIds: activeTrip.bazararieIds,
-        eateryIds: activeTrip.eateryIds,
+        // bazararieIds: activeTrip.bazararieIds,
+        // eateryIds: activeTrip.eateryIds,
         directionId:
             activeTrip.parkId +
             activeTrip.bazararieIds +
             "A" +
             activeTrip.eateryIds,
     };
+    console.log(postObject);
+
     return fetch("http://localhost:8088/trips", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(postObject),
-    }).then((response) => response.json());
+    })
+        .then((response) => response.json())
+        .then((tripObj) => {
+            // for (const bizId of activeTrip.bazararieIds) {
+            //     fetch("http://localhost:8088/joins", {
+            //         method: "POST",
+            //         headers: {
+            //             "Content-Type": "application/json",
+            //         },
+            //         body: JSON.stringify({
+            //             tripId: tripObj.id,
+            //             bizId: parseInt(bizId),
+            //         }),
+            //     });
+            // }
+            fetch("http://localhost:8088/joins", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(
+                    activeTrip.bazararieIds.map((bizId) => {
+                        return { tripId: tripObj.id, bizId: parseInt(bizId) };
+                    })
+                ),
+            });
+
+            // for (const eatId of activeTrip.eateryIds) {
+            //     fetch("http://localhost:8088/joins", {
+            //         method: "POST",
+            //         headers: {
+            //             "Content-Type": "application/json",
+            //         },
+            //         body: JSON.stringify({
+            //             tripId: tripObj.id,
+            //             eatId: parseInt(eatId),
+            //         }),
+            //     });
+            // }
+            // for (const eatId of activeTrip.eateryIds) {
+            fetch("http://localhost:8088/joins", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(
+                    activeTrip.eateryIds.map((eatId) => {
+                        return { tripId: tripObj.id, eatId: parseInt(eatId) };
+                    })
+                ),
+            });
+            // }
+        });
 };
 
 export const getBizarreryById = (id) => {
@@ -117,7 +170,6 @@ export const getEateryById = (id) => {
 };
 
 export const getBizarreriesByIdArray = (idArray) => {
-
     // id query string should be a
     let idQueryString = "?";
     idArray.forEach((id) => {
@@ -130,7 +182,10 @@ export const getBizarreriesByIdArray = (idArray) => {
     return fetch(`http://holidayroad.nss.team/bizarreries${idQueryString}`)
         .then((response) => response.json())
         .then((parsedResponse) => {
-            return parsedResponse;
+            // console.log("idArray", idArray);
+
+            if (idArray == []) return {};
+            else return parsedResponse;
         });
 };
 
@@ -147,6 +202,7 @@ export const getEateriesByIdArray = (idArray) => {
     return fetch(`http://holidayroad.nss.team/eateries${idQueryString}`)
         .then((response) => response.json())
         .then((parsedResponse) => {
-            return parsedResponse;
+            if (idArray == []) return {};
+            else return parsedResponse;
         });
 };

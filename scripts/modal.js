@@ -23,12 +23,17 @@ const checkCost = (input) => {
 export const parkDetailsInsert = (parkData) => {
     const parkNum = parkData.contacts.phoneNumbers[0].phoneNumber;
     const dashedNum = formatPhoneNumber(parkNum);
+    
     return `                        
       <div class="modal-content">
         <span class="close-modal" id="close-modal--${
             parkData.Id
         }">&times;</span>
         <h2>${parkData.fullName}</h2>
+
+        <div class="park-img">
+            <img src=${parkData.images[0].url != undefined ? parkData.images[0].url : "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg"} alt="National Park Logo"/>
+        </div> <!-- closes park-img-->
 
         <div class="address">
             <div class="modal-bold">Address:  </div>
@@ -107,6 +112,12 @@ export const bizDetailsInsert = (bizData) => {
       `;
 };
 
+const formatDate = (obj) => {
+    const dateStr = new Date(obj);
+    const formattedDate = dateStr.toDateString();
+    return formattedDate;
+}
+
 export const runModal = () => {
     // Get the modal
     const modal = document.getElementById("modal");
@@ -139,6 +150,14 @@ let fee;
 let time;
 
 export const printEventsModal = (input) => {
+
+    let fullUrl = "https://www.nps.gov/common/commonspot/templates/images/logos/nps_social_image_02.jpg"
+    if (input.images[0] != undefined) {
+        const urlPrefix = "https://www.nps.gov"
+        const imgUrl = input.images[0].url;
+        fullUrl = urlPrefix + imgUrl;  
+    }
+
     if(input.feeinfo == ""){
         fee = "No info available"
     }else{
@@ -151,26 +170,42 @@ export const printEventsModal = (input) => {
         time = input.times[0].timestart + "-" + input.times[0].timeend;
     }
 
-    return `                        
-    <div class="modal-content">
-      <div class="dates">
-      <span class="close-modal" id="close-modal--events">&times;</span> 
-      <h2>Events</h2>
-          <h3>${input.parkfullname}<h3>
-          <div></div>
-          <div class="modal-bold">Date: </div><div class="event-date"> ${input.datestart}</div>
-          <div class="modal-bold">Time: </div><div class="event-time"> ${time}</div>
-      </div> <!-- closes dates-->
+    return `                       
+        <div class="modal-content">
+            <div class="dates">
 
-      <div class="fees">
-          <div class="modal-bold">Fee Info: </div>
-          <div>${fee}</div>
-      </div> <!-- closes fees-->
+                <span class="close-modal" id="close-modal--events">&times;</span> 
+                <h2>Events</h2>
+                <h3>${input.parkfullname}</h3>
 
-      <p>${input.description}</p>
-      </div> <!-- closes modal-content -->
+                <div class="event-img">
+                <img src=${fullUrl} alt="National Park Logo"/>
+            </div> <!-- closes event-img-->
+
+                <div class="event-info">
+                    <div class="event-date-time">
+                        <div class="modal-bold">Date: </div>
+                        <div class="event-date"> ${formatDate(input.datestart)}</div>
+                    </div> <!-- closes event-date-time -->
+
+                    <div class="event-date-time">
+                        <div class="modal-bold">Time: </div>
+                        <div class="event-time"> ${time}</div>
+                    </div> <!-- closes event-date-time-->
+
+                    <div class="fees">
+                        <div class="modal-bold">Fee Info: </div>
+                        <div class="event-fee">${fee}</div>
+                    </div> <!-- closes fees-->
+
+                    <section class="scroll-spacer">
+                        <div class="event-description">${input.description}</div>
+                    </section> <!-- closes scroll-spacer-->
+                </div> <!-- closes event-info -->
+
+            </div> <!-- closes dates-->
+        </div> <!-- closes modal-content -->
     `
-
 }
 
 export const printEventsModalNone = () => {
@@ -183,7 +218,6 @@ export const printEventsModalNone = () => {
         <div class="modal-bold-invalid">No current events for this park</div>
     </div> <!-- closes modal-content -->
     `
-
 }
 
 export const printDirectionsModal = () => {
